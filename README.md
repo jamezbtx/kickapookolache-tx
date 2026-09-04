@@ -1,22 +1,9 @@
 # Kickapoo Kolache
 
-Local digital newspaper homepage shell for Chandler and Brownsboro, Texas.
+Chandler / Brownsboro TX local digital newspaper.
 
-## Build
+## Coming soon
 
-Install dependencies, then run the build script defined in package.json.
-Output lands in the publish directory: public/
+The live site is not published yet.
 
-## Panels
-
-- Weather (Chandler/Brownsboro placeholder)
-- Curated East Texas news RSS (feed-coming-online)
-- Local resources
-- Interviews and stories (EXAMPLE sample content)
-- Local contractors / support local businesses (EXAMPLE sample cards)
-
-## Status
-
-DRAFT homepage shell only.
-Code branch: draft/homepage-shell
-main holds Coming soon only.
+Homepage shell development lives on branch draft/homepage-shell only.

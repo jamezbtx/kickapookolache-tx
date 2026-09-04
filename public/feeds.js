@@ -30,6 +30,28 @@
     }
   }
 
+  // MaxPreps featuredGameData.date is local wall time WITHOUT offset
+  // (e.g. 2026-09-04T19:30:00). Do not pass through Date() as UTC.
+  function formatKickoffLocal(isoLocal) {
+    if (!isoLocal) return "";
+    var m = String(isoLocal).match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+    if (!m) return formatDate(isoLocal);
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var month = months[parseInt(m[2], 10) - 1] || m[2];
+    var hour = parseInt(m[4], 10);
+    var ampm = hour >= 12 ? "PM" : "AM";
+    var h12 = hour % 12;
+    if (h12 === 0) h12 = 12;
+    var weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    var wd = "";
+    try {
+      // Construct as local components for weekday only
+      var tmp = new Date(parseInt(m[1],10), parseInt(m[2],10)-1, parseInt(m[3],10), hour, parseInt(m[5],10));
+      wd = weekdays[tmp.getDay()] + ", ";
+    } catch (_) {}
+    return wd + month + " " + parseInt(m[3], 10) + ", " + m[1] + " · " + h12 + ":" + m[5] + " " + ampm + " local";
+  }
+
   function fillBears(root, data) {
     clear(root);
     var mp = (data && data.maxpreps) || {};
@@ -61,12 +83,29 @@
     if (mp.featured) {
       var feat = el("p", "feed-featured");
       var parts = [];
-      if (mp.featured.opponent) parts.push("vs " + mp.featured.opponent);
-      if (mp.featured.date) parts.push(formatDate(mp.featured.date));
+      var vs = mp.featured.vsLabel || (mp.featured.opponent ? "vs " + mp.featured.opponent : null);
+      if (vs) parts.push(vs);
+      if (mp.featured.date) {
+        parts.push(
+          mp.featured.dateIsLocalWall !== false
+            ? formatKickoffLocal(mp.featured.date)
+            : formatDate(mp.featured.date)
+        );
+      }
+      if (mp.featured.location) parts.push(mp.featured.location);
       feat.textContent =
         (parts.length ? "Featured: " + parts.join(" · ") : "Featured game") +
         (mp.featured.note ? " — " + mp.featured.note : "");
       card.appendChild(feat);
+      if (mp.featured.canonicalUrl) {
+        var gp = el("p");
+        var ga = el("a", null, "MaxPreps game page");
+        ga.href = mp.featured.canonicalUrl;
+        ga.target = "_blank";
+        ga.rel = "noopener noreferrer";
+        gp.appendChild(ga);
+        card.appendChild(gp);
+      }
     } else {
       card.appendChild(
         el("p", null, "Featured game unavailable — open MaxPreps for the latest.")
@@ -140,7 +179,7 @@
   function fillFallback(root, title, label, links) {
     clear(root);
     var card = el("article", "feed-card feed-live-card");
-    card.appendChild(el("span", "badge badge-live", "LINKS"));
+    card.appendChild(el("span", "badge badge-fallback", label || "No RSS — link fallback"));
     card.appendChild(el("h3", null, title));
     if (label) card.appendChild(el("p", null, label));
     var list = el("ul", "feed-live-list");
@@ -195,7 +234,8 @@
       var bi = (data && data.bisd) || {};
       fillFallback(bisd, "BISD — school announcements / calendar / closings", bi.label || "No news RSS — link fallback", [
         { href: bi.newsUrl, text: "BISD headlines" },
-        { href: bi.calendarUrl, text: "District-wide calendar" }
+        { href: bi.calendarUrl, text: "District-wide calendar" },
+        { href: bi.parentSquareUrl || "https://www.gobearsgo.net/families/parentsquare", text: "ParentSquare (primary for families)" }
       ]);
     }
 
@@ -232,7 +272,9 @@
             hasRss: false,
             label: "No news RSS — link fallback",
             newsUrl: "https://www.gobearsgo.net/about-us/new-headlines",
-            calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar"
+            calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar",
+            parentSquareUrl: "https://www.gobearsgo.net/families/parentsquare",
+            note: "ParentSquare is primary for families"
           }
         });
       });

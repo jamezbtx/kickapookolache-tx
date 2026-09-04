@@ -1,11 +1,18 @@
 {
-  "fetchedAt": "2026-09-04T16:40:02.854Z",
+  "fetchedAt": "2026-09-04T16:41:34.863Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
     "featured": {
       "date": "2026-09-04T19:30:00",
-      "opponent": "Palestine",
+      "dateIsLocalWall": true,
+      "opponent": "Palestine Wildcats",
+      "opponentName": "Palestine",
+      "opponentMascot": "Wildcats",
+      "homeAway": "home",
+      "vsLabel": "vs Palestine Wildcats",
+      "location": "Brownsboro High School (OLD HS GYM)",
+      "canonicalUrl": "https://www.maxpreps.com/tx/football/game/brownsboro-vs-palestine/9-4-2026/?c=c834f8c6-e5b6-4ab4-9d65-1478bb941542",
       "note": "The Palestine varsity football team has an away non-conference game @  Brownsboro (TX) today @ 7:30p."
     }
   },
@@ -51,7 +58,9 @@
     "hasRss": false,
     "label": "No news RSS — link fallback",
     "newsUrl": "https://www.gobearsgo.net/about-us/new-headlines",
-    "calendarUrl": "https://www.gobearsgo.net/about-us/district-wide-calendar"
+    "calendarUrl": "https://www.gobearsgo.net/about-us/district-wide-calendar",
+    "parentSquareUrl": "https://www.gobearsgo.net/families/parentsquare",
+    "note": "ParentSquare is primary for families"
   },
   "errors": []
 }

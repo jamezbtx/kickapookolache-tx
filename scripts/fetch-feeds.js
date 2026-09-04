@@ -92,6 +92,20 @@ function parseRssItems(xml, maxItems) {
   return items;
 }
 
+function opponentLabelFromTeam(team) {
+  // featuredGameData.opponentTeam is a nested object — never treat the whole
+  // object as a string. Prefer school name, then append mascot when present.
+  if (!team || typeof team !== "object") return null;
+  const school =
+    (team.formattedNameWithoutState && String(team.formattedNameWithoutState).trim()) ||
+    (team.name && String(team.name).trim()) ||
+    (team.formattedName && String(team.formattedName).trim()) ||
+    null;
+  if (!school) return null;
+  const mascot = team.mascot && String(team.mascot).trim();
+  return mascot ? school + " " + mascot : school;
+}
+
 function parseMaxprepsFeatured(html) {
   const m = html.match(
     /<script[^>]*id=["']__NEXT_DATA__["'][^>]*>([\s\S]*?)<\/script>/i
@@ -110,22 +124,44 @@ function parseMaxprepsFeatured(html) {
     data.props.pageProps.featuredGameData;
   if (!featured) return { featured: null, note: "No featuredGameData" };
 
-  const date = featured.date || featured.contestDateInGMT || null;
-  let opponent = null;
-  if (featured.opponentTeam && featured.opponentTeam.name) {
-    opponent = featured.opponentTeam.name;
-  } else if (Array.isArray(featured.teams)) {
+  // Prefer local wall-clock date (e.g. 2026-09-04T19:30:00). Do NOT fall back
+  // to contestDateInGMT for display — that shifts kickoff by the TZ offset.
+  const date = featured.date || null;
+  const ot = featured.opponentTeam;
+  let opponent = opponentLabelFromTeam(ot);
+  let opponentMascot = ot && ot.mascot ? String(ot.mascot).trim() : null;
+  let opponentName =
+    (ot && (ot.formattedNameWithoutState || ot.name)) || null;
+  if (opponentName) opponentName = String(opponentName).trim();
+
+  if (!opponent && Array.isArray(featured.teams)) {
     const other = featured.teams.find(function (t) {
       const name = (t && t.name) || "";
       return name && !/brownsboro/i.test(name);
     });
-    if (other) opponent = other.name;
+    if (other) {
+      opponent = opponentLabelFromTeam(other);
+      opponentName = other.name || opponentName;
+      opponentMascot = other.mascot || opponentMascot;
+    }
   }
   if (!opponent && featured.title) {
-    const vs = featured.title.match(
-      /(?:vs\.?|@)\s*(.+?)(?:\s*$)/i
-    );
+    const vs = featured.title.match(/(?:vs\.?|@)\s*(.+?)(?:\s*$)/i);
     if (vs) opponent = vs[1].replace(/\s+Varsity.*$/i, "").trim();
+  }
+
+  const current = featured.currentTeam || null;
+  let homeAway = null;
+  if (current && typeof current.homeAwayType === "number") {
+    homeAway = current.homeAwayType === 0 ? "home" : current.homeAwayType === 1 ? "away" : null;
+  } else if (ot && typeof ot.homeAwayType === "number") {
+    // opponent homeAwayType 1 = opponent is away => Bears are home
+    homeAway = ot.homeAwayType === 1 ? "home" : ot.homeAwayType === 0 ? "away" : null;
+  }
+
+  let vsLabel = null;
+  if (opponent) {
+    vsLabel = homeAway === "away" ? "@ " + opponent : "vs " + opponent;
   }
 
   const note =
@@ -139,8 +175,15 @@ function parseMaxprepsFeatured(html) {
 
   return {
     featured: {
-      date: date || null,
+      date: date,
+      dateIsLocalWall: true,
       opponent: opponent || null,
+      opponentName: opponentName || null,
+      opponentMascot: opponentMascot || null,
+      homeAway: homeAway,
+      vsLabel: vsLabel,
+      location: featured.location || null,
+      canonicalUrl: featured.canonicalUrl || null,
       note: note
     }
   };
@@ -171,7 +214,9 @@ async function main() {
       hasRss: false,
       label: "No news RSS — link fallback",
       newsUrl: "https://www.gobearsgo.net/about-us/new-headlines",
-      calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar"
+      calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar",
+      parentSquareUrl: "https://www.gobearsgo.net/families/parentsquare",
+      note: "ParentSquare is primary for families"
     },
     errors: errors
   };
@@ -233,7 +278,9 @@ main().catch(function (err) {
       hasRss: false,
       label: "No news RSS — link fallback",
       newsUrl: "https://www.gobearsgo.net/about-us/new-headlines",
-      calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar"
+      calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar",
+      parentSquareUrl: "https://www.gobearsgo.net/families/parentsquare",
+      note: "ParentSquare is primary for families"
     },
     errors: [String(err && err.message ? err.message : err)]
   };

@@ -340,6 +340,11 @@ body {
   background: #1f6b3a;
 }
 
+.badge-fallback {
+  background: #5c5c5c;
+  letter-spacing: .04em;
+}
+
 .feed-featured {
   margin-top: .55rem;
   font-size: .9rem;

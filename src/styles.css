@@ -254,3 +254,17 @@ body {
   font-size: .8rem;
   color: var(--muted);
 }
+
+.contractor-spotlight-panel {
+  background: #faf6ee;
+  border-color: #d4c4a0;
+}
+
+.featured-contractor {
+  max-width: 36rem;
+  border-left: 4px solid var(--accent);
+}
+
+.featured-contractor h3 {
+  font-size: 1.15rem;
+}

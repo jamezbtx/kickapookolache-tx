@@ -8,16 +8,17 @@ Local digital newspaper homepage shell for Brownsboro and Chandler, Texas
 Install dependencies, then run the build script defined in package.json.
 Output lands in the publish directory: public/
 
-## Panels (Grok MVP draft)
+## Panels (James-approved order · draft/homepage-shell)
 
 1. Weather — ZIPs 75756 / 75758
-2. Official city and school RSS feeds (placeholders)
-3. Bears sports via MaxPreps (placeholder panel)
-4. Interviews and stories (EXAMPLE; subtle spotlight monetization note)
-5. Weekly spotlights — business / school / official / pastor (EXAMPLE)
-6. Columns — monthly Christian bushcraft + Carlee craft (EXAMPLE)
-7. Local contractors / support local businesses (sponsored EXAMPLE)
-8. Local Resources — City / BISD links (near footer)
+2. Interviews & Stories (EXAMPLE)
+3. Weekly Spotlights — business / school / official / pastor (EXAMPLE)
+4. Contractor Spotlight — ONE featured paid/partner card (EXAMPLE; separate from directory)
+5. Bears Sports · MaxPreps (placeholder)
+6. Official City & School Feeds (placeholders)
+7. Columns — Christian Bushcraft + Carlee Craft (EXAMPLE)
+8. Local Contractors directory — sponsored listing cards (multiple EXAMPLE)
+9. Local Resources · City / BISD (near footer)
 
 ## Status
 

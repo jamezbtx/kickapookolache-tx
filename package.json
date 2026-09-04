@@ -1,0 +1,13 @@
+{
+  "name": "kickapookolache",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kickapoo Kolache — Chandler/Brownsboro TX local digital newspaper",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npx --yes serve public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -17,13 +17,17 @@
     </div>
 
     <header class="masthead">
+      <div class="logo-slot" role="img" aria-label="Kickapoo Kolache logo placeholder — dark badge mark (sausage kolache / pine / Chandler &amp; Brownsboro)">
+        <span class="logo-slot-mark" aria-hidden="true">KK</span>
+        <span class="logo-slot-label">Logo placeholder<br />sausage kolache · pine · both towns</span>
+      </div>
       <h1>Kickapoo Kolache</h1>
       <p class="tagline">Chandler · Brownsboro TX</p>
       <p class="edition">Your neighborhood digital newspaper</p>
     </header>
 
     <main class="grid">
-      <section class="panel" aria-labelledby="weather-heading">
+      <section class="panel span-2" aria-labelledby="weather-heading">
         <h2 id="weather-heading">Weather</h2>
         <div class="weather-placeholder">
           <div class="weather-icon" aria-hidden="true"></div>
@@ -35,46 +39,52 @@
         <p class="note">Live weather widget coming soon for Chandler and Brownsboro, TX.</p>
       </section>
 
-      <section class="panel" aria-labelledby="news-heading">
+      <section class="panel span-2" aria-labelledby="news-heading">
         <h2 id="news-heading">East Texas News</h2>
-        <ul class="feed-list">
-          <li><em>RSS feed coming online</em> — curated East Texas headlines will appear here.</li>
-          <li>Placeholder slot: regional government and community updates</li>
-          <li>Placeholder slot: schools, roads, and local events</li>
-        </ul>
+        <div class="feed-grid">
+          <article class="feed-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>RSS feed coming online</h3>
+            <p>EXAMPLE content only — curated East Texas headlines will appear here.</p>
+          </article>
+          <article class="feed-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>Regional government &amp; community</h3>
+            <p>EXAMPLE content only — placeholder slot for regional government and community updates.</p>
+          </article>
+          <article class="feed-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>Schools, roads &amp; events</h3>
+            <p>EXAMPLE content only — placeholder slot for schools, roads, and local events.</p>
+          </article>
+          <article class="feed-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>East Texas roundup</h3>
+            <p>EXAMPLE content only — placeholder RSS card for additional regional headlines.</p>
+          </article>
+        </div>
         <p class="note">Curated RSS panel ready for live feed integration.</p>
-      </section>
-
-      <section class="panel" aria-labelledby="resources-heading">
-        <h2 id="resources-heading">Local Resources</h2>
-        <ul class="resource-list">
-          <li><a href="#">City of Chandler — contact and services (placeholder)</a></li>
-          <li><a href="#">City of Brownsboro — contact and services (placeholder)</a></li>
-          <li><a href="#">Henderson County resources (placeholder)</a></li>
-          <li><a href="#">Emergency and utilities quick links (placeholder)</a></li>
-          <li><a href="#">Schools and community calendar (placeholder)</a></li>
-        </ul>
       </section>
 
       <section class="panel span-2" aria-labelledby="stories-heading">
         <h2 id="stories-heading">Interviews and Stories</h2>
-        <div class="story-grid">
-          <article class="story-card">
+        <div class="feed-grid">
+          <article class="feed-card story-card">
             <span class="badge">EXAMPLE</span>
             <h3>Main Street Memories: A Sample Feature</h3>
             <p>EXAMPLE content only — not real reporting. Placeholder interview slot for a local resident profile.</p>
           </article>
-          <article class="story-card">
+          <article class="feed-card story-card">
             <span class="badge">EXAMPLE</span>
             <h3>Friday Night Lights Snapshot (Sample)</h3>
             <p>EXAMPLE content only — not real reporting. Placeholder story slot for community sports coverage.</p>
           </article>
-          <article class="story-card">
+          <article class="feed-card story-card">
             <span class="badge">EXAMPLE</span>
             <h3>Kitchen Table Talk: Sample Q and A</h3>
             <p>EXAMPLE content only — not real reporting. Placeholder interview format for local voices.</p>
           </article>
-          <article class="story-card">
+          <article class="feed-card story-card">
             <span class="badge">EXAMPLE</span>
             <h3>Then and Now: Sample Photo Essay</h3>
             <p>EXAMPLE content only — not real reporting. Placeholder visual story slot.</p>
@@ -84,24 +94,40 @@
 
       <section class="panel sponsor-panel span-2" aria-labelledby="sponsors-heading">
         <h2 id="sponsors-heading">Local Contractors · Support Local Businesses</h2>
-        <div class="sponsor-grid">
-          <div class="sponsor-card">
+        <div class="feed-grid">
+          <div class="feed-card sponsor-card">
             <span class="badge">EXAMPLE</span>
             <h3>Sample Plumbing Co.</h3>
             <p>EXAMPLE listing only — sponsored contractor card placeholder.</p>
           </div>
-          <div class="sponsor-card">
+          <div class="feed-card sponsor-card">
             <span class="badge">EXAMPLE</span>
             <h3>Sample Electric and HVAC</h3>
             <p>EXAMPLE listing only — sponsored contractor card placeholder.</p>
           </div>
-          <div class="sponsor-card">
+          <div class="feed-card sponsor-card">
             <span class="badge">EXAMPLE</span>
             <h3>Sample Hometown Cafe</h3>
             <p>EXAMPLE listing only — support local business card placeholder.</p>
           </div>
+          <div class="feed-card sponsor-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>Sample Landscaping &amp; Lawn</h3>
+            <p>EXAMPLE listing only — sponsored contractor card placeholder.</p>
+          </div>
         </div>
         <p class="note">Sponsored listings slot — sample cards only; not real advertisers.</p>
+      </section>
+
+      <section class="panel span-2" aria-labelledby="resources-heading">
+        <h2 id="resources-heading">Local Resources</h2>
+        <ul class="resource-list">
+          <li><a href="#">City of Chandler — contact and services (placeholder)</a></li>
+          <li><a href="#">City of Brownsboro — contact and services (placeholder)</a></li>
+          <li><a href="#">Henderson County resources (placeholder)</a></li>
+          <li><a href="#">Emergency and utilities quick links (placeholder)</a></li>
+          <li><a href="#">Schools and community calendar (placeholder)</a></li>
+        </ul>
       </section>
     </main>
 

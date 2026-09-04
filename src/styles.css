@@ -139,11 +139,29 @@ body {
   margin-bottom: .5rem;
 }
 
-.weather-placeholder {
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .85rem;
+}
+
+@media (min-width: 640px) {
+  .weather-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.weather-card {
   display: flex;
   gap: 1rem;
   align-items: center;
-  flex-wrap: wrap;
+  background: var(--cream);
+  border: 1px solid #d4cbb8;
+  padding: .85rem 1rem;
+}
+
+.weather-card.weather-error {
+  border-color: #c9a27a;
 }
 
 .weather-icon {
@@ -155,8 +173,30 @@ body {
   flex-shrink: 0;
 }
 
-.weather-meta strong { display: block; font-size: 1.35rem; }
-.weather-meta span { color: var(--muted); font-size: .9rem; }
+.weather-meta {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  min-width: 0;
+}
+
+.weather-meta strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.weather-temp {
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.weather-desc,
+.weather-extra {
+  color: var(--muted);
+  font-size: .9rem;
+}
 .note {
   margin: .75rem 0 0;
   font-size: .85rem;

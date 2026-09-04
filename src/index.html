@@ -37,14 +37,27 @@
       <!-- 1. Weather -->
       <section class="panel span-2" aria-labelledby="weather-heading">
         <h2 id="weather-heading">Weather</h2>
-        <div class="weather-placeholder">
-          <div class="weather-icon" aria-hidden="true"></div>
-          <div class="weather-meta">
-            <strong>Chandler / Brownsboro</strong>
-            <span>ZIPs 75756 · 75758 — local forecast widget placeholder</span>
-          </div>
+        <div class="weather-grid" id="weather-root" data-weather-source="open-meteo">
+          <article class="weather-card" data-zip="75756" data-label="Brownsboro" data-lat="32.30237" data-lon="-95.61357">
+            <div class="weather-icon" aria-hidden="true" data-role="icon"></div>
+            <div class="weather-meta">
+              <strong data-role="place">Brownsboro · 75756</strong>
+              <span class="weather-temp" data-role="temp">Loading…</span>
+              <span class="weather-desc" data-role="desc">Local forecast</span>
+              <span class="weather-extra" data-role="extra">High / low loading</span>
+            </div>
+          </article>
+          <article class="weather-card" data-zip="75758" data-label="Chandler" data-lat="32.30793" data-lon="-95.47996">
+            <div class="weather-icon" aria-hidden="true" data-role="icon"></div>
+            <div class="weather-meta">
+              <strong data-role="place">Chandler · 75758</strong>
+              <span class="weather-temp" data-role="temp">Loading…</span>
+              <span class="weather-desc" data-role="desc">Local forecast</span>
+              <span class="weather-extra" data-role="extra">High / low loading</span>
+            </div>
+          </article>
         </div>
-        <p class="note">Live weather for ZIP 75756 (Brownsboro) and 75758 (Chandler) coming soon. Scope limited to Brownsboro–Chandler — not Tyler metro.</p>
+        <p class="note">Draft live weather via Open-Meteo for ZIP 75756 (Brownsboro) and 75758 (Chandler). Brownsboro–Chandler only — not Tyler metro.</p>
       </section>
 
       <!-- 2. Interviews & Stories -->
@@ -81,26 +94,26 @@
         <div class="feed-grid">
           <article class="feed-card">
             <span class="badge">EXAMPLE</span>
-            <h3>Business spotlight</h3>
-            <p>EXAMPLE sample — a Brownsboro or Chandler small business feature card (placeholder copy only).</p>
+            <h3>Miller’s Market keeps the corner stocked — and the neighbors talking</h3>
+            <p>Owner Dana Miller on 20 years of groceries, Friday kolaches, and why Chandler still shops local. Chandler · 75758.</p>
           </article>
           <article class="feed-card">
             <span class="badge">EXAMPLE</span>
-            <h3>School spotlight</h3>
-            <p>EXAMPLE sample — BISD campus, club, or classroom highlight (placeholder copy only).</p>
+            <h3>Bears robotics team builds more than bots</h3>
+            <p>Advisor Luis Ortega on late nights, regional hopes, and why shop-class kids keep showing up. Brownsboro High · BISD.</p>
           </article>
           <article class="feed-card">
             <span class="badge">EXAMPLE</span>
-            <h3>Official spotlight</h3>
-            <p>EXAMPLE sample — city hall / civic servant or public-works note for Chandler or Brownsboro.</p>
+            <h3>Chandler’s quiet infrastructure week: drains, ditches, and a new striping plan</h3>
+            <p>Public Works lead Pat Nguyen on what residents actually call about — and what’s getting fixed first. Chandler · 75758.</p>
           </article>
           <article class="feed-card">
             <span class="badge">EXAMPLE</span>
-            <h3>Pastor spotlight</h3>
-            <p>EXAMPLE sample — local pastor / congregation community note (placeholder copy only).</p>
+            <h3>Grace Chapel’s pastor on neighbor meals, quiet prayer, and showing up midweek</h3>
+            <p>Pastor Ruth Hale on a small congregation’s big habit: feeding whoever walks in hungry. Brownsboro · 75756.</p>
           </article>
         </div>
-        <p class="note">Weekly rotation placeholders: business · school · official · pastor — EXAMPLE content only.</p>
+        <p class="note">EXAMPLE templates from Kickapoo Editor package (not live) — weekly rotation: business · school · official · pastor.</p>
       </section>
 
       <!-- 4. Contractor Spotlight — ONE featured paid/partner card (separate from directory) -->
@@ -108,10 +121,10 @@
         <h2 id="contractor-spotlight-heading">Contractor Spotlight</h2>
         <article class="feed-card sponsor-card featured-contractor">
           <span class="badge">EXAMPLE</span>
-          <h3>Featured Partner — Sample Roofing &amp; Remodel</h3>
-          <p>EXAMPLE only — one featured paid/partner contractor card for Brownsboro–Chandler. Separate from the Local Contractors directory below. Not a live advertiser.</p>
+          <h3>Ridge Fence Co. on straight lines, good neighbors, and rainy-week backups</h3>
+          <p>Owner Marcus Reed on residential fence jobs across Chandler and Brownsboro — and why he won’t start without a clear property pin. Fence / outdoor · Chandler &amp; Brownsboro.</p>
         </article>
-        <p class="note example-note">EXAMPLE featured partner slot — single paid spotlight, not the multi-card directory.</p>
+        <p class="note example-note">EXAMPLE template from Kickapoo Editor package (not live) — single featured partner spotlight, not the multi-card directory.</p>
       </section>
 
       <!-- 5. Bears sports / MaxPreps -->
@@ -225,6 +238,7 @@
       <p>Local digital newspaper shell — Brownsboro–Chandler only (not Tyler metro). Content panels ready for live data.</p>
     </footer>
   </div>
+  <script src="weather.js" defer></script>
   <script>
     (function () {
       var now = new Date();

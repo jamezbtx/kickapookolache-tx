@@ -18,6 +18,7 @@
   --panel: #ffffff;
   --sponsor: #f0ebe0;
   --example: #b45309;
+  --sports: #eef4ea;
   --shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 
@@ -163,6 +164,11 @@ body {
   font-style: italic;
 }
 
+.example-note {
+  border-left: 3px solid var(--example);
+  padding-left: .65rem;
+}
+
 .feed-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -194,6 +200,11 @@ body {
 
 .story-card {
   border-left: 3px solid var(--accent);
+}
+
+.sports-panel {
+  background: var(--sports);
+  border-color: #c5d4bc;
 }
 
 .resource-list {

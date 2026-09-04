@@ -308,3 +308,44 @@ body {
 .featured-contractor h3 {
   font-size: 1.15rem;
 }
+
+
+.feed-live-list {
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: 0;
+}
+
+.feed-live-list li {
+  padding: .35rem 0;
+  border-bottom: 1px dotted #cfc6b4;
+  font-size: .92rem;
+  color: var(--muted);
+}
+
+.feed-live-list li:last-child { border-bottom: 0; }
+
+.feed-live-list a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.feed-live-list a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.badge-live {
+  background: #1f6b3a;
+}
+
+.feed-featured {
+  margin-top: .55rem;
+  font-size: .9rem;
+  color: var(--ink);
+}
+
+.feed-live-card .badge + h3 {
+  margin-top: 0;
+}

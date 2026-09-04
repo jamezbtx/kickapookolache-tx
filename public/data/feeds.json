@@ -1,0 +1,57 @@
+{
+  "fetchedAt": "2026-09-04T16:40:02.854Z",
+  "maxpreps": {
+    "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
+    "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
+    "featured": {
+      "date": "2026-09-04T19:30:00",
+      "opponent": "Palestine",
+      "note": "The Palestine varsity football team has an away non-conference game @  Brownsboro (TX) today @ 7:30p."
+    }
+  },
+  "chandler": {
+    "hasRss": true,
+    "feedUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
+    "pageUrl": "https://www.chandlertx.com/m/NewsFlash",
+    "items": [
+      {
+        "title": "Proposed Budget FY 26 -27",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=378",
+        "pubDate": "Wed, 26 Aug 2026 18:17:00 -0600"
+      },
+      {
+        "title": "RFQ Municipal Engineering and Dev Review Services RFQ No. 2026-002",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=377",
+        "pubDate": "Thu, 13 Aug 2026 12:43:37 -0600"
+      },
+      {
+        "title": "Special Meeting",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=376",
+        "pubDate": "Wed, 12 Aug 2026 17:41:00 -0600"
+      },
+      {
+        "title": "Notice about 2026 Tax Rates",
+        "link": "https://chandlertx.com/DocumentCenter/View/2143/Notice-about-2026-Tax-Rates",
+        "pubDate": "Fri, 07 Aug 2026 22:22:00 -0600"
+      },
+      {
+        "title": "2026 Tax Rate Calculation Worksheet",
+        "link": "https://chandlertx.com/DocumentCenter/View/2136/2026-Tax-Rate-Calculation-Worksheet",
+        "pubDate": "Fri, 07 Aug 2026 15:28:00 -0600"
+      }
+    ]
+  },
+  "brownsboro": {
+    "hasRss": false,
+    "label": "No RSS — link fallback",
+    "pageUrl": "https://brownsborotx.gov/",
+    "agendasUrl": "https://brownsborotx.gov/meeting-agendas-and-minutes"
+  },
+  "bisd": {
+    "hasRss": false,
+    "label": "No news RSS — link fallback",
+    "newsUrl": "https://www.gobearsgo.net/about-us/new-headlines",
+    "calendarUrl": "https://www.gobearsgo.net/about-us/district-wide-calendar"
+  },
+  "errors": []
+}

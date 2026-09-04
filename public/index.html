@@ -131,11 +131,13 @@
       <section class="panel span-2 sports-panel" aria-labelledby="sports-heading">
         <h2 id="sports-heading">Bears Sports · MaxPreps</h2>
         <div class="feed-grid">
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Bears scores &amp; schedule via MaxPreps</h3>
-            <p>EXAMPLE placeholder — live MaxPreps URL TBD. Scores and schedule for Brownsboro Bears.</p>
-          </article>
+          <div id="bears-live">
+            <article class="feed-card story-card">
+              <span class="badge">LIVE</span>
+              <h3>Bears scores &amp; schedule via MaxPreps</h3>
+              <p>Loading live MaxPreps links…</p>
+            </article>
+          </div>
           <article class="feed-card story-card">
             <span class="badge">EXAMPLE</span>
             <h3>Human note slot (pep rally / student section)</h3>
@@ -149,28 +151,36 @@
       <section class="panel span-2" aria-labelledby="rss-heading">
         <h2 id="rss-heading">Official City &amp; School Feeds</h2>
         <div class="feed-grid">
-          <article class="feed-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>City of Chandler — official announcements</h3>
-            <p>Draft placeholder — official city announcements for Chandler 75758. RSS/URL TBD; live feed not connected yet.</p>
-          </article>
-          <article class="feed-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>City of Brownsboro — official announcements</h3>
-            <p>Draft placeholder — official city announcements for Brownsboro 75756. RSS/URL TBD; live feed not connected yet.</p>
-          </article>
-          <article class="feed-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>BISD — school announcements / calendar / closings</h3>
-            <p>Draft placeholder — Brownsboro ISD announcements, calendar, and closings. RSS/URL TBD; live feed not connected yet.</p>
-          </article>
-          <article class="feed-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Local civic roundup</h3>
-            <p>Draft placeholder — curated Brownsboro–Chandler city/school items only (not Tyler). RSS/URL TBD; live feed not connected yet.</p>
-          </article>
+          <div id="feed-chandler">
+            <article class="feed-card">
+              <span class="badge">EXAMPLE</span>
+              <h3>City of Chandler — official announcements</h3>
+              <p>Loading Chandler headlines…</p>
+            </article>
+          </div>
+          <div id="feed-brownsboro">
+            <article class="feed-card">
+              <span class="badge">EXAMPLE</span>
+              <h3>City of Brownsboro — official announcements</h3>
+              <p>Loading Brownsboro links…</p>
+            </article>
+          </div>
+          <div id="feed-bisd">
+            <article class="feed-card">
+              <span class="badge">EXAMPLE</span>
+              <h3>BISD — school announcements / calendar / closings</h3>
+              <p>Loading BISD links…</p>
+            </article>
+          </div>
+          <div id="feed-civic">
+            <article class="feed-card">
+              <span class="badge">EXAMPLE</span>
+              <h3>Local civic roundup</h3>
+              <p>Curated roundup note loads with feeds.js.</p>
+            </article>
+          </div>
         </div>
-        <p class="note">Live RSS not connected yet; Webpage will wire when feed URLs confirmed.</p>
+        <p class="note">Chandler RSS live at build; Brownsboro/BISD use official link fallbacks. Civic roundup curated later.</p>
       </section>
 
       <!-- 7. Columns -->
@@ -239,6 +249,7 @@
     </footer>
   </div>
   <script src="weather.js" defer></script>
+  <script src="feeds.js" defer></script>
   <script>
     (function () {
       var now = new Date();

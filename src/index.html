@@ -51,29 +51,14 @@
       <!-- 0. Essentials -->
       <section class="panel span-2 essentials-panel" aria-labelledby="essentials-heading">
         <h2 id="essentials-heading">Essentials</h2>
-        <div class="essentials-grid" id="essentials-root" data-essentials-source="fallback">
-          <article class="feed-card essentials-card" data-type="almanac">
-            <span class="badge">EXAMPLE</span>
-            <h3>Farmer's Almanac tip</h3>
-            <p>EXAMPLE only — not a live almanac feed. After Labor Day, Brownsboro–Chandler gardens can still use a little shade cloth; plant cool-weather greens once the afternoon heat finally breaks.</p>
-          </article>
-          <article class="feed-card essentials-card" data-type="joke">
-            <span class="badge">EXAMPLE</span>
-            <h3>Joke of the day</h3>
-            <p>EXAMPLE only — not a live joke feed. Why did the kolache refuse to leave Chandler? It was already in a jam — and the coffee on Main Street was still hot.</p>
-          </article>
-          <article class="feed-card essentials-card" data-type="scripture">
-            <span class="badge">EXAMPLE</span>
-            <h3>Scripture</h3>
-            <p>EXAMPLE only — not a live lectionary. “Love your neighbor as yourself.” A short weekday verse for Brownsboro–Chandler kitchen tables; live rotation comes later.</p>
-          </article>
-          <article class="feed-card essentials-card" data-type="history">
-            <span class="badge">EXAMPLE</span>
-            <h3>This Day in History</h3>
-            <p>EXAMPLE only — not a live history feed. On this day in East Texas lore: neighbors in Brownsboro and Chandler swapped harvest news over fence lines long before the FM roads were paved. Local heritage placeholder.</p>
+        <div class="essentials-grid" id="essentials-root" data-essentials-source="empty">
+          <article class="feed-card essentials-card story-empty">
+            <span class="badge badge-waiting">WAITING</span>
+            <h3>Daily essentials</h3>
+            <p>Farmer’s Almanac tip, joke, scripture, and This Day in History appear here when the daily feed is ready. Nothing invented for this draft.</p>
           </article>
         </div>
-        <p class="note" id="essentials-note">EXAMPLE placeholders — Farmer’s Almanac, joke, scripture, and This Day in History are sample cards only. Not live AI yet. Loaded from /data/essentials.json when present.</p>
+        <p class="note" id="essentials-note">Awaiting essentials JSON — empty until AI or editor fills it. Soft-fail keeps this honest.</p>
       </section>
 
       <!-- 1. Weather -->
@@ -144,12 +129,11 @@
       <!-- 3. Contractor Spotlight — ONE featured paid/partner card (separate from directory) -->
       <section class="panel span-2 contractor-spotlight-panel" aria-labelledby="contractor-spotlight-heading">
         <h2 id="contractor-spotlight-heading">Contractor Spotlight</h2>
-        <article class="feed-card sponsor-card featured-contractor">
-          <span class="badge">EXAMPLE</span>
-          <h3>Ridge Fence Co. on straight lines, good neighbors, and rainy-week backups</h3>
-          <p>Owner Marcus Reed on residential fence jobs across Chandler and Brownsboro — and why he won’t start without a clear property pin. Fence / outdoor · Chandler &amp; Brownsboro.</p>
+        <article class="feed-card sponsor-card featured-contractor story-empty">
+          <span class="badge badge-waiting">WAITING</span>
+          <h3>No listings yet</h3>
+          <p>Featured partner spotlight opens when a Brownsboro–Chandler contractor is approved. Not a directory ad — one featured card at a time.</p>
         </article>
-        <p class="note example-note">EXAMPLE template from Kickapoo Editor package (not live) — single featured partner spotlight, not the multi-card directory.</p>
         <p class="listing-cta-line">Want the spotlight? Listings are <strong>reviewed before posting</strong>; paid expanded options later. <a class="submit-cta" href="submit.html?category=contractor">Get listed</a></p>
       </section>
 
@@ -164,13 +148,8 @@
               <p>Loading live MaxPreps links…</p>
             </article>
           </div>
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Human note slot (pep rally / student section)</h3>
-            <p>EXAMPLE placeholder — occasional Editor note (e.g. pep rally or student section feature), not every-game recap.</p>
-          </article>
         </div>
-        <p class="note">MaxPreps is the default feed; human notes are rare. Brownsboro–Chandler only.</p>
+        <p class="note">LIVE MaxPreps scores &amp; schedule. Occasional Editor notes appear here only when filed — no placeholder cards. Brownsboro–Chandler only.</p>
       </section>
 
       <!-- 5. Official city/school RSS -->
@@ -199,60 +178,45 @@
             </article>
           </div>
           <div id="feed-civic">
-            <article class="feed-card">
-              <span class="badge">EXAMPLE</span>
+            <article class="feed-card story-empty">
+              <span class="badge badge-waiting">WAITING</span>
               <h3>Local civic roundup</h3>
-              <p>Curated roundup note loads with feeds.js.</p>
+              <p>No curated civic roundup this week. Editor notes appear here when filed — not an auto-RSS pull.</p>
             </article>
           </div>
         </div>
-        <p class="note">Chandler RSS live at build; Brownsboro/BISD use official link fallbacks. Civic roundup curated later.</p>
+        <p class="note">Chandler RSS live at build; Brownsboro/BISD use official link fallbacks. Civic roundup only when the Editor files one.</p>
       </section>
 
       <!-- 6. Neighbor Columns -->
       <section class="panel span-2" aria-labelledby="columns-heading">
         <h2 id="columns-heading">Neighbor Columns</h2>
         <div class="feed-grid">
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Three-minute rain shelter with a tarp and two trees</h3>
-            <p>Chritty's Bushcraft — monthly on the 1st Monday. EXAMPLE near-term placeholder; not a published essay.</p>
+          <article class="feed-card story-card story-empty">
+            <span class="badge badge-waiting">WAITING</span>
+            <h3>Chritty’s Bushcraft</h3>
+            <p><strong>No column this week.</strong> Cadence: monthly on the 1st Monday. Essays appear here when filed.</p>
           </article>
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Scrap-wood napkin holders for Friday supper</h3>
-            <p>Kermik's Kreations — monthly on the 3rd Monday. EXAMPLE near-term placeholder; not a published essay.</p>
+          <article class="feed-card story-card story-empty">
+            <span class="badge badge-waiting">WAITING</span>
+            <h3>Kermik’s Kreations</h3>
+            <p><strong>No column this week.</strong> Cadence: monthly on the 3rd Monday. Essays appear here when filed.</p>
           </article>
         </div>
-        <p class="note">EXAMPLE placeholders from Kickapoo Editor column-cadence (not live).</p>
+        <p class="note">Neighbor columns publish on their monthly cadence only — no invented essay titles.</p>
       </section>
 
-      <!-- 7. Local Contractors directory (sponsored listing cards — multiple EXAMPLE) -->
+      <!-- 7. Local Contractors directory (honest empty + Get listed) -->
       <section class="panel sponsor-panel span-2" aria-labelledby="sponsors-heading">
         <h2 id="sponsors-heading">Local Contractors</h2>
         <div class="feed-grid">
-          <div class="feed-card sponsor-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Sample Plumbing Co.</h3>
-            <p>EXAMPLE listing only — sponsored contractor directory card (Brownsboro–Chandler).</p>
-          </div>
-          <div class="feed-card sponsor-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Sample Electric and HVAC</h3>
-            <p>EXAMPLE listing only — sponsored contractor directory card.</p>
-          </div>
-          <div class="feed-card sponsor-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Sample Hometown Cafe</h3>
-            <p>EXAMPLE listing only — support local business directory card.</p>
-          </div>
-          <div class="feed-card sponsor-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Sample Landscaping &amp; Lawn</h3>
-            <p>EXAMPLE listing only — sponsored contractor directory card.</p>
-          </div>
+          <article class="feed-card sponsor-card story-empty">
+            <span class="badge badge-waiting">WAITING</span>
+            <h3>No listings yet</h3>
+            <p>Directory cards appear after review. Brownsboro–Chandler contractors welcome — not real advertisers until approved.</p>
+          </article>
         </div>
-        <p class="note">Sponsored directory listings — multiple EXAMPLE cards; separate from the single Contractor Spotlight above. Not real advertisers.</p>
+        <p class="note">Sponsored directory listings — separate from the single Contractor Spotlight above. Empty until approved submissions.</p>
         <p class="listing-cta-line">Local contractors: request a directory card — <strong>reviewed before posting</strong>; paid expanded listings later OK. <a class="submit-cta" href="submit.html?category=contractor">Request a listing</a></p>
       </section>
 
@@ -263,10 +227,10 @@
           <li><a href="https://www.chandlertx.com/">City of Chandler — official site (Chandler TX · 75758)</a></li>
           <li><a href="https://brownsborotx.gov/">City of Brownsboro — official site (Brownsboro TX · 75756)</a></li>
           <li><a href="https://www.gobearsgo.net/">BISD — Brownsboro ISD schools &amp; calendar</a></li>
-          <li><a href="#">Emergency &amp; utilities quick links — 75756 / 75758 (placeholder · URL TBD)</a></li>
-          <li><a href="#">Community calendar — Brownsboro · Chandler (placeholder · URL TBD)</a></li>
+          <li><span class="tbd-resource">Emergency &amp; utilities quick links — 75756 / 75758 · <strong>TBD</strong> (no verified URL yet)</span></li>
+          <li><span class="tbd-resource">Community calendar — Brownsboro · Chandler · <strong>TBD</strong> (no verified URL yet)</span></li>
         </ul>
-        <p class="note">Official city/ISD homepages linked where verified; emergency/utilities and community calendar remain placeholders. Brownsboro–Chandler scope only.</p>
+        <p class="note">Official city/ISD homepages linked where verified. Emergency/utilities and community calendar marked TBD until we have real URLs. Brownsboro–Chandler scope only.</p>
       </section>
     </main>
 
@@ -284,7 +248,7 @@
 
     <footer class="site-footer">
       <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
-      <p>Local digital newspaper shell — Brownsboro–Chandler only (not Tyler metro). Content panels ready for live data.</p>
+      <p>Draft — listings appear after review. Brownsboro–Chandler only (not Tyler metro).</p>
     </footer>
   </div>
   <script src="weather.js" defer></script>

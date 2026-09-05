@@ -19,7 +19,12 @@
     contractors: "Contractor directory",
     directory: "Contractor directory",
     other: "Other tip",
-    tip: "Other tip"
+    tip: "Other tip",
+    blotter: "Other tip",
+    "police-blotter": "Other tip",
+    obituary: "Other tip",
+    obituaries: "Other tip",
+    obit: "Other tip"
   };
 
   var value = map[raw] || null;

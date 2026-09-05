@@ -122,7 +122,7 @@
     if (items.length) {
       card.appendChild(el("span", "badge badge-live", "LIVE"));
     } else {
-      card.appendChild(el("span", "badge", "EXAMPLE"));
+      card.appendChild(el("span", "badge badge-fallback", "No headlines"));
     }
     card.appendChild(el("h3", null, "City of Chandler — official announcements"));
 
@@ -199,14 +199,14 @@
 
   function fillCivic(root) {
     clear(root);
-    var card = el("article", "feed-card feed-live-card");
-    card.appendChild(el("span", "badge", "CURATED"));
+    var card = el("article", "feed-card story-empty");
+    card.appendChild(el("span", "badge badge-waiting", "WAITING"));
     card.appendChild(el("h3", null, "Local civic roundup"));
     card.appendChild(
       el(
         "p",
         null,
-        "Short note: this Brownsboro–Chandler civic roundup is curated later by the Editor — not an auto-RSS pull."
+        "No curated civic roundup this week. Editor notes appear here when filed — not an auto-RSS pull."
       )
     );
     root.appendChild(card);

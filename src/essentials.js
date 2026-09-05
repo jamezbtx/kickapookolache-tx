@@ -8,37 +8,6 @@
     history: "This Day in History"
   };
 
-  var FALLBACK_ITEMS = [
-    {
-      type: "almanac",
-      title: "Farmer's Almanac tip",
-      body:
-        "EXAMPLE only — not a live almanac feed. After Labor Day, Brownsboro–Chandler gardens can still use a little shade cloth; plant cool-weather greens once the afternoon heat finally breaks.",
-      badge: "EXAMPLE"
-    },
-    {
-      type: "joke",
-      title: "Joke of the day",
-      body:
-        "EXAMPLE only — not a live joke feed. Why did the kolache refuse to leave Chandler? It was already in a jam — and the coffee on Main Street was still hot.",
-      badge: "EXAMPLE"
-    },
-    {
-      type: "scripture",
-      title: "Scripture",
-      body:
-        "EXAMPLE only — not a live lectionary. “Love your neighbor as yourself.” A short weekday verse for Brownsboro–Chandler kitchen tables; live rotation comes later.",
-      badge: "EXAMPLE"
-    },
-    {
-      type: "history",
-      title: "This Day in History",
-      body:
-        "EXAMPLE only — not a live history feed. On this day in East Texas lore: neighbors in Brownsboro and Chandler swapped harvest news over fence lines long before the FM roads were paved. Local heritage placeholder.",
-      badge: "EXAMPLE"
-    }
-  ];
-
   function escapeHtml(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;")
@@ -47,18 +16,45 @@
       .replace(/"/g, "&quot;");
   }
 
+  function renderEmpty(root, sourceNote) {
+    if (!root) return;
+    root.innerHTML =
+      '<article class="feed-card essentials-card story-empty">' +
+      '<span class="badge badge-waiting">WAITING</span>' +
+      "<h3>Daily essentials</h3>" +
+      "<p>Farmer\u2019s Almanac tip, joke, scripture, and This Day in History appear here when the daily feed is ready. Nothing invented for this draft.</p>" +
+      "</article>";
+    root.setAttribute("data-essentials-source", "empty");
+    var note = document.getElementById("essentials-note");
+    if (note) {
+      note.textContent =
+        sourceNote ||
+        "Awaiting essentials JSON \u2014 empty until AI or editor fills it. Soft-fail keeps this honest.";
+    }
+  }
+
   function renderItems(root, items, sourceNote) {
-    if (!root || !items || !items.length) return;
+    if (!root) return false;
+    if (!items || !items.length) {
+      renderEmpty(root, sourceNote);
+      return false;
+    }
     var html = items
       .map(function (item) {
         var title = item.title || TYPE_TITLES[item.type] || "Essential";
-        var badge = item.badge || (item.source === "ai" ? "Daily" : "EXAMPLE");
+        var badge = item.badge || (item.source === "ai" ? "Daily" : "Daily");
         var body = item.body || "";
+        var badgeClass =
+          badge === "Daily" || item.source === "ai"
+            ? "badge badge-live"
+            : "badge";
         return (
           '<article class="feed-card essentials-card" data-type="' +
           escapeHtml(item.type || "") +
           '">' +
-          '<span class="badge">' +
+          '<span class="' +
+          badgeClass +
+          '">' +
           escapeHtml(badge) +
           "</span>" +
           "<h3>" +
@@ -72,16 +68,76 @@
       })
       .join("\n");
     root.innerHTML = html;
+    root.setAttribute(
+      "data-essentials-source",
+      sourceNote && sourceNote.indexOf("AI") >= 0 ? "ai" : "json"
+    );
     var note = document.getElementById("essentials-note");
     if (note && sourceNote) note.textContent = sourceNote;
+    return true;
   }
 
-  function applyFallback(root, reason) {
-    renderItems(
-      root,
-      FALLBACK_ITEMS,
-      "EXAMPLE placeholders — Farmer’s Almanac, joke, scripture, and This Day in History are sample cards only. Not live AI yet." +
-        (reason ? " (" + reason + ")" : "")
+  function normalizePayload(data) {
+    if (!data || typeof data !== "object") return null;
+    if (Array.isArray(data.items)) {
+      return {
+        source: data.source || (data.items.length ? "json" : "empty"),
+        items: data.items,
+        generatedAt: data.generatedAt,
+        note: data.note
+      };
+    }
+    var keys = ["almanac", "joke", "scripture", "history"];
+    var items = [];
+    keys.forEach(function (key) {
+      if (data[key] && (data[key].body || data[key].title)) {
+        var chunk = data[key];
+        var body = chunk.body || "";
+        if (chunk.reference) {
+          body = body ? body + " — " + chunk.reference : chunk.reference;
+        }
+        items.push({
+          type: key,
+          title: chunk.title || TYPE_TITLES[key],
+          body: body,
+          badge: data.source === "ai" ? "Daily" : "Daily",
+          source: data.source
+        });
+      }
+    });
+    return {
+      source: data.source || (items.length ? "json" : "empty"),
+      items: items,
+      generatedAt: data.generatedAt,
+      note: data.note
+    };
+  }
+
+  function noteFor(data, via) {
+    if (data && data.source === "ai" && data.items && data.items.length) {
+      return (
+        "Daily essentials via " +
+        via +
+        " (AI). Brownsboro–Chandler local flavor." +
+        (data.generatedAt ? " Updated " + data.generatedAt + "." : "")
+      );
+    }
+    if (data && (!data.items || !data.items.length)) {
+      return (
+        "Awaiting essentials (" +
+        via +
+        ") — empty until AI or editor fills it. No invented EXAMPLE cards."
+      );
+    }
+    return "Essentials from " + via + ".";
+  }
+
+  function tryFetch(url) {
+    return fetch(url, { cache: "no-store", credentials: "same-origin" }).then(
+      function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      }
     );
   }
 
@@ -89,28 +145,25 @@
     var root = document.getElementById("essentials-root");
     if (!root) return;
 
-    fetch("/data/essentials.json", { cache: "no-store" })
-      .then(function (res) {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      })
-      .then(function (data) {
-        if (!data || !Array.isArray(data.items) || !data.items.length) {
-          applyFallback(root, "empty payload");
-          return;
-        }
-        var source = data.source === "ai" ? "ai" : "fallback";
-        var note =
-          source === "ai"
-            ? "Daily essentials refreshed at build (AI source). Brownsboro–Chandler local flavor."
-            : "EXAMPLE placeholders — Farmer’s Almanac, joke, scripture, and This Day in History are sample cards only. Not live AI yet. Scaffold written by fetch-essentials.js.";
-        renderItems(root, data.items, note);
+    tryFetch("/api/essentials")
+      .then(function (raw) {
+        var data = normalizePayload(raw);
+        if (!data) throw new Error("empty api");
+        renderItems(root, data.items, noteFor(data, "/api/essentials"));
       })
       .catch(function () {
-        // Soft-fail: keep static EXAMPLE HTML already in #essentials-root
-        // if present; otherwise inject fallback cards.
+        return tryFetch("data/essentials.json").then(function (raw) {
+          var data = normalizePayload(raw);
+          if (!data) throw new Error("empty static");
+          renderItems(root, data.items, noteFor(data, "data/essentials.json"));
+        });
+      })
+      .catch(function () {
+        // Soft-fail: keep honest empty HTML already in #essentials-root
         if (!root.querySelector(".essentials-card, .feed-card")) {
-          applyFallback(root, "json missing");
+          renderEmpty(root, "Essentials JSON unavailable — leaving empty (no invented cards).");
+        } else {
+          root.setAttribute("data-essentials-source", "empty");
         }
       });
   }

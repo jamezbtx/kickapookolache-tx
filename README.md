@@ -10,14 +10,14 @@ Output lands in the publish directory: public/
 
 ## Panels (James-approved order · draft/homepage-shell)
 
-0. Essentials — almanac / joke / scripture / This Day in History (EXAMPLE + JSON scaffold)
+0. Essentials — almanac / joke / scripture / This Day in History (honest empty awaiting JSON; AI when available)
 1. Weather — ZIPs 75756 / 75758 (Open-Meteo draft + NWS official links + multi-day)
 2. Interviews & Stories — From neighbors (honest empty + tip CTA; spotlight-style features when James files them) + Local briefs LIVE (Henderson County / filtered Athens Review — NOT Chandler News Flash)
-3. Contractor Spotlight — ONE featured paid/partner card (EXAMPLE; separate from directory; monetization)
+3. Contractor Spotlight — ONE featured paid/partner card (honest empty + Get listed; separate from directory)
 4. Bears Sports · MaxPreps (placeholder)
 5. Official City & School Feeds — Chandler RSS + Brownsboro/BISD fallbacks
-6. Columns — Christian Bushcraft + Carlee Craft (EXAMPLE)
-7. Local Contractors directory — sponsored listing cards (multiple EXAMPLE)
+6. Columns — Chritty’s Bushcraft + Kermik’s Kreations (honest empty + cadence)
+7. Local Contractors directory — honest empty + Get listed
 8. Local Resources · City / BISD (near footer)
 
 Weekly Spotlights (business/school/official/pastor EXAMPLE panel) removed from homepage — those features live under Interviews & Stories when filed.

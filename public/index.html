@@ -33,17 +33,6 @@
       <p class="edition">Digital Edition · Est. 2026</p>
     </header>
 
-    <div class="qr-share-strip" aria-label="Share Kickapoo Kolache">
-      <img class="qr-code" src="assets/qr-kickapookolache.png" width="88" height="88" alt="QR code linking to kickapookolache.com" />
-      <div class="qr-share-copy">
-        <strong>Share Kickapoo Kolache</strong>
-        <span>Scan for <a href="https://kickapookolache.com">kickapookolache.com</a> · Brownsboro–Chandler draft</span>
-        <div class="qr-share-actions">
-          <button type="button" class="btn" data-share-copy>Copy link</button>
-          <button type="button" class="btn btn-primary" data-share-native>Share</button>
-        </div>
-      </div>
-    </div>
     <nav class="site-nav" aria-label="Section pages">
       <a href="index.html" class="is-active">Home</a>
       <a href="obituaries.html">Obituaries</a>
@@ -53,6 +42,30 @@
     </nav>
 
     <main class="grid">
+
+      <!-- 0. Essentials -->
+      <section class="panel span-2 essentials-panel" aria-labelledby="essentials-heading">
+        <h2 id="essentials-heading">Essentials</h2>
+        <div class="essentials-grid">
+          <article class="feed-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>Farmer's Almanac tip</h3>
+            <p>EXAMPLE only — not a live almanac feed. After Labor Day, Brownsboro–Chandler gardens can still use a little shade cloth; plant cool-weather greens once the afternoon heat finally breaks.</p>
+          </article>
+          <article class="feed-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>Joke of the day</h3>
+            <p>EXAMPLE only — not a live joke feed. Why did the kolache refuse to leave Chandler? It was already in a jam — and the coffee on Main Street was still hot.</p>
+          </article>
+          <article class="feed-card">
+            <span class="badge">EXAMPLE</span>
+            <h3>Scripture</h3>
+            <p>EXAMPLE only — not a live lectionary. “Love your neighbor as yourself.” A short weekday verse for Brownsboro–Chandler kitchen tables; live rotation comes later.</p>
+          </article>
+        </div>
+        <p class="note">EXAMPLE placeholders — Farmer’s Almanac, joke, and scripture are sample cards only. Not live feeds yet.</p>
+      </section>
+
       <!-- 1. Weather -->
       <section class="panel span-2" aria-labelledby="weather-heading">
         <h2 id="weather-heading">Weather</h2>
@@ -202,19 +215,19 @@
         <p class="note">Chandler RSS live at build; Brownsboro/BISD use official link fallbacks. Civic roundup curated later.</p>
       </section>
 
-      <!-- 7. Columns -->
+      <!-- 7. Neighbor Columns -->
       <section class="panel span-2" aria-labelledby="columns-heading">
-        <h2 id="columns-heading">Columns</h2>
+        <h2 id="columns-heading">Neighbor Columns</h2>
         <div class="feed-grid">
           <article class="feed-card story-card">
             <span class="badge">EXAMPLE</span>
             <h3>Three-minute rain shelter with a tarp and two trees</h3>
-            <p>Christian Bushcraft — monthly on the 1st Monday. EXAMPLE near-term placeholder; not a published essay.</p>
+            <p>Chritty's Bushcraft — monthly on the 1st Monday. EXAMPLE near-term placeholder; not a published essay.</p>
           </article>
           <article class="feed-card story-card">
             <span class="badge">EXAMPLE</span>
             <h3>Scrap-wood napkin holders for Friday supper</h3>
-            <p>Carlee Craft — monthly on the 3rd Monday. EXAMPLE near-term placeholder; not a published essay.</p>
+            <p>Kermik's Kreations — monthly on the 3rd Monday. EXAMPLE near-term placeholder; not a published essay.</p>
           </article>
         </div>
         <p class="note">EXAMPLE placeholders from Kickapoo Editor column-cadence (not live).</p>
@@ -261,6 +274,18 @@
         <p class="note">Official city/ISD homepages linked where verified; emergency/utilities and community calendar remain placeholders. Brownsboro–Chandler scope only.</p>
       </section>
     </main>
+
+    <div class="qr-share-strip" aria-label="Share Kickapoo Kolache">
+      <img class="qr-code" src="assets/qr-kickapookolache.png" width="88" height="88" alt="QR code linking to kickapookolache.com" />
+      <div class="qr-share-copy">
+        <strong>Share Kickapoo Kolache</strong>
+        <span>Scan for <a href="https://kickapookolache.com">kickapookolache.com</a> · Brownsboro–Chandler draft</span>
+        <div class="qr-share-actions">
+          <button type="button" class="btn" data-share-copy>Copy link</button>
+          <button type="button" class="btn btn-primary" data-share-native>Share</button>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-05T23:10:30.148Z",
+  "fetchedAt": "2026-09-05T23:12:48.672Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -99,6 +99,16 @@
       "Athens Review: no rural-town matches after filter (soft-fail; raw=25)"
     ]
   },
+  "garageSales": {
+    "items": [],
+    "hasRss": true,
+    "feedUrl": "https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+    "pageUrl": "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+    "filterNote": "Brownsboro/Chandler/rural Henderson towns + 75756/75758; Henderson County careful; drop Tyler-only",
+    "errors": [
+      "Craigslist garage RSS (soft-fail): HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
+    ]
+  },
   "brownsboro": {
     "hasRss": false,
     "label": "No RSS — link fallback",
@@ -115,6 +125,7 @@
   },
   "errors": [
     "Chandler jobs RSS returned no items (often empty)",
-    "Henderson County RSS returned no items (often empty)"
+    "Henderson County RSS returned no items (often empty)",
+    "Craigslist garage RSS (soft-fail): HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
   ]
 }

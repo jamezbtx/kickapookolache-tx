@@ -317,7 +317,90 @@
     });
   }
 
+  function fillGarageCraigslist(root, data) {
+    if (!root) return;
+    clear(root);
+    var gs = (data && data.garageSales) || {};
+    var items = gs.items || [];
+    var errors = gs.errors || [];
+    var pageUrl =
+      gs.pageUrl ||
+      "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758";
+
+    if (items.length) {
+      items.forEach(function (item) {
+        var card = el("article", "feed-card feed-live-card");
+        card.appendChild(el("span", "badge badge-live", "LIVE"));
+        var titleText = item.title || "Untitled sale";
+        if (item.link) {
+          var h = el("h3");
+          var a = el("a", null, titleText);
+          a.href = item.link;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          h.appendChild(a);
+          card.appendChild(h);
+        } else {
+          card.appendChild(el("h3", null, titleText));
+        }
+        var meta = el("p", "brief-meta");
+        var bits = [];
+        if (item.location) bits.push(item.location);
+        if (item.pubDate) bits.push(formatDate(item.pubDate));
+        bits.push("Craigslist East TX");
+        meta.textContent = bits.join(" · ");
+        card.appendChild(meta);
+        root.appendChild(card);
+      });
+      var note = el("p", "note");
+      note.appendChild(
+        document.createTextNode(
+          "Filtered local hits from Craigslist RSS (third-party). "
+        )
+      );
+      var more = el("a", null, "Browse full Craigslist search");
+      more.href = pageUrl;
+      more.target = "_blank";
+      more.rel = "noopener noreferrer";
+      note.appendChild(more);
+      root.appendChild(note);
+      return;
+    }
+
+    var empty = el("article", "feed-card story-empty");
+    empty.appendChild(el("span", "badge badge-waiting", "WAITING"));
+    empty.appendChild(el("h3", null, "No filtered Craigslist hits right now"));
+    var why =
+      "No Brownsboro / Chandler / rural Henderson matches in the latest pull";
+    if (errors.length) {
+      why +=
+        " — or the Craigslist RSS soft-failed (third-party block / empty feed).";
+    } else {
+      why += ".";
+    }
+    empty.appendChild(el("p", null, why));
+    empty.appendChild(
+      el(
+        "p",
+        "note",
+        "Honest empty: we only show filtered hits when the build-time RSS returns local matches. Soft-fail on 403/block is normal from this environment."
+      )
+    );
+    var p = el("p");
+    var a = el("a", null, "Browse filtered Craigslist East TX garage sales");
+    a.href = pageUrl;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    p.appendChild(a);
+    p.appendChild(document.createTextNode(" "));
+    var lbl = el("span", "third-party-label", "(third-party · browse link)");
+    p.appendChild(lbl);
+    empty.appendChild(p);
+    root.appendChild(empty);
+  }
+
   function apply(data) {
+
     var bears = document.getElementById("bears-live");
     var chandler = document.getElementById("feed-chandler");
     var brownsboro = document.getElementById("feed-brownsboro");
@@ -351,6 +434,9 @@
     }
 
     if (civic) fillCivic(civic);
+
+    var garageCl = document.getElementById("garage-craigslist");
+    if (garageCl) fillGarageCraigslist(garageCl, data);
   }
 
   function load() {
@@ -381,6 +467,17 @@
           henderson: { hasRss: true, items: [] },
           athensReview: { hasRss: true, items: [] },
           localBriefs: { items: [], sources: [], errors: [] },
+          garageSales: {
+            items: [],
+            hasRss: true,
+            feedUrl:
+              "https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+            pageUrl:
+              "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+            filterNote:
+              "Brownsboro/Chandler/rural Henderson towns + 75756/75758; Henderson County careful; drop Tyler-only",
+            errors: ["feeds.json unavailable — soft empty"]
+          },
           brownsboro: {
             hasRss: false,
             label: "No RSS — link fallback",

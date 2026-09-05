@@ -21,6 +21,14 @@ const HENDERSON_PAGE = "https://www.henderson-county.com/CivicAlerts.aspx";
 const ATHENS_FEED =
   "https://www.athensreview.com/search/?f=rss&t=article&c=news&l=25&s=start_time&sd=desc";
 const ATHENS_PAGE = "https://www.athensreview.com/";
+const GARAGE_CL_QUERY =
+  "Brownsboro|Chandler|Murchison|Eustace|Berryville|Poynor|Larue|Neches|75756|75758";
+const GARAGE_CL_FEED =
+  "https://easttexas.craigslist.org/search/gms?format=rss&query=" +
+  encodeURIComponent(GARAGE_CL_QUERY);
+const GARAGE_CL_PAGE =
+  "https://easttexas.craigslist.org/search/gms?query=" +
+  encodeURIComponent(GARAGE_CL_QUERY);
 const MAXPREPS_SCHOOL =
   "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/";
 const MAXPREPS_FOOTBALL =
@@ -57,6 +65,30 @@ const RURAL_INCLUDE_RE = new RegExp(
     ")\\b",
   "i"
 );
+
+// Garage / moving sales — tighter local filter (CL East TX can be noisy).
+const GARAGE_TOWNS = [
+  "Brownsboro",
+  "Chandler",
+  "Murchison",
+  "Eustace",
+  "Berryville",
+  "Poynor",
+  "Larue",
+  "Neches"
+];
+const GARAGE_ZIP_RE = /\b(75756|75758)\b/;
+const GARAGE_HENDERSON_CO_RE =
+  /\bHenderson\s+Count(?:y|ies)\b|\bHenderson\s+Co\.?\b/i;
+const GARAGE_TOWN_RE = new RegExp(
+  "\\b(" +
+    GARAGE_TOWNS.map(function (t) {
+      return t.replace(/\s+/g, "\\s+");
+    }).join("|") +
+    ")\\b",
+  "i"
+);
+const GARAGE_SALES_MAX = 8;
 
 const LOCAL_BRIEFS_MAX = 10;
 
@@ -161,6 +193,90 @@ function passesRuralFilter(item) {
     if (!RURAL_INCLUDE_RE.test(withoutTyler)) return false;
   }
   return true;
+}
+
+function garageHaystack(item) {
+  return [item.title, item.description, item.location, item.link]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function extractGarageLocation(block, item) {
+  // CL RSS sometimes puts neighborhood in <title> suffix or geo tags.
+  const geoM = block.match(/<(?:cl:)?region\b[^>]*>([\s\S]*?)<\/(?:cl:)?region>/i);
+  if (geoM) return decodeXml(geoM[1]);
+  const neighM = block.match(
+    /<(?:cl:)?neighborhood\b[^>]*>([\s\S]*?)<\/(?:cl:)?neighborhood>/i
+  );
+  if (neighM) return decodeXml(neighM[1]);
+  // Title pattern: "… - Brownsboro" / "(Chandler)"
+  const title = item.title || "";
+  const dash = title.match(/\s[-–—]\s*([^(-–—]{2,40})\s*$/);
+  if (dash) return dash[1].trim();
+  const paren = title.match(/\(([^)]{2,40})\)\s*$/);
+  if (paren) return paren[1].trim();
+  return null;
+}
+
+function parseGarageRssItems(xml, maxItems) {
+  const items = [];
+  const re = /<item\b[\s\S]*?<\/item>/gi;
+  let match;
+  while ((match = re.exec(xml)) && items.length < (maxItems || 25)) {
+    const block = match[0];
+    const titleM = block.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
+    const linkM = block.match(/<link\b[^>]*>([\s\S]*?)<\/link>/i);
+    let dateM = block.match(/<pubDate\b[^>]*>([\s\S]*?)<\/pubDate>/i);
+    if (!dateM) {
+      dateM = block.match(/<dc:date\b[^>]*>([\s\S]*?)<\/dc:date>/i);
+    }
+    const descM = block.match(
+      /<description\b[^>]*>([\s\S]*?)<\/description>/i
+    );
+    const title = decodeXml(titleM && titleM[1]);
+    const link = decodeXml(linkM && linkM[1]);
+    const pubDate = decodeXml(dateM && dateM[1]);
+    const description = stripTags(descM && descM[1]);
+    if (!title) continue;
+    const base = {
+      title: title,
+      link: link || null,
+      pubDate: pubDate || null,
+      description: description || null
+    };
+    base.location = extractGarageLocation(block, base);
+    items.push(base);
+  }
+  return items;
+}
+
+function passesGarageFilter(item) {
+  const text = garageHaystack(item);
+  if (!text) return false;
+  const local =
+    GARAGE_TOWN_RE.test(text) ||
+    GARAGE_ZIP_RE.test(text) ||
+    GARAGE_HENDERSON_CO_RE.test(text);
+  if (!local) return false;
+  // Drop Tyler-only: Tyler mention without a local marker after stripping Tyler.
+  if (/\btyler\b/i.test(text)) {
+    const withoutTyler = text.replace(/\btyler\b/gi, " ");
+    const stillLocal =
+      GARAGE_TOWN_RE.test(withoutTyler) ||
+      GARAGE_ZIP_RE.test(withoutTyler) ||
+      GARAGE_HENDERSON_CO_RE.test(withoutTyler);
+    if (!stillLocal) return false;
+  }
+  return true;
+}
+
+function toGarageItem(item) {
+  return {
+    title: item.title,
+    link: item.link || null,
+    pubDate: item.pubDate || null,
+    location: item.location || null
+  };
 }
 
 function toBrief(item, source, sourceUrl) {
@@ -350,6 +466,15 @@ function emptyPayload(errors) {
       sources: [],
       errors: []
     },
+    garageSales: {
+      items: [],
+      hasRss: true,
+      feedUrl: GARAGE_CL_FEED,
+      pageUrl: GARAGE_CL_PAGE,
+      filterNote:
+        "Brownsboro/Chandler/rural Henderson towns + 75756/75758; Henderson County careful; drop Tyler-only",
+      errors: []
+    },
     brownsboro: {
       hasRss: false,
       label: "No RSS — link fallback",
@@ -467,6 +592,35 @@ async function main() {
     briefErrors
   );
 
+  // Craigslist East TX garage/moving sales RSS — soft-fail on 403/block.
+  result.garageSales.errors = [];
+  try {
+    const clXml = await fetchText(GARAGE_CL_FEED);
+    const rawCl = parseGarageRssItems(clXml, 40);
+    const keptCl = [];
+    rawCl.forEach(function (item) {
+      if (passesGarageFilter(item)) keptCl.push(toGarageItem(item));
+    });
+    result.garageSales.items = keptCl.slice(0, GARAGE_SALES_MAX);
+    result.garageSales.rawCount = rawCl.length;
+    result.garageSales.keptCount = keptCl.length;
+    if (!keptCl.length) {
+      const note =
+        "Craigslist garage RSS: no filtered local hits (raw=" +
+        rawCl.length +
+        ")";
+      result.garageSales.errors.push(note);
+      errors.push(note);
+    }
+  } catch (err) {
+    const msg =
+      "Craigslist garage RSS (soft-fail): " +
+      (err && err.message ? err.message : String(err));
+    result.garageSales.items = [];
+    result.garageSales.errors.push(msg);
+    errors.push(msg);
+  }
+
   try {
     const html = await fetchText(MAXPREPS_FOOTBALL);
     const parsed = parseMaxprepsFeatured(html);
@@ -494,6 +648,7 @@ async function main() {
     "localBriefs=" + result.localBriefs.items.length,
     "[" + srcCounts + "],",
     result.chandlerJobs.items.length + " Chandler jobs,",
+    "garageCL=" + result.garageSales.items.length,
     result.maxpreps.featured ? "MaxPreps ok" : "MaxPreps null,",
     errors.length + " notes)"
   );

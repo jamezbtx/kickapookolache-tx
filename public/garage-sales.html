@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Garage Sales · Kickapoo Kolache</title>
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="Garage and yard sales in Brownsboro and Chandler TX — approved submissions only. Browse Craigslist and Facebook Marketplace outbound links." />
+  <meta name="description" content="Garage and yard sales in Brownsboro and Chandler TX — submit yours, see filtered Craigslist local hits when available, or browse Facebook Marketplace outbound." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -35,32 +35,50 @@
     </nav>
 
     <main>
-      <section class="panel span-2" aria-labelledby="garage-heading">
-        <h2 id="garage-heading">Garage Sales</h2>
-        <div class="feed-grid">
-          <article class="feed-card story-empty">
-            <span class="badge badge-waiting">WAITING</span>
-            <h3>No sales listed yet</h3>
-            <p>Listings here come from <strong>approved submissions only</strong> — we do not invent sales and we do not auto-scrape Facebook Marketplace.</p>
-          </article>
-        </div>
-        <p class="note">Facebook Marketplace is <strong>not</strong> auto-fed into Kickapoo Kolache. Use the outbound browse links below, or submit your sale for review.</p>
-      </section>
-
-      <aside class="panel span-2 source-panel" aria-labelledby="garage-browse">
-        <h2 id="garage-browse">Browse nearby (outbound)</h2>
-        <ul class="link-primary-list">
-          <li><a href="https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CHenderson%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue" rel="noopener noreferrer" target="_blank">Browse Craigslist East TX garage sales</a> <span class="third-party-label">(third-party · not auto-imported)</span></li>
-          <li><a href="https://www.facebook.com/marketplace/" rel="noopener noreferrer" target="_blank">Browse Facebook Marketplace nearby</a> <span class="third-party-label">(third-party · not auto-fed)</span></li>
-        </ul>
-        <p class="note">Craigslist and Facebook open in a new tab. Kickapoo does not scrape Marketplace; CL results can be noisy, so we link rather than pull a live feed.</p>
-      </aside>
-
-      <aside class="panel span-2 submit-panel" aria-labelledby="garage-submit">
-        <h2 id="garage-submit">List your sale</h2>
+      <!-- Zone 1: List yours (approved submissions + submit CTA) -->
+      <section class="panel span-2 submit-panel" aria-labelledby="garage-submit">
+        <h2 id="garage-submit">1. List yours</h2>
         <p>Tell neighbors about a Brownsboro or Chandler garage / yard / moving sale. Listings are reviewed before they appear on Kickapoo Kolache.</p>
         <a class="submit-cta" href="submit.html?category=garage">Submit a garage sale</a>
         <span class="review-label">Reviewed before posting.</span>
+        <div class="feed-grid" style="margin-top:1rem">
+          <article class="feed-card story-empty">
+            <span class="badge badge-waiting">WAITING</span>
+            <h3>No sales listed yet</h3>
+            <p>Approved submissions appear here. We do not invent sales.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Zone 2: Filtered Craigslist local hits (build-time RSS) -->
+      <section class="panel span-2" aria-labelledby="garage-cl-heading">
+        <h2 id="garage-cl-heading">2. Craigslist local hits</h2>
+        <p class="note">Build-time RSS pull from East TX garage &amp; moving sales, filtered to Brownsboro / Chandler / rural Henderson towns. Third-party — may soft-fail if Craigslist blocks the fetch.</p>
+        <div id="garage-craigslist" class="feed-grid" aria-live="polite">
+          <article class="feed-card story-empty">
+            <span class="badge badge-waiting">WAITING</span>
+            <h3>Loading Craigslist filter…</h3>
+            <p>Checking for filtered local hits.</p>
+          </article>
+        </div>
+        <p class="note">
+          Always available:
+          <a href="https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758" rel="noopener noreferrer" target="_blank">Browse filtered Craigslist East TX garage sales</a>
+          <span class="third-party-label">(third-party · browse link)</span>
+        </p>
+      </section>
+
+      <!-- Zone 3: Facebook Marketplace — link-out only, no scrape -->
+      <aside class="panel span-2 source-panel" aria-labelledby="garage-fb">
+        <h2 id="garage-fb">3. Facebook Marketplace</h2>
+        <p>Outbound browse only. Kickapoo Kolache does <strong>not</strong> scrape or auto-feed Marketplace listings.</p>
+        <ul class="link-primary-list">
+          <li>
+            <a href="https://www.facebook.com/marketplace/" rel="noopener noreferrer" target="_blank">Browse Facebook Marketplace nearby</a>
+            <span class="third-party-label">(third-party · link-out only · no scrape · not auto-fed)</span>
+          </li>
+        </ul>
+        <p class="note">Opens in a new tab. We never pull Marketplace into Kickapoo Kolache.</p>
       </aside>
     </main>
 
@@ -78,10 +96,11 @@
 
     <footer class="site-footer">
       <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
-            <p>Draft — listings appear after review.</p>
+      <p>Draft — listings appear after review. Craigslist hits are filtered third-party RSS; Marketplace is link-out only.</p>
     </footer>
   </div>
   <script src="share.js" defer></script>
+  <script src="feeds.js" defer></script>
   <script>(function(){var y=document.getElementById("year"); if(y) y.textContent=String(new Date().getFullYear());})();</script>
 </body>
 </html>

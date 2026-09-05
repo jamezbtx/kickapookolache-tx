@@ -54,46 +54,71 @@ body {
 
 .masthead {
   text-align: center;
-  padding: 1.25rem 0 1rem;
-  border-bottom: 4px double var(--rule);
-  margin-bottom: 1.25rem;
+  padding: 1.1rem 1rem 1.15rem;
+  margin: 0 0 1.15rem;
+  background: linear-gradient(180deg, #fffdf7 0%, #f7f1e3 100%);
+  border-top: 3px double #4a3f32;
+  border-bottom: 3px double #4a3f32;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
 }
-
-
-
 
 .masthead-logo {
   display: block;
-  max-width: min(160px, 42vw);
-  max-height: 160px;
+  max-width: min(148px, 38vw);
+  max-height: 148px;
   width: auto;
   height: auto;
-  margin: 0 auto .75rem;
+  margin: 0 auto .7rem;
   object-fit: contain;
   border-radius: 50%;
+  border: 1px solid #d4cbb8;
+  background: #fffdf7;
 }
 
 .masthead h1 {
   margin: 0;
-  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.85rem, 5.2vw, 3rem);
   font-weight: 700;
-  letter-spacing: .02em;
-  line-height: 1.1;
+  letter-spacing: .015em;
+  line-height: 1.15;
+  color: #1c1814;
+  text-wrap: balance;
 }
 
 .masthead .tagline {
-  margin: .4rem 0 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: .95rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  margin: .45rem 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(.9rem, 2.4vw, 1.05rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .02em;
+  text-transform: none;
   color: var(--accent);
+  line-height: 1.35;
 }
 
 .masthead .edition {
-  margin: .55rem 0 0;
-  font-size: .85rem;
+  margin: .45rem 0 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  .masthead {
+    padding: .9rem .65rem 1rem;
+  }
+  .masthead h1 {
+    font-size: clamp(1.7rem, 8vw, 2.1rem);
+    letter-spacing: .01em;
+  }
+  .masthead .tagline {
+    font-size: .92rem;
+    letter-spacing: .01em;
+  }
 }
 
 .grid {

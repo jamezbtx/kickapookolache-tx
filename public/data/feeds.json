@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-04T16:41:34.863Z",
+  "fetchedAt": "2026-09-05T18:39:55.825Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -13,7 +13,7 @@
       "vsLabel": "vs Palestine Wildcats",
       "location": "Brownsboro High School (OLD HS GYM)",
       "canonicalUrl": "https://www.maxpreps.com/tx/football/game/brownsboro-vs-palestine/9-4-2026/?c=c834f8c6-e5b6-4ab4-9d65-1478bb941542",
-      "note": "The Palestine varsity football team has an away non-conference game @  Brownsboro (TX) today @ 7:30p."
+      "note": "On 9/4, the Palestine varsity football team won their away non-conference game against Brownsboro (TX) by a score of 55-20."
     }
   },
   "chandler": {
@@ -21,6 +21,11 @@
     "feedUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
     "pageUrl": "https://www.chandlertx.com/m/NewsFlash",
     "items": [
+      {
+        "title": "Sept 8 Meeting Amendment to Sept 10th",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=379",
+        "pubDate": "Fri, 04 Sep 2026 15:03:13 -0600"
+      },
       {
         "title": "Proposed Budget FY 26 -27",
         "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=378",
@@ -40,11 +45,6 @@
         "title": "Notice about 2026 Tax Rates",
         "link": "https://chandlertx.com/DocumentCenter/View/2143/Notice-about-2026-Tax-Rates",
         "pubDate": "Fri, 07 Aug 2026 22:22:00 -0600"
-      },
-      {
-        "title": "2026 Tax Rate Calculation Worksheet",
-        "link": "https://chandlertx.com/DocumentCenter/View/2136/2026-Tax-Rate-Calculation-Worksheet",
-        "pubDate": "Fri, 07 Aug 2026 15:28:00 -0600"
       }
     ]
   },

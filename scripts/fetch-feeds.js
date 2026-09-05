@@ -29,6 +29,8 @@ const GARAGE_CL_FEED =
 const GARAGE_CL_PAGE =
   "https://easttexas.craigslist.org/search/gms?query=" +
   encodeURIComponent(GARAGE_CL_QUERY);
+// Unfiltered East TX gms HTML (Chrome fallback when format=rss is blocked).
+const CL_GMS_PAGE_FALLBACK = "https://easttexas.craigslist.org/search/gms";
 const MAXPREPS_SCHOOL =
   "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/";
 const MAXPREPS_FOOTBALL =
@@ -75,7 +77,17 @@ const GARAGE_TOWNS = [
   "Berryville",
   "Poynor",
   "Larue",
-  "Neches"
+  "La Rue",
+  "Neches",
+  "Malakoff",
+  "Tool",
+  "Seven Points",
+  "Gun Barrel",
+  "Trinidad",
+  "Enchanted Oaks",
+  "Payne Springs",
+  "Star Harbor",
+  "Moore Station"
 ];
 const GARAGE_ZIP_RE = /\b(75756|75758)\b/;
 const GARAGE_HENDERSON_CO_RE =
@@ -250,22 +262,22 @@ function parseGarageRssItems(xml, maxItems) {
   return items;
 }
 
+function isGarageLocal(text) {
+  return (
+    GARAGE_TOWN_RE.test(text) ||
+    GARAGE_ZIP_RE.test(text) ||
+    GARAGE_HENDERSON_CO_RE.test(text)
+  );
+}
+
 function passesGarageFilter(item) {
   const text = garageHaystack(item);
   if (!text) return false;
-  const local =
-    GARAGE_TOWN_RE.test(text) ||
-    GARAGE_ZIP_RE.test(text) ||
-    GARAGE_HENDERSON_CO_RE.test(text);
-  if (!local) return false;
-  // Drop Tyler-only: Tyler mention without a local marker after stripping Tyler.
-  if (/\btyler\b/i.test(text)) {
-    const withoutTyler = text.replace(/\btyler\b/gi, " ");
-    const stillLocal =
-      GARAGE_TOWN_RE.test(withoutTyler) ||
-      GARAGE_ZIP_RE.test(withoutTyler) ||
-      GARAGE_HENDERSON_CO_RE.test(withoutTyler);
-    if (!stillLocal) return false;
+  if (!isGarageLocal(text)) return false;
+  // Drop Tyler/Longview-only noise: metro mention without a local marker left.
+  if (/\b(tyler|longview)\b/i.test(text)) {
+    const withoutMetro = text.replace(/\b(tyler|longview)\b/gi, " ");
+    if (!isGarageLocal(withoutMetro)) return false;
   }
   return true;
 }
@@ -277,6 +289,102 @@ function toGarageItem(item) {
     pubDate: item.pubDate || null,
     location: item.location || null
   };
+}
+
+function findChromeBin() {
+  const candidates = [
+    process.env.CHROME_PATH,
+    "/usr/bin/google-chrome-stable",
+    "/usr/bin/google-chrome",
+    "/usr/bin/chromium-browser",
+    "/usr/bin/chromium"
+  ].filter(Boolean);
+  for (let i = 0; i < candidates.length; i++) {
+    try {
+      if (fs.existsSync(candidates[i])) return candidates[i];
+    } catch (_) {}
+  }
+  return null;
+}
+
+function fetchHtmlViaChrome(url) {
+  const { spawnSync } = require("child_process");
+  const bin = findChromeBin();
+  if (!bin) throw new Error("No Chrome/Chromium binary for HTML fallback");
+  const result = spawnSync(
+    bin,
+    [
+      "--headless=new",
+      "--disable-gpu",
+      "--no-sandbox",
+      "--disable-dev-shm-usage",
+      "--virtual-time-budget=12000",
+      "--dump-dom",
+      url
+    ],
+    {
+      encoding: "utf8",
+      maxBuffer: 12 * 1024 * 1024,
+      timeout: 45000
+    }
+  );
+  if (result.error) throw result.error;
+  const html = result.stdout || "";
+  if (!html || /<title>blocked<\/title>/i.test(html)) {
+    throw new Error("Chrome HTML fetch blocked or empty");
+  }
+  return html;
+}
+
+function decodeHtmlEntities(s) {
+  return String(s || "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, " ")
+    .trim();
+}
+
+function parseGarageSearchHtml(html, maxItems) {
+  const items = [];
+  const seen = Object.create(null);
+  const re =
+    /<div[^>]*data-pid="(\d+)"[^>]*class="[^"]*cl-search-result[^"]*"[^>]*title="([^"]*)"[\s\S]*?<span class="result-location">([^<]*)<\/span>[\s\S]*?<a[^>]*href="([^"]+)"[^>]*class="[^"]*posting-title[^"]*"/gi;
+  let match;
+  while ((match = re.exec(html)) && items.length < (maxItems || 40)) {
+    const pid = match[1];
+    if (seen[pid]) continue;
+    seen[pid] = true;
+    const title = decodeHtmlEntities(match[2]);
+    const location = decodeHtmlEntities(match[3]);
+    let link = decodeHtmlEntities(match[4]);
+    if (link && link.startsWith("/")) {
+      link = "https://www.craigslist.org" + link;
+    }
+    // Capture posted date from nearby meta if present
+    const slice = html.slice(match.index, match.index + 1200);
+    const dateM = slice.match(/title="([^"]*GMT[^"]*)"/i);
+    const pubDate = dateM ? dateM[1] : null;
+    if (!title) continue;
+    items.push({
+      title: title,
+      link: link || null,
+      pubDate: pubDate,
+      description: null,
+      location: location || null
+    });
+  }
+  return items;
+}
+
+function filterGarageItems(raw) {
+  const kept = [];
+  (raw || []).forEach(function (item) {
+    if (passesGarageFilter(item)) kept.push(toGarageItem(item));
+  });
+  return kept;
 }
 
 function toBrief(item, source, sourceUrl) {
@@ -471,8 +579,11 @@ function emptyPayload(errors) {
       hasRss: true,
       feedUrl: GARAGE_CL_FEED,
       pageUrl: GARAGE_CL_PAGE,
+      source: null,
+      rawCount: 0,
+      keptCount: 0,
       filterNote:
-        "Brownsboro/Chandler/rural Henderson towns + 75756/75758; Henderson County careful; drop Tyler-only",
+        "Brownsboro/Chandler/rural west Henderson towns + 75756/75758 + Henderson County; drop Tyler/Longview-only",
       errors: []
     },
     brownsboro: {
@@ -592,31 +703,55 @@ async function main() {
     briefErrors
   );
 
-  // Craigslist East TX garage/moving sales RSS — soft-fail on 403/block.
+  // Craigslist East TX garage/moving sales — RSS first, Chrome HTML fallback.
+  // Soft-fail on 403/block; never invent listings.
   result.garageSales.errors = [];
+  result.garageSales.source = null;
   try {
-    const clXml = await fetchText(GARAGE_CL_FEED);
-    const rawCl = parseGarageRssItems(clXml, 40);
-    const keptCl = [];
-    rawCl.forEach(function (item) {
-      if (passesGarageFilter(item)) keptCl.push(toGarageItem(item));
-    });
+    let rawCl = [];
+    let source = null;
+    try {
+      const clXml = await fetchText(GARAGE_CL_FEED);
+      if (/<item\b/i.test(clXml)) {
+        rawCl = parseGarageRssItems(clXml, 40);
+        source = "rss";
+      } else {
+        throw new Error("RSS response had no <item> nodes");
+      }
+    } catch (rssErr) {
+      const rssMsg =
+        "Craigslist garage RSS soft-fail: " +
+        (rssErr && rssErr.message ? rssErr.message : String(rssErr));
+      result.garageSales.errors.push(rssMsg);
+      errors.push(rssMsg);
+      // Prefer full gms category HTML (query RSS is often blocked); filter locally.
+      const html = fetchHtmlViaChrome(CL_GMS_PAGE_FALLBACK);
+      rawCl = parseGarageSearchHtml(html, 40);
+      source = "html-chrome";
+    }
+    const keptCl = filterGarageItems(rawCl);
     result.garageSales.items = keptCl.slice(0, GARAGE_SALES_MAX);
     result.garageSales.rawCount = rawCl.length;
     result.garageSales.keptCount = keptCl.length;
+    result.garageSales.source = source;
     if (!keptCl.length) {
       const note =
-        "Craigslist garage RSS: no filtered local hits (raw=" +
+        "Craigslist garage: no filtered local hits (raw=" +
         rawCl.length +
+        ", source=" +
+        source +
         ")";
       result.garageSales.errors.push(note);
       errors.push(note);
     }
   } catch (err) {
     const msg =
-      "Craigslist garage RSS (soft-fail): " +
+      "Craigslist garage (soft-fail): " +
       (err && err.message ? err.message : String(err));
     result.garageSales.items = [];
+    result.garageSales.keptCount = 0;
+    result.garageSales.rawCount = 0;
+    result.garageSales.source = null;
     result.garageSales.errors.push(msg);
     errors.push(msg);
   }
@@ -648,7 +783,11 @@ async function main() {
     "localBriefs=" + result.localBriefs.items.length,
     "[" + srcCounts + "],",
     result.chandlerJobs.items.length + " Chandler jobs,",
-    "garageCL=" + result.garageSales.items.length,
+    "garageCL=" +
+      result.garageSales.keptCount +
+      "/" +
+      result.garageSales.rawCount +
+      (result.garageSales.source ? "@" + result.garageSales.source : ""),
     result.maxpreps.featured ? "MaxPreps ok" : "MaxPreps null,",
     errors.length + " notes)"
   );

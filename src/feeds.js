@@ -355,7 +355,7 @@
       var note = el("p", "note");
       note.appendChild(
         document.createTextNode(
-          "Filtered local hits from Craigslist RSS (third-party). "
+          "Filtered local hits from Craigslist (third-party). "
         )
       );
       var more = el("a", null, "Browse full Craigslist search");
@@ -374,7 +374,7 @@
       "No Brownsboro / Chandler / rural Henderson matches in the latest pull";
     if (errors.length) {
       why +=
-        " — or the Craigslist RSS soft-failed (third-party block / empty feed).";
+        " — or the Craigslist pull soft-failed (third-party block / empty feed).";
     } else {
       why += ".";
     }
@@ -383,7 +383,7 @@
       el(
         "p",
         "note",
-        "Honest empty: we only show filtered hits when the build-time RSS returns local matches. Soft-fail on 403/block is normal from this environment."
+        "Honest empty: we only show filtered hits when the build-time pull returns local matches. Soft-fail on 403/block is normal from this environment."
       )
     );
     var p = el("p");
@@ -475,7 +475,7 @@
             pageUrl:
               "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
             filterNote:
-              "Brownsboro/Chandler/rural Henderson towns + 75756/75758; Henderson County careful; drop Tyler-only",
+              "Brownsboro/Chandler/rural west Henderson towns + 75756/75758; Henderson County careful; drop Tyler/Longview-only",
             errors: ["feeds.json unavailable — soft empty"]
           },
           brownsboro: {

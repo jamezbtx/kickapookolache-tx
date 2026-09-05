@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-05T23:12:48.672Z",
+  "fetchedAt": "2026-09-05T23:13:34.289Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -100,13 +100,23 @@
     ]
   },
   "garageSales": {
-    "items": [],
+    "items": [
+      {
+        "title": "Inside Outside Sale - 8mi So Chandler, Hwy 315",
+        "link": "https://www.craigslist.org/view/d/flint-family-garage-sale-flint/6hKD8DDarjBoxvVGPf8xKA",
+        "pubDate": "Wed Sep 02 2026 16:58:00 GMT+0000 (Coordinated Universal Time)",
+        "location": "Flint"
+      }
+    ],
     "hasRss": true,
     "feedUrl": "https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
     "pageUrl": "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
-    "filterNote": "Brownsboro/Chandler/rural Henderson towns + 75756/75758; Henderson County careful; drop Tyler-only",
+    "source": "html-chrome",
+    "rawCount": 4,
+    "keptCount": 1,
+    "filterNote": "Brownsboro/Chandler/rural west Henderson towns + 75756/75758 + Henderson County; drop Tyler/Longview-only",
     "errors": [
-      "Craigslist garage RSS (soft-fail): HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
+      "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
     ]
   },
   "brownsboro": {
@@ -126,6 +136,6 @@
   "errors": [
     "Chandler jobs RSS returned no items (often empty)",
     "Henderson County RSS returned no items (often empty)",
-    "Craigslist garage RSS (soft-fail): HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
+    "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
   ]
 }

@@ -371,3 +371,8 @@ body {
 .blotter-list{display:grid;gap:.85rem}
 .blotter-card{background:var(--cream);border:1px solid #d4cbb8;padding:.85rem}
 .blotter-meta{display:flex;flex-wrap:wrap;gap:.35rem .85rem;font-family:Helvetica Neue,Arial,sans-serif;font-size:.75rem;color:var(--muted);margin:.35rem 0 .5rem}
+
+.source-panel{margin-top:1rem}
+.qr-share-strip{align-items:flex-start}
+.site-nav a.is-active{font-weight:700}
+

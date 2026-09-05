@@ -6,6 +6,9 @@
   <title>Kickapoo Kolache · Brownsboro · Chandler TX</title>
   <meta name="robots" content="noindex, nofollow" />
   <meta name="description" content="Kickapoo Kolache — local digital newspaper for Brownsboro and Chandler, Texas (ZIPs 75756 / 75758)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -82,7 +85,7 @@
               <span class="weather-temp" data-role="temp">Loading…</span>
               <span class="weather-desc" data-role="desc">Local forecast</span>
               <span class="weather-extra" data-role="extra">High / low loading</span>
-              <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30237&amp;lon=-95.61357" target="_blank" rel="noopener noreferrer">NWS official forecast · Brownsboro</a>
+              <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30237&amp;lon=-95.61357" target="_blank" rel="noopener noreferrer">Full forecast (weather.gov)</a> · <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30237&amp;lon=-95.61357" target="_blank" rel="noopener noreferrer">7–14 day outlook (NWS)</a>
             </div>
             <div class="forecast-strip" data-role="forecast" hidden aria-label="7-day forecast Brownsboro"></div>
           </article>
@@ -93,7 +96,7 @@
               <span class="weather-temp" data-role="temp">Loading…</span>
               <span class="weather-desc" data-role="desc">Local forecast</span>
               <span class="weather-extra" data-role="extra">High / low loading</span>
-              <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30793&amp;lon=-95.47996" target="_blank" rel="noopener noreferrer">NWS official forecast · Chandler</a>
+              <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30793&amp;lon=-95.47996" target="_blank" rel="noopener noreferrer">Full forecast (weather.gov)</a> · <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30793&amp;lon=-95.47996" target="_blank" rel="noopener noreferrer">7–14 day outlook (NWS)</a>
             </div>
             <div class="forecast-strip" data-role="forecast" hidden aria-label="7-day forecast Chandler"></div>
           </article>
@@ -104,29 +107,36 @@
       <!-- 2. Interviews & Stories -->
       <section class="panel span-2" aria-labelledby="stories-heading">
         <h2 id="stories-heading">Interviews &amp; Stories</h2>
-        <div class="feed-grid">
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Main Street Memories: A Sample Feature</h3>
-            <p>EXAMPLE content only — not real reporting. Placeholder interview slot for a Brownsboro–Chandler resident profile.</p>
-          </article>
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Friday Night Lights Snapshot (Sample)</h3>
-            <p>EXAMPLE content only — not real reporting. Placeholder story slot for local Bears / community sports coverage.</p>
-          </article>
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Kitchen Table Talk: Sample Q and A</h3>
-            <p>EXAMPLE content only — not real reporting. Placeholder interview format for local voices.</p>
-          </article>
-          <article class="feed-card story-card">
-            <span class="badge">EXAMPLE</span>
-            <h3>Then and Now: Sample Photo Essay</h3>
-            <p>EXAMPLE content only — not real reporting. Placeholder visual story slot.</p>
-          </article>
+
+        <div class="stories-zone" aria-labelledby="neighbors-heading">
+          <h3 id="neighbors-heading" class="zone-heading">From neighbors</h3>
+          <div id="stories-interviews" class="feed-grid">
+            <article class="feed-card story-card interview-slot story-empty">
+              <span class="badge badge-waiting">WAITING</span>
+              <h3>James interview — slot 1</h3>
+              <p>Awaiting filing. Tip a Brownsboro–Chandler story:
+                <a href="mailto:kickapookolache@gmail.com?subject=Story%20tip%20for%20Kickapoo%20Kolache">kickapookolache@gmail.com</a>
+              </p>
+            </article>
+            <article class="feed-card story-card interview-slot story-empty">
+              <span class="badge badge-waiting">WAITING</span>
+              <h3>James interview — slot 2</h3>
+              <p>Awaiting filing. Tip a Brownsboro–Chandler story:
+                <a href="mailto:kickapookolache@gmail.com?subject=Story%20tip%20for%20Kickapoo%20Kolache">kickapookolache@gmail.com</a>
+              </p>
+            </article>
+          </div>
         </div>
-        <p class="note">EXAMPLE content only — interviews and feature stories for Brownsboro–Chandler.</p>
+
+        <div class="stories-zone" aria-labelledby="briefs-heading">
+          <h3 id="briefs-heading" class="zone-heading">Local briefs</h3>
+          <p class="zone-sub">LIVE public RSS for Brownsboro–Chandler &amp; rural Henderson only — not Tyler. Not Kolache original reporting.</p>
+          <div id="local-briefs" class="feed-grid" aria-live="polite">
+            <p class="stories-briefs-loading">Loading local briefs…</p>
+          </div>
+        </div>
+
+        <p class="note">James interview slots stay empty until filed. Live public RSS briefs are civic/news headlines (Chandler + Henderson County news flash + filtered Athens Review rural towns) — not Kolache reporting. Geographic scope excludes Tyler-only stories.</p>
       </section>
 
       <!-- 3. Weekly Spotlights -->

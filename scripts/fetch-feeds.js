@@ -15,12 +15,50 @@ const CHANDLER_PAGE = "https://www.chandlertx.com/m/NewsFlash";
 const CHANDLER_JOBS_FEED =
   "https://www.chandlertx.com/RSSFeed.aspx?CommunityJobs=False&ModID=66&CID=All-0";
 const CHANDLER_JOBS_PAGE = "https://www.chandlertx.com/jobs.aspx";
+const HENDERSON_FEED =
+  "https://www.henderson-county.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml";
+const HENDERSON_PAGE = "https://www.henderson-county.com/CivicAlerts.aspx";
+const ATHENS_FEED =
+  "https://www.athensreview.com/search/?f=rss&t=article&c=news&l=25&s=start_time&sd=desc";
+const ATHENS_PAGE = "https://www.athensreview.com/";
 const MAXPREPS_SCHOOL =
   "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/";
 const MAXPREPS_FOOTBALL =
   "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/";
 const UA =
   "KickapooKolache/1.0 (+local draft builder; Brownsboro-Chandler TX)";
+
+// Rural towns for Athens Review title/desc filter (Brownsboro–Chandler + rural Henderson).
+// Drop Tyler-only. Soft-fail OK if Athens yields nothing.
+const RURAL_TOWNS = [
+  "Brownsboro",
+  "Chandler",
+  "Murchison",
+  "Eustace",
+  "Malakoff",
+  "Tool",
+  "Seven Points",
+  "Gun Barrel",
+  "Berryville",
+  "Larue",
+  "Poynor",
+  "Neches",
+  "Trinidad",
+  "Enchanted Oaks",
+  "Payne Springs",
+  "Star Harbor",
+  "Moore Station"
+];
+const RURAL_INCLUDE_RE = new RegExp(
+  "\\b(" +
+    RURAL_TOWNS.map(function (t) {
+      return t.replace(/\s+/g, "\\s+");
+    }).join("|") +
+    ")\\b",
+  "i"
+);
+
+const LOCAL_BRIEFS_MAX = 10;
 
 function fetchText(url, timeoutMs) {
   return new Promise(function (resolve, reject) {
@@ -77,6 +115,10 @@ function decodeXml(s) {
     .trim();
 }
 
+function stripTags(s) {
+  return decodeXml(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 function parseRssItems(xml, maxItems) {
   const items = [];
   const re = /<item\b[\s\S]*?<\/item>/gi;
@@ -86,13 +128,89 @@ function parseRssItems(xml, maxItems) {
     const titleM = block.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
     const linkM = block.match(/<link\b[^>]*>([\s\S]*?)<\/link>/i);
     const dateM = block.match(/<pubDate\b[^>]*>([\s\S]*?)<\/pubDate>/i);
+    const descM = block.match(/<description\b[^>]*>([\s\S]*?)<\/description>/i);
     const title = decodeXml(titleM && titleM[1]);
     const link = decodeXml(linkM && linkM[1]);
     const pubDate = decodeXml(dateM && dateM[1]);
+    const description = stripTags(descM && descM[1]);
     if (!title) continue;
-    items.push({ title: title, link: link || null, pubDate: pubDate || null });
+    items.push({
+      title: title,
+      link: link || null,
+      pubDate: pubDate || null,
+      description: description || null
+    });
   }
   return items;
+}
+
+function haystack(item) {
+  return [item.title, item.description, item.link]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function passesRuralFilter(item) {
+  const text = haystack(item);
+  if (!text) return false;
+  // Require an explicit rural town from the allow-list.
+  if (!RURAL_INCLUDE_RE.test(text)) return false;
+  // Drop Tyler-only: Tyler mention without a rural town after stripping Tyler.
+  if (/\btyler\b/i.test(text)) {
+    const withoutTyler = text.replace(/\btyler\b/gi, " ");
+    if (!RURAL_INCLUDE_RE.test(withoutTyler)) return false;
+  }
+  return true;
+}
+
+function toBrief(item, source, sourceUrl) {
+  return {
+    title: item.title,
+    link: item.link || null,
+    pubDate: item.pubDate || null,
+    source: source,
+    sourceUrl: sourceUrl
+  };
+}
+
+function briefSortKey(item) {
+  if (!item.pubDate) return 0;
+  const t = Date.parse(item.pubDate);
+  return Number.isNaN(t) ? 0 : t;
+}
+
+function buildLocalBriefs(groups, briefErrors) {
+  const sources = [];
+  const briefs = [];
+  const seen = Object.create(null);
+
+  (groups || []).forEach(function (g) {
+    const items = g.items || [];
+    sources.push({
+      id: g.id,
+      label: g.label,
+      url: g.url,
+      count: items.length,
+      error: g.error || null
+    });
+    items.forEach(function (item) {
+      if (!item || !item.title) return;
+      const key = (item.link || item.title).toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      briefs.push(toBrief(item, g.label, g.url));
+    });
+  });
+
+  briefs.sort(function (a, b) {
+    return briefSortKey(b) - briefSortKey(a);
+  });
+
+  return {
+    items: briefs.slice(0, LOCAL_BRIEFS_MAX),
+    sources: sources,
+    errors: briefErrors || []
+  };
 }
 
 function opponentLabelFromTeam(team) {
@@ -192,9 +310,8 @@ function parseMaxprepsFeatured(html) {
   };
 }
 
-async function main() {
-  const errors = [];
-  const result = {
+function emptyPayload(errors) {
+  return {
     fetchedAt: new Date().toISOString(),
     maxpreps: {
       schoolUrl: MAXPREPS_SCHOOL,
@@ -213,6 +330,26 @@ async function main() {
       pageUrl: CHANDLER_JOBS_PAGE,
       items: []
     },
+    henderson: {
+      hasRss: true,
+      feedUrl: HENDERSON_FEED,
+      pageUrl: HENDERSON_PAGE,
+      items: [],
+      note: "Official Henderson County news flash (often empty)"
+    },
+    athensReview: {
+      hasRss: true,
+      feedUrl: ATHENS_FEED,
+      pageUrl: ATHENS_PAGE,
+      items: [],
+      filter:
+        "Keep rural towns (Brownsboro–Chandler + rural Henderson list); drop Tyler-only"
+    },
+    localBriefs: {
+      items: [],
+      sources: [],
+      errors: []
+    },
     brownsboro: {
       hasRss: false,
       label: "No RSS — link fallback",
@@ -227,8 +364,13 @@ async function main() {
       parentSquareUrl: "https://www.gobearsgo.net/families/parentsquare",
       note: "ParentSquare is primary for families"
     },
-    errors: errors
+    errors: errors || []
   };
+}
+
+async function main() {
+  const errors = [];
+  const result = emptyPayload(errors);
 
   try {
     const xml = await fetchText(CHANDLER_FEED);
@@ -254,6 +396,83 @@ async function main() {
   }
 
   try {
+    const henXml = await fetchText(HENDERSON_FEED);
+    result.henderson.items = parseRssItems(henXml, 8);
+    // Empty channel is normal — soft note only
+    if (!result.henderson.items.length) {
+      errors.push("Henderson County RSS returned no items (often empty)");
+    }
+  } catch (err) {
+    errors.push(
+      "Henderson County RSS: " + (err && err.message ? err.message : String(err))
+    );
+  }
+
+  try {
+    const athXml = await fetchText(ATHENS_FEED);
+    const raw = parseRssItems(athXml, 25);
+    const kept = [];
+    let dropped = 0;
+    raw.forEach(function (item) {
+      if (passesRuralFilter(item)) {
+        kept.push(item);
+      } else {
+        dropped += 1;
+      }
+    });
+    result.athensReview.items = kept.slice(0, 8);
+    result.athensReview.rawCount = raw.length;
+    result.athensReview.keptCount = kept.length;
+    result.athensReview.droppedCount = dropped;
+    // Soft-fail: zero rural matches is OK — recorded on localBriefs.errors.
+  } catch (err) {
+    // Soft-fail Athens
+    errors.push(
+      "Athens Review RSS (soft-fail): " +
+        (err && err.message ? err.message : String(err))
+    );
+  }
+
+  const briefErrors = [];
+  if (!result.henderson.items.length) {
+    briefErrors.push("Henderson County RSS returned no items (often empty)");
+  }
+  if (!result.athensReview.items.length) {
+    briefErrors.push(
+      "Athens Review: no rural-town matches after filter (soft-fail; raw=" +
+        (result.athensReview.rawCount || 0) +
+        ")"
+    );
+  }
+
+  result.localBriefs = buildLocalBriefs(
+    [
+      {
+        id: "chandler",
+        label: "Chandler News Flash",
+        url: CHANDLER_FEED,
+        items: result.chandler.items,
+        error: null
+      },
+      {
+        id: "henderson",
+        label: "Henderson County News Flash",
+        url: HENDERSON_FEED,
+        items: result.henderson.items,
+        error: null
+      },
+      {
+        id: "athens",
+        label: "Athens Review (rural filter)",
+        url: ATHENS_FEED,
+        items: result.athensReview.items,
+        error: null
+      }
+    ],
+    briefErrors
+  );
+
+  try {
     const html = await fetchText(MAXPREPS_FOOTBALL);
     const parsed = parseMaxprepsFeatured(html);
     result.maxpreps.featured = parsed.featured;
@@ -266,53 +485,30 @@ async function main() {
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
   fs.writeFileSync(OUT_FILE, JSON.stringify(result, null, 2) + "\n", "utf8");
+  const srcCounts = (result.localBriefs.sources || [])
+    .map(function (s) {
+      return s.id + "=" + s.count;
+    })
+    .join(", ");
   console.log(
     "Wrote",
     path.relative(ROOT, OUT_FILE),
-    "(" + result.chandler.items.length + " Chandler items,",
+    "(" + result.chandler.items.length + " Chandler,",
+    result.henderson.items.length + " Henderson,",
+    result.athensReview.items.length + " Athens-filtered,",
+    "localBriefs=" + result.localBriefs.items.length,
+    "[" + srcCounts + "],",
     result.chandlerJobs.items.length + " Chandler jobs,",
-    result.maxpreps.featured ? "MaxPreps featured ok" : "MaxPreps featured null,",
-    errors.length + " errors)"
+    result.maxpreps.featured ? "MaxPreps ok" : "MaxPreps null,",
+    errors.length + " notes)"
   );
 }
 
 main().catch(function (err) {
   console.error("fetch-feeds failed hard:", err);
-  const fallback = {
-    fetchedAt: new Date().toISOString(),
-    maxpreps: {
-      schoolUrl: MAXPREPS_SCHOOL,
-      footballUrl: MAXPREPS_FOOTBALL,
-      featured: null
-    },
-    chandler: {
-      hasRss: true,
-      feedUrl: CHANDLER_FEED,
-      pageUrl: CHANDLER_PAGE,
-      items: []
-    },
-    chandlerJobs: {
-      hasRss: true,
-      feedUrl: CHANDLER_JOBS_FEED,
-      pageUrl: CHANDLER_JOBS_PAGE,
-      items: []
-    },
-    brownsboro: {
-      hasRss: false,
-      label: "No RSS — link fallback",
-      pageUrl: "https://brownsborotx.gov/",
-      agendasUrl: "https://brownsborotx.gov/meeting-agendas-and-minutes"
-    },
-    bisd: {
-      hasRss: false,
-      label: "No news RSS — link fallback",
-      newsUrl: "https://www.gobearsgo.net/about-us/new-headlines",
-      calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar",
-      parentSquareUrl: "https://www.gobearsgo.net/families/parentsquare",
-      note: "ParentSquare is primary for families"
-    },
-    errors: [String(err && err.message ? err.message : err)]
-  };
+  const fallback = emptyPayload([
+    String(err && err.message ? err.message : err)
+  ]);
   try {
     fs.mkdirSync(OUT_DIR, { recursive: true });
     fs.writeFileSync(OUT_FILE, JSON.stringify(fallback, null, 2) + "\n", "utf8");

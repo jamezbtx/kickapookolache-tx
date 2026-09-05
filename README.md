@@ -12,7 +12,7 @@ Output lands in the publish directory: public/
 
 0. Essentials — almanac / joke / scripture / This Day in History (EXAMPLE + JSON scaffold)
 1. Weather — ZIPs 75756 / 75758 (Open-Meteo draft + NWS official links + multi-day)
-2. Interviews & Stories (EXAMPLE)
+2. Interviews & Stories — From neighbors (honest empty + tip CTA) + Local briefs LIVE (Chandler / Henderson / filtered Athens Review)
 3. Weekly Spotlights — business / school / official / pastor (EXAMPLE)
 4. Contractor Spotlight — ONE featured paid/partner card (EXAMPLE; separate from directory)
 5. Bears Sports · MaxPreps (placeholder)

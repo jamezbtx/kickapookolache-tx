@@ -270,6 +270,53 @@
     root.appendChild(card);
   }
 
+  /** Interviews & Stories — Local briefs (LIVE RSS). Never invent stories. */
+  function fillLocalBriefs(root, data) {
+    if (!root) return;
+    clear(root);
+    var lb = (data && data.localBriefs) || {};
+    // Support { items, sources, errors } shape (preferred) or legacy array.
+    var briefs = Array.isArray(lb) ? lb : lb.items || [];
+    if (!briefs.length) {
+      var empty = el("article", "feed-card story-card story-empty");
+      empty.appendChild(el("p", "stories-empty-msg", "No local briefs right now."));
+      empty.appendChild(
+        el(
+          "p",
+          "note",
+          "Live pulls: Chandler News Flash + Henderson County News Flash + filtered Athens Review (rural towns only — not Tyler). Soft-fail OK."
+        )
+      );
+      root.appendChild(empty);
+      return;
+    }
+
+    briefs.forEach(function (item) {
+      var card = el("article", "feed-card story-card feed-live-card brief-card");
+      card.appendChild(el("span", "badge badge-live", "LIVE"));
+      var titleText = item.title || "Untitled brief";
+      if (item.link) {
+        var h = el("h3");
+        var a = el("a", "brief-title-link", titleText);
+        a.href = item.link;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        h.appendChild(a);
+        card.appendChild(h);
+      } else {
+        card.appendChild(el("h3", null, titleText));
+      }
+      var meta = el("p", "brief-meta");
+      var bits = [];
+      var src = item.source || item.sourceLabel;
+      if (src) bits.push(src);
+      if (item.pubDate) bits.push(formatDate(item.pubDate));
+      meta.textContent = bits.join(" · ");
+      card.appendChild(meta);
+      root.appendChild(card);
+    });
+  }
+
   function apply(data) {
     var bears = document.getElementById("bears-live");
     var chandler = document.getElementById("feed-chandler");
@@ -277,10 +324,14 @@
     var bisd = document.getElementById("feed-bisd");
     var civic = document.getElementById("feed-civic");
     var jobsLive = document.getElementById("jobs-live");
+    var storiesBriefs = document.getElementById("stories-briefs");
+    var localBriefsEl = document.getElementById("local-briefs");
 
     if (bears) fillBears(bears, data);
     if (chandler) fillChandler(chandler, data);
     if (jobsLive) fillJobs(jobsLive, data);
+    if (storiesBriefs) fillLocalBriefs(storiesBriefs, data);
+    if (localBriefsEl) fillLocalBriefs(localBriefsEl, data);
 
     if (brownsboro) {
       var bb = (data && data.brownsboro) || {};
@@ -327,6 +378,9 @@
             pageUrl: "https://www.chandlertx.com/jobs.aspx",
             items: []
           },
+          henderson: { hasRss: true, items: [] },
+          athensReview: { hasRss: true, items: [] },
+          localBriefs: { items: [], sources: [], errors: [] },
           brownsboro: {
             hasRss: false,
             label: "No RSS — link fallback",

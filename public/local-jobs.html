@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local Jobs · Kickapoo Kolache</title>
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="EXAMPLE local jobs — not real openings." />
+  <meta name="description" content="Local job sources for Chandler and Brownsboro — city pages, optional RSS, and email submissions." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -41,13 +41,28 @@
     <main>
       <section class="panel span-2" aria-labelledby="jobs-heading">
         <h2 id="jobs-heading">Local Jobs</h2>
-        <p class="note example-note">EXAMPLE listings only — sample local job cards for Brownsboro–Chandler. Paid expanded job listings later. Not real openings.</p>
-        <div class="feed-grid">
-          <article class="feed-card"><span class="badge">EXAMPLE</span><h3>Sample Role — Front of House (EXAMPLE)</h3><p>EXAMPLE employer · Chandler area · part-time placeholder. Not a real job posting.</p></article>
-          <article class="feed-card"><span class="badge">EXAMPLE</span><h3>Sample Role — Skilled Trade Helper (EXAMPLE)</h3><p>EXAMPLE employer · Brownsboro area · full-time placeholder. Not a real job posting.</p></article>
-          <article class="feed-card"><span class="badge">EXAMPLE</span><h3>Sample Role — Office / Admin (EXAMPLE)</h3><p>EXAMPLE listing format for future paid expanded posts. Brownsboro–Chandler scope only.</p></article>
+        <p class="note">Public city and school employment pages below. Chandler city jobs RSS is wired when items exist (often empty). We do not invent openings.</p>
+
+        <h3 class="jobs-subhead">Chandler city RSS openings</h3>
+        <div id="jobs-live" aria-live="polite">
+          <p class="jobs-empty">Loading city openings…</p>
         </div>
+
+        <h3 class="jobs-subhead">Public source links</h3>
+        <ul class="link-primary-list">
+          <li><a href="https://www.chandlertx.com/jobs.aspx" rel="noopener noreferrer" target="_blank">City of Chandler — jobs page</a></li>
+          <li><a href="https://www.chandlertx.com/RSSFeed.aspx?CommunityJobs=False&amp;ModID=66&amp;CID=All-0" rel="noopener noreferrer" target="_blank">City of Chandler — jobs RSS</a> (often empty)</li>
+          <li><a href="https://brownsborotx.gov/employment-opportunities" rel="noopener noreferrer" target="_blank">City of Brownsboro — employment opportunities</a> (public page; check source for current openings)</li>
+          <li><a href="https://www.gobearsgo.net/departments/human-resources/job-openings" rel="noopener noreferrer" target="_blank">Brownsboro ISD (BISD) — job openings</a></li>
+        </ul>
       </section>
+
+      <aside class="panel span-2 submit-panel" aria-labelledby="jobs-submit">
+        <h2 id="jobs-submit">Local Submissions</h2>
+        <p>Submit a local job listing for review to James (jamezbtx@gmail.com). Listings are reviewed before they appear on Kickapoo Kolache. Paid expanded job listings later.</p>
+        <a class="submit-cta" href="mailto:jamezbtx@gmail.com?subject=Kickapoo%20Local%20Job%20Listing&amp;body=Please%20include%3A%0A-%20Job%20title%0A-%20Employer%20%2F%20business%0A-%20Location%20(Chandler%20%2F%20Brownsboro%20area)%0A-%20Full-time%20%2F%20part-time%0A-%20How%20to%20apply%0A-%20Your%20contact%20info%0A">Email job listing</a>
+        <span class="review-label">Reviewed before posting.</span>
+      </aside>
     </main>
     <footer class="site-footer">
       <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
@@ -55,6 +70,7 @@
     </footer>
   </div>
   <script src="share.js" defer></script>
+  <script src="feeds.js" defer></script>
   <script>(function(){var y=document.getElementById("year"); if(y) y.textContent=String(new Date().getFullYear());})();</script>
 </body>
 </html>

@@ -212,15 +212,75 @@
     root.appendChild(card);
   }
 
+  function fillJobs(root, data) {
+    clear(root);
+    var jobs = (data && data.chandlerJobs) || {};
+    var items = jobs.items || [];
+    var card = el("article", "feed-card feed-live-card");
+    if (items.length) {
+      card.appendChild(el("span", "badge badge-live", "LIVE"));
+      card.appendChild(el("h3", null, "City of Chandler — job openings"));
+      var list = el("ul", "feed-live-list");
+      items.forEach(function (item) {
+        var li = el("li");
+        if (item.link) {
+          var a = el("a", null, item.title || "Untitled");
+          a.href = item.link;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          li.appendChild(a);
+        } else {
+          li.appendChild(document.createTextNode(item.title || "Untitled"));
+        }
+        if (item.pubDate) {
+          li.appendChild(document.createTextNode(" · " + formatDate(item.pubDate)));
+        }
+        list.appendChild(li);
+      });
+      card.appendChild(list);
+      if (jobs.pageUrl) {
+        var more = el("p");
+        var ma = el("a", null, "All Chandler city jobs");
+        ma.href = jobs.pageUrl;
+        ma.target = "_blank";
+        ma.rel = "noopener noreferrer";
+        more.appendChild(ma);
+        card.appendChild(more);
+      }
+    } else {
+      card.appendChild(el("span", "badge badge-fallback", "No RSS items"));
+      card.appendChild(el("h3", null, "City of Chandler — job openings"));
+      card.appendChild(
+        el(
+          "p",
+          "jobs-empty",
+          "No city RSS openings right now — see source links."
+        )
+      );
+      if (jobs.pageUrl) {
+        var p = el("p");
+        var a = el("a", null, "Chandler jobs page");
+        a.href = jobs.pageUrl;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        p.appendChild(a);
+        card.appendChild(p);
+      }
+    }
+    root.appendChild(card);
+  }
+
   function apply(data) {
     var bears = document.getElementById("bears-live");
     var chandler = document.getElementById("feed-chandler");
     var brownsboro = document.getElementById("feed-brownsboro");
     var bisd = document.getElementById("feed-bisd");
     var civic = document.getElementById("feed-civic");
+    var jobsLive = document.getElementById("jobs-live");
 
     if (bears) fillBears(bears, data);
     if (chandler) fillChandler(chandler, data);
+    if (jobsLive) fillJobs(jobsLive, data);
 
     if (brownsboro) {
       var bb = (data && data.brownsboro) || {};
@@ -260,6 +320,11 @@
           chandler: {
             hasRss: true,
             pageUrl: "https://www.chandlertx.com/m/NewsFlash",
+            items: []
+          },
+          chandlerJobs: {
+            hasRss: true,
+            pageUrl: "https://www.chandlertx.com/jobs.aspx",
             items: []
           },
           brownsboro: {

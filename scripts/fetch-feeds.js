@@ -12,6 +12,9 @@ const OUT_FILE = path.join(OUT_DIR, "feeds.json");
 const CHANDLER_FEED =
   "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml";
 const CHANDLER_PAGE = "https://www.chandlertx.com/m/NewsFlash";
+const CHANDLER_JOBS_FEED =
+  "https://www.chandlertx.com/RSSFeed.aspx?CommunityJobs=False&ModID=66&CID=All-0";
+const CHANDLER_JOBS_PAGE = "https://www.chandlertx.com/jobs.aspx";
 const MAXPREPS_SCHOOL =
   "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/";
 const MAXPREPS_FOOTBALL =
@@ -204,6 +207,12 @@ async function main() {
       pageUrl: CHANDLER_PAGE,
       items: []
     },
+    chandlerJobs: {
+      hasRss: true,
+      feedUrl: CHANDLER_JOBS_FEED,
+      pageUrl: CHANDLER_JOBS_PAGE,
+      items: []
+    },
     brownsboro: {
       hasRss: false,
       label: "No RSS — link fallback",
@@ -232,6 +241,19 @@ async function main() {
   }
 
   try {
+    const jobsXml = await fetchText(CHANDLER_JOBS_FEED);
+    result.chandlerJobs.items = parseRssItems(jobsXml, 10);
+    // Often empty — soft note only, not a hard failure
+    if (!result.chandlerJobs.items.length) {
+      errors.push("Chandler jobs RSS returned no items (often empty)");
+    }
+  } catch (err) {
+    errors.push(
+      "Chandler jobs RSS: " + (err && err.message ? err.message : String(err))
+    );
+  }
+
+  try {
     const html = await fetchText(MAXPREPS_FOOTBALL);
     const parsed = parseMaxprepsFeatured(html);
     result.maxpreps.featured = parsed.featured;
@@ -248,6 +270,7 @@ async function main() {
     "Wrote",
     path.relative(ROOT, OUT_FILE),
     "(" + result.chandler.items.length + " Chandler items,",
+    result.chandlerJobs.items.length + " Chandler jobs,",
     result.maxpreps.featured ? "MaxPreps featured ok" : "MaxPreps featured null,",
     errors.length + " errors)"
   );
@@ -266,6 +289,12 @@ main().catch(function (err) {
       hasRss: true,
       feedUrl: CHANDLER_FEED,
       pageUrl: CHANDLER_PAGE,
+      items: []
+    },
+    chandlerJobs: {
+      hasRss: true,
+      feedUrl: CHANDLER_JOBS_FEED,
+      pageUrl: CHANDLER_JOBS_PAGE,
       items: []
     },
     brownsboro: {

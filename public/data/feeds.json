@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-05T18:51:25.406Z",
+  "fetchedAt": "2026-09-05T18:54:43.267Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -48,6 +48,12 @@
       }
     ]
   },
+  "chandlerJobs": {
+    "hasRss": true,
+    "feedUrl": "https://www.chandlertx.com/RSSFeed.aspx?CommunityJobs=False&ModID=66&CID=All-0",
+    "pageUrl": "https://www.chandlertx.com/jobs.aspx",
+    "items": []
+  },
   "brownsboro": {
     "hasRss": false,
     "label": "No RSS — link fallback",
@@ -62,5 +68,7 @@
     "parentSquareUrl": "https://www.gobearsgo.net/families/parentsquare",
     "note": "ParentSquare is primary for families"
   },
-  "errors": []
+  "errors": [
+    "Chandler jobs RSS returned no items (often empty)"
+  ]
 }

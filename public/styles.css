@@ -376,3 +376,72 @@ body {
 .qr-share-strip{align-items:flex-start}
 .site-nav a.is-active{font-weight:700}
 
+
+.submit-panel {
+  background: #faf6ee;
+  border-color: #d4c4a0;
+  margin-top: 1rem;
+}
+.submit-panel .submit-cta {
+  display: inline-block;
+  margin: .65rem 0 .35rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  text-decoration: none;
+  padding: .45rem .85rem;
+  border: 1px solid var(--accent);
+}
+.submit-panel .submit-cta:hover {
+  opacity: .92;
+}
+.submit-panel .review-label {
+  display: block;
+  margin: .35rem 0 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--accent);
+  font-style: normal;
+}
+.link-primary-list {
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: 0;
+}
+.link-primary-list li {
+  padding: .4rem 0;
+  border-bottom: 1px dotted #cfc6b4;
+  font-size: .95rem;
+}
+.link-primary-list li:last-child { border-bottom: 0; }
+.link-primary-list a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.link-primary-list a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+#jobs-live {
+  margin: .75rem 0 0;
+}
+#jobs-live .jobs-empty {
+  margin: .5rem 0 0;
+  font-size: .9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.jobs-subhead {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 1.15rem 0 .4rem;
+  color: var(--ink);
+}

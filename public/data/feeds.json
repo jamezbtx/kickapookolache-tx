@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-05T21:36:36.623Z",
+  "fetchedAt": "2026-09-05T21:39:49.657Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -77,51 +77,8 @@
     "droppedCount": 25
   },
   "localBriefs": {
-    "items": [
-      {
-        "title": "Sept 8 Meeting Amendment to Sept 10th",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=379",
-        "pubDate": "Fri, 04 Sep 2026 15:03:13 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
-      },
-      {
-        "title": "Proposed Budget FY 26 -27",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=378",
-        "pubDate": "Wed, 26 Aug 2026 18:17:00 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
-      },
-      {
-        "title": "RFQ Municipal Engineering and Dev Review Services RFQ No. 2026-002",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=377",
-        "pubDate": "Thu, 13 Aug 2026 12:43:37 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
-      },
-      {
-        "title": "Special Meeting",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=376",
-        "pubDate": "Wed, 12 Aug 2026 17:41:00 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
-      },
-      {
-        "title": "Notice about 2026 Tax Rates",
-        "link": "https://chandlertx.com/DocumentCenter/View/2143/Notice-about-2026-Tax-Rates",
-        "pubDate": "Fri, 07 Aug 2026 22:22:00 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
-      }
-    ],
+    "items": [],
     "sources": [
-      {
-        "id": "chandler",
-        "label": "Chandler News Flash",
-        "url": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
-        "count": 5,
-        "error": null
-      },
       {
         "id": "henderson",
         "label": "Henderson County News Flash",

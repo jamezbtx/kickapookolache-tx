@@ -284,7 +284,7 @@
         el(
           "p",
           "note",
-          "Live pulls: Chandler News Flash + Henderson County News Flash + filtered Athens Review (rural towns only — not Tyler). Soft-fail OK."
+          "Live pulls: Henderson County News Flash + filtered Athens Review (rural towns only — not Tyler). Chandler News Flash stays under Official City & School Feeds. Soft-fail OK."
         )
       );
       root.appendChild(empty);

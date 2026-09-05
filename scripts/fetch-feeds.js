@@ -445,15 +445,10 @@ async function main() {
     );
   }
 
+  // Local briefs deliberately EXCLUDE Chandler News Flash (shown only under
+  // Official City & School Feeds) to avoid homepage duplication.
   result.localBriefs = buildLocalBriefs(
     [
-      {
-        id: "chandler",
-        label: "Chandler News Flash",
-        url: CHANDLER_FEED,
-        items: result.chandler.items,
-        error: null
-      },
       {
         id: "henderson",
         label: "Henderson County News Flash",

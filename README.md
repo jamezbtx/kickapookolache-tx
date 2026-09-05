@@ -12,14 +12,15 @@ Output lands in the publish directory: public/
 
 0. Essentials — almanac / joke / scripture / This Day in History (EXAMPLE + JSON scaffold)
 1. Weather — ZIPs 75756 / 75758 (Open-Meteo draft + NWS official links + multi-day)
-2. Interviews & Stories — From neighbors (honest empty + tip CTA) + Local briefs LIVE (Chandler / Henderson / filtered Athens Review)
-3. Weekly Spotlights — business / school / official / pastor (EXAMPLE)
-4. Contractor Spotlight — ONE featured paid/partner card (EXAMPLE; separate from directory)
-5. Bears Sports · MaxPreps (placeholder)
-6. Official City & School Feeds (placeholders)
-7. Columns — Christian Bushcraft + Carlee Craft (EXAMPLE)
-8. Local Contractors directory — sponsored listing cards (multiple EXAMPLE)
-9. Local Resources · City / BISD (near footer)
+2. Interviews & Stories — From neighbors (honest empty + tip CTA; spotlight-style features when James files them) + Local briefs LIVE (Henderson County / filtered Athens Review — NOT Chandler News Flash)
+3. Contractor Spotlight — ONE featured paid/partner card (EXAMPLE; separate from directory; monetization)
+4. Bears Sports · MaxPreps (placeholder)
+5. Official City & School Feeds — Chandler RSS + Brownsboro/BISD fallbacks
+6. Columns — Christian Bushcraft + Carlee Craft (EXAMPLE)
+7. Local Contractors directory — sponsored listing cards (multiple EXAMPLE)
+8. Local Resources · City / BISD (near footer)
+
+Weekly Spotlights (business/school/official/pastor EXAMPLE panel) removed from homepage — those features live under Interviews & Stories when filed.
 
 ## Status
 

@@ -11,7 +11,7 @@ const assetsOut = path.join(out, "assets");
 fs.mkdirSync(out, { recursive: true });
 fs.mkdirSync(path.join(out, "data"), { recursive: true });
 
-const files = ["index.html", "styles.css", "weather.js", "feeds.js", "share.js", "obituaries.html", "police-blotter.html", "local-jobs.html", "ask-the-kolache.html"];
+const files = ["index.html", "styles.css", "weather.js", "essentials.js", "feeds.js", "share.js", "obituaries.html", "police-blotter.html", "local-jobs.html", "ask-the-kolache.html"];
 for (const name of files) {
   const from = path.join(src, name);
   const to = path.join(out, name);
@@ -57,6 +57,29 @@ if (fs.existsSync(fetchScript)) {
   }
 } else {
   console.warn("Missing scripts/fetch-feeds.js; skipped feed refresh");
+}
+
+
+// Refresh essentials snapshot into public/data/essentials.json (soft-fail)
+const fetchEssentials = path.join(root, "scripts", "fetch-essentials.js");
+if (fs.existsSync(fetchEssentials)) {
+  console.log("Running scripts/fetch-essentials.js …");
+  const essResult = spawnSync(process.execPath, [fetchEssentials], {
+    cwd: root,
+    encoding: "utf8",
+    env: process.env
+  });
+  if (essResult.stdout) process.stdout.write(essResult.stdout);
+  if (essResult.stderr) process.stderr.write(essResult.stderr);
+  if (essResult.status !== 0) {
+    console.warn(
+      "fetch-essentials.js exited with status",
+      essResult.status,
+      "(continuing build)"
+    );
+  }
+} else {
+  console.warn("Missing scripts/fetch-essentials.js; skipped essentials refresh");
 }
 
 console.log("Build complete → public/");

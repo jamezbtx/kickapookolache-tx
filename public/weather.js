@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  var FORECAST_DAYS = 7;
+
   var WMO_LABELS = {
     0: "Clear",
     1: "Mainly clear",
@@ -38,9 +40,40 @@
     return WMO_LABELS[n] || "Weather code " + n;
   }
 
+  function shortWmo(code) {
+    var full = wmoLabel(code);
+    if (full.indexOf("Thunderstorm") === 0) return "T-storm";
+    if (full.indexOf("Partly cloudy") === 0) return "Partly cloudy";
+    if (full.indexOf("Mainly clear") === 0) return "Mostly clear";
+    if (full.indexOf("Depositing") === 0) return "Fog";
+    if (full.length > 16) {
+      var cut = full.split(/[+·]/)[0].trim();
+      return cut.length > 16 ? cut.slice(0, 14) + "…" : cut;
+    }
+    return full;
+  }
+
   function roundTemp(t) {
     if (t == null || Number.isNaN(Number(t))) return "—";
+    return Math.round(Number(t)) + "°";
+  }
+
+  function roundTempF(t) {
+    if (t == null || Number.isNaN(Number(t))) return "—";
     return Math.round(Number(t)) + "°F";
+  }
+
+  function weekdayLabel(isoDate) {
+    if (!isoDate) return "—";
+    var parts = String(isoDate).split("-");
+    if (parts.length < 3) return "—";
+    var d = new Date(
+      Number(parts[0]),
+      Number(parts[1]) - 1,
+      Number(parts[2])
+    );
+    if (Number.isNaN(d.getTime())) return "—";
+    return d.toLocaleDateString("en-US", { weekday: "short" });
   }
 
   function buildUrl(lat, lon) {
@@ -48,10 +81,11 @@
       latitude: String(lat),
       longitude: String(lon),
       current: "temperature_2m,weather_code",
-      daily: "temperature_2m_max,temperature_2m_min",
+      daily:
+        "weather_code,temperature_2m_max,temperature_2m_min",
       temperature_unit: "fahrenheit",
       timezone: "America/Chicago",
-      forecast_days: "1"
+      forecast_days: String(FORECAST_DAYS)
     });
     return "https://api.open-meteo.com/v1/forecast?" + params.toString();
   }
@@ -60,29 +94,77 @@
     var temp = card.querySelector('[data-role="temp"]');
     var desc = card.querySelector('[data-role="desc"]');
     var extra = card.querySelector('[data-role="extra"]');
+    var forecast = card.querySelector('[data-role="forecast"]');
     if (temp) temp.textContent = "—";
     if (desc) desc.textContent = message || "Unavailable";
     if (extra) extra.textContent = "High / low unavailable";
+    if (forecast) {
+      forecast.innerHTML = "";
+      forecast.hidden = true;
+    }
     card.classList.add("weather-error");
+  }
+
+  function renderForecast(container, daily) {
+    if (!container) return;
+    container.innerHTML = "";
+    if (
+      !daily ||
+      !daily.time ||
+      !daily.temperature_2m_max ||
+      !daily.temperature_2m_min
+    ) {
+      container.hidden = true;
+      return;
+    }
+    var frag = document.createDocumentFragment();
+    var count = Math.min(FORECAST_DAYS, daily.time.length);
+    for (var i = 0; i < count; i++) {
+      var day = document.createElement("div");
+      day.className = "forecast-day";
+      var name = document.createElement("span");
+      name.className = "forecast-dow";
+      name.textContent = weekdayLabel(daily.time[i]);
+      var hiLo = document.createElement("span");
+      hiLo.className = "forecast-temps";
+      hiLo.textContent =
+        roundTemp(daily.temperature_2m_max[i]) +
+        " / " +
+        roundTemp(daily.temperature_2m_min[i]);
+      var label = document.createElement("span");
+      label.className = "forecast-label";
+      label.textContent = shortWmo(
+        daily.weather_code && daily.weather_code[i]
+      );
+      day.appendChild(name);
+      day.appendChild(hiLo);
+      day.appendChild(label);
+      frag.appendChild(day);
+    }
+    container.appendChild(frag);
+    container.hidden = false;
   }
 
   function fillCard(card, data) {
     var temp = card.querySelector('[data-role="temp"]');
     var desc = card.querySelector('[data-role="desc"]');
     var extra = card.querySelector('[data-role="extra"]');
+    var forecast = card.querySelector('[data-role="forecast"]');
     var current = data && data.current;
     var daily = data && data.daily;
     if (!current) {
       setCardError(card, "Unavailable");
       return;
     }
-    if (temp) temp.textContent = roundTemp(current.temperature_2m);
+    if (temp) temp.textContent = roundTempF(current.temperature_2m);
     if (desc) desc.textContent = wmoLabel(current.weather_code);
     var hi = daily && daily.temperature_2m_max && daily.temperature_2m_max[0];
     var lo = daily && daily.temperature_2m_min && daily.temperature_2m_min[0];
     if (extra) {
-      extra.textContent = "High " + roundTemp(hi) + " · Low " + roundTemp(lo);
+      extra.textContent =
+        "Today High " + roundTempF(hi) + " · Low " + roundTempF(lo);
     }
+    renderForecast(forecast, daily);
     card.classList.remove("weather-error");
   }
 

@@ -46,24 +46,29 @@
       <!-- 0. Essentials -->
       <section class="panel span-2 essentials-panel" aria-labelledby="essentials-heading">
         <h2 id="essentials-heading">Essentials</h2>
-        <div class="essentials-grid">
-          <article class="feed-card">
+        <div class="essentials-grid" id="essentials-root" data-essentials-source="fallback">
+          <article class="feed-card essentials-card" data-type="almanac">
             <span class="badge">EXAMPLE</span>
             <h3>Farmer's Almanac tip</h3>
             <p>EXAMPLE only — not a live almanac feed. After Labor Day, Brownsboro–Chandler gardens can still use a little shade cloth; plant cool-weather greens once the afternoon heat finally breaks.</p>
           </article>
-          <article class="feed-card">
+          <article class="feed-card essentials-card" data-type="joke">
             <span class="badge">EXAMPLE</span>
             <h3>Joke of the day</h3>
             <p>EXAMPLE only — not a live joke feed. Why did the kolache refuse to leave Chandler? It was already in a jam — and the coffee on Main Street was still hot.</p>
           </article>
-          <article class="feed-card">
+          <article class="feed-card essentials-card" data-type="scripture">
             <span class="badge">EXAMPLE</span>
             <h3>Scripture</h3>
             <p>EXAMPLE only — not a live lectionary. “Love your neighbor as yourself.” A short weekday verse for Brownsboro–Chandler kitchen tables; live rotation comes later.</p>
           </article>
+          <article class="feed-card essentials-card" data-type="history">
+            <span class="badge">EXAMPLE</span>
+            <h3>This Day in History</h3>
+            <p>EXAMPLE only — not a live history feed. On this day in East Texas lore: neighbors in Brownsboro and Chandler swapped harvest news over fence lines long before the FM roads were paved. Local heritage placeholder.</p>
+          </article>
         </div>
-        <p class="note">EXAMPLE placeholders — Farmer’s Almanac, joke, and scripture are sample cards only. Not live feeds yet.</p>
+        <p class="note" id="essentials-note">EXAMPLE placeholders — Farmer’s Almanac, joke, scripture, and This Day in History are sample cards only. Not live AI yet. Loaded from /data/essentials.json when present.</p>
       </section>
 
       <!-- 1. Weather -->
@@ -77,7 +82,9 @@
               <span class="weather-temp" data-role="temp">Loading…</span>
               <span class="weather-desc" data-role="desc">Local forecast</span>
               <span class="weather-extra" data-role="extra">High / low loading</span>
+              <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30237&amp;lon=-95.61357" target="_blank" rel="noopener noreferrer">NWS official forecast · Brownsboro</a>
             </div>
+            <div class="forecast-strip" data-role="forecast" hidden aria-label="7-day forecast Brownsboro"></div>
           </article>
           <article class="weather-card" data-zip="75758" data-label="Chandler" data-lat="32.30793" data-lon="-95.47996">
             <div class="weather-icon" aria-hidden="true" data-role="icon"></div>
@@ -86,10 +93,12 @@
               <span class="weather-temp" data-role="temp">Loading…</span>
               <span class="weather-desc" data-role="desc">Local forecast</span>
               <span class="weather-extra" data-role="extra">High / low loading</span>
+              <a class="weather-nws" href="https://forecast.weather.gov/MapClick.php?lat=32.30793&amp;lon=-95.47996" target="_blank" rel="noopener noreferrer">NWS official forecast · Chandler</a>
             </div>
+            <div class="forecast-strip" data-role="forecast" hidden aria-label="7-day forecast Chandler"></div>
           </article>
         </div>
-        <p class="note">Draft live weather via Open-Meteo for ZIP 75756 (Brownsboro) and 75758 (Chandler). Brownsboro–Chandler only — not Tyler metro.</p>
+        <p class="note">Draft source: Open-Meteo (current + multi-day highs/lows) for ZIP 75756 (Brownsboro) and 75758 (Chandler). Official forecast: National Weather Service links on each card. Brownsboro–Chandler only — not Tyler metro.</p>
       </section>
 
       <!-- 2. Interviews & Stories -->
@@ -293,6 +302,7 @@
     </footer>
   </div>
   <script src="weather.js" defer></script>
+  <script src="essentials.js" defer></script>
   <script src="share.js" defer></script>
   <script src="feeds.js" defer></script>
   <script>

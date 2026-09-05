@@ -11,7 +11,7 @@ const assetsOut = path.join(out, "assets");
 fs.mkdirSync(out, { recursive: true });
 fs.mkdirSync(path.join(out, "data"), { recursive: true });
 
-const files = ["index.html", "styles.css", "weather.js", "essentials.js", "feeds.js", "share.js", "obituaries.html", "police-blotter.html", "local-jobs.html", "ask-the-kolache.html"];
+const files = ["index.html", "styles.css", "weather.js", "essentials.js", "feeds.js", "share.js", "submit.js", "obituaries.html", "police-blotter.html", "local-jobs.html", "ask-the-kolache.html", "garage-sales.html", "submit.html", "thank-you.html"];
 for (const name of files) {
   const from = path.join(src, name);
   const to = path.join(out, name);

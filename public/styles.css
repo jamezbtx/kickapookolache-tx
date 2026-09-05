@@ -699,3 +699,194 @@ body {
 .top-bar {
   border-bottom: 3px double #4a3f32;
 }
+
+
+/* Unified submission form (cream / ink heritage, mobile-readable) */
+.submit-form-panel {
+  background: var(--cream);
+  max-width: 40rem;
+}
+.form-intro {
+  margin: 0 0 .65rem;
+  font-size: 1rem;
+  color: #3a342c;
+}
+.form-review-note {
+  margin: 0 0 1.1rem;
+  padding: .65rem .75rem;
+  background: #faf6ee;
+  border-left: 3px solid var(--accent);
+  font-family: var(--font-ui);
+  font-size: .9rem;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.form-review-note a {
+  color: var(--accent);
+}
+.kk-form {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+.kk-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.kk-fieldset {
+  margin: 0;
+  padding: .85rem 1rem 1rem;
+  border: 1px solid var(--soft-border);
+  background: #fffdf7;
+}
+.kk-fieldset legend {
+  font-family: var(--font-ui);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 0 .35rem;
+}
+.kk-hint {
+  margin: 0 0 .65rem;
+  font-size: .85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.kk-field {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  margin-bottom: .7rem;
+}
+.kk-field:last-child { margin-bottom: 0; }
+.kk-field label {
+  font-family: var(--font-ui);
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.kk-field .req {
+  color: var(--accent);
+}
+.kk-field .optional {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: .8rem;
+}
+.kk-field input,
+.kk-field select,
+.kk-field textarea {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #cfc6b4;
+  padding: .55rem .65rem;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.kk-field select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 16px) calc(50% - 3px), calc(100% - 11px) calc(50% - 3px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 2rem;
+}
+.kk-field textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+.kk-field input:focus,
+.kk-field select:focus,
+.kk-field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+.kk-actions {
+  margin-top: .35rem;
+}
+.kk-submit-btn {
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  font-size: .95rem;
+  padding: .55rem 1.1rem;
+}
+.form-mailto-fallback {
+  margin: .85rem 0 0;
+  font-family: var(--font-ui);
+  font-size: .88rem;
+  color: var(--muted);
+}
+.form-mailto-fallback a {
+  color: var(--accent);
+}
+.listing-cta-line {
+  margin: .85rem 0 0;
+  font-family: var(--font-ui);
+  font-size: .92rem;
+  line-height: 1.5;
+  color: #3a342c;
+}
+.listing-cta-line .submit-cta {
+  display: inline-block;
+  margin: .45rem 0 0 .15rem;
+  font-family: var(--font-ui);
+  font-size: .85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  text-decoration: none;
+  padding: .4rem .8rem;
+  border: 1px solid var(--accent);
+  vertical-align: middle;
+}
+.listing-cta-line .submit-cta:hover {
+  opacity: .92;
+}
+.thank-you-panel {
+  max-width: 36rem;
+}
+.thank-you-panel p {
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.thank-you-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1rem;
+}
+.submit-cta-secondary {
+  background: transparent !important;
+  color: var(--accent) !important;
+}
+.third-party-label {
+  font-family: var(--font-ui);
+  font-size: .78rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.jobs-cta-strong .submit-cta {
+  font-size: .95rem;
+  padding: .55rem 1.1rem;
+}
+@media (max-width: 480px) {
+  .kk-field input,
+  .kk-field select,
+  .kk-field textarea {
+    font-size: 16px; /* avoid iOS zoom */
+  }
+  .submit-form-panel {
+    padding: .9rem .85rem 1.1rem;
+  }
+}

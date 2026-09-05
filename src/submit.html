@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit / Get listed · Kickapoo Kolache</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Submit a job listing, Ask the Kolache question, garage sale, contractor listing, or tip for Kickapoo Kolache — Brownsboro &amp; Chandler TX." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="draft-banner">DRAFT HOMEPAGE SHELL — not published to production</div>
+  <div class="site-wrap">
+    <div class="top-bar">
+      <span>Brownsboro · Chandler Local</span>
+      <span>Digital Edition</span>
+    </div>
+    <header class="masthead masthead-compact">
+      <img class="masthead-logo" src="assets/kickapoo-kolache-logo-light.jpg" alt="Kickapoo Kolache" width="120" height="120" />
+      <h1>Kickapoo Kolache</h1>
+      <p class="tagline">Brownsboro &amp; Chandler. Neighbors first.</p>
+      <p class="edition">Digital Edition · Est. 2026</p>
+    </header>
+    <nav class="site-nav" aria-label="Section pages">
+      <a href="index.html">Home</a>
+      <a href="obituaries.html">Obituaries</a>
+      <a href="police-blotter.html">Police Blotter</a>
+      <a href="local-jobs.html">Local Jobs</a>
+      <a href="ask-the-kolache.html">Ask the Kolache</a>
+      <a href="garage-sales.html">Garage Sales</a>
+      <a href="submit.html" class="is-active">Submit / Get listed</a>
+    </nav>
+
+    <main>
+      <section class="panel span-2 submit-form-panel" aria-labelledby="submit-heading">
+        <h2 id="submit-heading">Submit / Get listed</h2>
+        <p class="form-intro">Share a job listing, Ask the Kolache question, garage sale, contractor directory request, or other local tip. Brownsboro–Chandler neighbors first.</p>
+        <p class="form-review-note"><strong>Reviewed before posting</strong> · Submissions go to the Kickapoo Kolache inbox (<a href="mailto:kickapookolache@gmail.com">kickapookolache@gmail.com</a> once Netlify form notifications are set).</p>
+
+        <form
+          class="kk-form"
+          name="kickapoo-submit"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/thank-you"
+        >
+          <input type="hidden" name="form-name" value="kickapoo-submit" />
+          <p class="kk-honeypot" aria-hidden="true">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="kk-field">
+            <label for="category">Category <span class="req">*</span></label>
+            <select id="category" name="category" required>
+              <option value="">Select a category…</option>
+              <option value="Job listing">Job listing</option>
+              <option value="Ask the Kolache">Ask the Kolache</option>
+              <option value="Garage sale">Garage sale</option>
+              <option value="Contractor directory">Contractor directory</option>
+              <option value="Other tip">Other tip</option>
+            </select>
+          </div>
+
+          <fieldset class="kk-fieldset">
+            <legend>Your contact</legend>
+            <div class="kk-field">
+              <label for="name">Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+            <div class="kk-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+            <div class="kk-field">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
+            </div>
+            <div class="kk-field">
+              <label for="city">City</label>
+              <select id="city" name="city">
+                <option value="">Select…</option>
+                <option value="Brownsboro">Brownsboro</option>
+                <option value="Chandler">Chandler</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <div class="kk-field">
+            <label for="message">Message / details <span class="req">*</span></label>
+            <textarea id="message" name="message" rows="6" required placeholder="Question, job details, sale info, contractor pitch, or tip…"></textarea>
+          </div>
+
+          <fieldset class="kk-fieldset">
+            <legend>Extra details <span class="optional">(optional — fill what applies)</span></legend>
+            <p class="kk-hint">Use these when your category needs them (jobs, garage sales, contractors). Leave blank otherwise.</p>
+            <div class="kk-field">
+              <label for="business">Business / employer name</label>
+              <input type="text" id="business" name="business" />
+            </div>
+            <div class="kk-field">
+              <label for="job-title">Job title</label>
+              <input type="text" id="job-title" name="job-title" />
+            </div>
+            <div class="kk-field">
+              <label for="apply-how">How to apply</label>
+              <input type="text" id="apply-how" name="apply-how" placeholder="Email, phone, URL, or in person" />
+            </div>
+            <div class="kk-field">
+              <label for="sale-date">Sale date</label>
+              <input type="text" id="sale-date" name="sale-date" placeholder="e.g. Sat Sept 13, 8 a.m.–noon" />
+            </div>
+            <div class="kk-field">
+              <label for="sale-address">Sale address</label>
+              <input type="text" id="sale-address" name="sale-address" />
+            </div>
+            <div class="kk-field">
+              <label for="sale-items">Sale items / highlights</label>
+              <textarea id="sale-items" name="sale-items" rows="3"></textarea>
+            </div>
+            <div class="kk-field">
+              <label for="trade">Contractor trade / specialty</label>
+              <input type="text" id="trade" name="trade" placeholder="e.g. plumbing, fencing, HVAC" />
+            </div>
+            <div class="kk-field">
+              <label for="service-area">Service area</label>
+              <input type="text" id="service-area" name="service-area" placeholder="Brownsboro, Chandler, both…" />
+            </div>
+            <div class="kk-field">
+              <label for="website">Website</label>
+              <input type="url" id="website" name="website" placeholder="https://" />
+            </div>
+          </fieldset>
+
+          <div class="kk-actions">
+            <button type="submit" class="submit-cta kk-submit-btn">Send submission</button>
+          </div>
+        </form>
+
+        <p class="form-mailto-fallback">Prefer email? <a href="mailto:kickapookolache@gmail.com">Mailto fallback: kickapookolache@gmail.com</a></p>
+      </section>
+    </main>
+
+    <div class="qr-share-strip" aria-label="Share Kickapoo Kolache">
+      <img class="qr-code" src="assets/qr-kickapookolache.png" width="88" height="88" alt="QR code linking to kickapookolache.com" />
+      <div class="qr-share-copy">
+        <strong>Share Kickapoo Kolache</strong>
+        <span>Scan for <a href="https://kickapookolache.com">kickapookolache.com</a> · Brownsboro–Chandler draft</span>
+        <div class="qr-share-actions">
+          <button type="button" class="btn" data-share-copy>Copy link</button>
+          <button type="button" class="btn btn-primary" data-share-native>Share</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
+      <p>Draft only — submissions are reviewed before posting.</p>
+    </footer>
+  </div>
+  <script src="share.js" defer></script>
+  <script src="submit.js" defer></script>
+  <script>(function(){var y=document.getElementById("year"); if(y) y.textContent=String(new Date().getFullYear());})();</script>
+</body>
+</html>

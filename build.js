@@ -11,28 +11,61 @@ const assetsOut = path.join(out, "assets");
 fs.mkdirSync(out, { recursive: true });
 fs.mkdirSync(path.join(out, "data"), { recursive: true });
 
-const files = ["index.html", "styles.css", "weather.js", "essentials.js", "feeds.js", "share.js", "submit.js", "obituaries.html", "police-blotter.html", "local-jobs.html", "ask-the-kolache.html", "garage-sales.html", "submit.html", "thank-you.html"];
-for (const name of files) {
+function copyFile(from, to) {
+  fs.mkdirSync(path.dirname(to), { recursive: true });
+  fs.copyFileSync(from, to);
+  console.log("Wrote", path.relative(root, to));
+}
+
+function copyDirRecursive(fromDir, toDir) {
+  if (!fs.existsSync(fromDir)) return;
+  fs.mkdirSync(toDir, { recursive: true });
+  for (const name of fs.readdirSync(fromDir)) {
+    const from = path.join(fromDir, name);
+    const to = path.join(toDir, name);
+    const st = fs.statSync(from);
+    if (st.isDirectory()) copyDirRecursive(from, to);
+    else if (st.isFile()) copyFile(from, to);
+  }
+}
+
+const rootFiles = [
+  "index.html",
+  "styles.css",
+  "weather.js",
+  "essentials.js",
+  "feeds.js",
+  "share.js",
+  "submit.js",
+  "obituaries.html",
+  "police-blotter.html",
+  "local-jobs.html",
+  "ask-the-kolache.html",
+  "garage-sales.html",
+  "submit.html",
+  "thank-you.html",
+  "columns.html"
+];
+for (const name of rootFiles) {
   const from = path.join(src, name);
   const to = path.join(out, name);
   if (!fs.existsSync(from)) {
     console.error("Missing source file:", from);
     process.exit(1);
   }
-  fs.copyFileSync(from, to);
-  console.log("Wrote", path.relative(root, to));
+  copyFile(from, to);
 }
 
-// Copy logo and other static assets into public/assets
+// Nested column HTML pages under src/columns/ → public/columns/
+const columnsSrc = path.join(src, "columns");
+if (fs.existsSync(columnsSrc)) {
+  copyDirRecursive(columnsSrc, path.join(out, "columns"));
+}
+
+// Copy logo and nested column assets into public/assets (recursive)
 fs.mkdirSync(assetsOut, { recursive: true });
 if (fs.existsSync(assetsSrc)) {
-  for (const name of fs.readdirSync(assetsSrc)) {
-    const from = path.join(assetsSrc, name);
-    if (!fs.statSync(from).isFile()) continue;
-    const to = path.join(assetsOut, name);
-    fs.copyFileSync(from, to);
-    console.log("Wrote", path.relative(root, to));
-  }
+  copyDirRecursive(assetsSrc, assetsOut);
 } else {
   console.warn("No assets/ directory found; skipped asset copy");
 }
@@ -58,7 +91,6 @@ if (fs.existsSync(fetchScript)) {
 } else {
   console.warn("Missing scripts/fetch-feeds.js; skipped feed refresh");
 }
-
 
 // Refresh essentials snapshot into public/data/essentials.json (soft-fail)
 const fetchEssentials = path.join(root, "scripts", "fetch-essentials.js");

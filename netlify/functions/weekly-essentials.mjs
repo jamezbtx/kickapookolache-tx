@@ -3,7 +3,7 @@
  * Cron UTC: 0 11 * * 1 ≈ 6:00am CDT / 5:00am CST (also set in netlify.toml).
  *
  * Netlify AI Gateway + OpenAI SDK gpt-4o-mini when available.
- * Soft-fails to empty items (no EXAMPLE cards). Stores JSON in Blobs store "essentials" key "daily"
+ * Soft-fails to empty items (no EXAMPLE cards). Stores JSON in Blobs store "essentials" key "weekly"
  * (items[] shape matching public/data/essentials.json / essentials.js).
  *
  * Blockers: AI Gateway needs a production enable once; scheduled functions
@@ -92,7 +92,7 @@ export default async (req) => {
     const body = await req.json();
     next_run = body && body.next_run;
   } catch (_) {}
-  console.log("daily-essentials run; next_run=", next_run);
+  console.log("weekly-essentials run; next_run=", next_run);
 
   let payload = fallbackPayload();
   try {
@@ -104,7 +104,7 @@ export default async (req) => {
 
   try {
     const store = getStore("essentials");
-    await store.setJSON("daily", payload);
+    await store.setJSON("weekly", payload);
     console.log("Stored essentials blob; source=", payload.source);
   } catch (err) {
     console.warn("Blob write soft-fail:", err && err.message ? err.message : err);

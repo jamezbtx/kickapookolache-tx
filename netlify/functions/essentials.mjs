@@ -1,5 +1,5 @@
 /**
- * GET /api/essentials — serve essentials from Netlify Blobs.
+ * GET /api/essentials — serve essentials from Netlify Blobs (key weekly).
  * Soft-fail 404 if blob missing; homepage falls back to static JSON / empty UI.
  */
 import { getStore } from "@netlify/blobs";
@@ -7,7 +7,8 @@ import { getStore } from "@netlify/blobs";
 export default async () => {
   try {
     const store = getStore("essentials");
-    const data = await store.get("daily", { type: "json" });
+    let data = await store.get("weekly", { type: "json" });
+    if (!data) data = await store.get("daily", { type: "json" });
     if (!data) {
       return new Response(JSON.stringify({ error: "not_found" }), {
         status: 404,

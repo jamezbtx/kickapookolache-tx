@@ -284,7 +284,7 @@
         el(
           "p",
           "note",
-          "Sources: KLTV, Tyler Morning Telegraph, CBS19, Athens Review, and other East Texas outlets — filtered to Brownsboro, Chandler, and rural Henderson."
+          "Sources: free regional and national outlets mentioning Brownsboro, Chandler, or rural Henderson (last 20 days; no sports — sports live under MaxPreps)."
         )
       );
       root.appendChild(empty);

@@ -29,11 +29,11 @@ const ETR_FEED = "https://easttexasradio.com/feed/";
 const GILMER_FEED = "https://www.gilmermirror.com/feed/";
 // Regional TV/paper aggregation via Google News (KLTV, Tyler Morning Telegraph, CBS19, etc.)
 const GOOGLE_REGIONAL_FEED =
-  "https://news.google.com/rss/search?q=(Brownsboro+OR+Chandler)+(site:kltv.com+OR+site:tylerpaper.com+OR+site:cbs19.tv+OR+site:easttexasradio.com)+when:120d&hl=en-US&gl=US&ceid=US:en";
+  "https://news.google.com/rss/search?q=(Brownsboro+OR+%22Chandler+TX%22+OR+%22Chandler,+Texas%22+OR+%2275758%22)+when:20d&hl=en-US&gl=US&ceid=US:en";
 const GOOGLE_BROWNSBORO_FEED =
-  "https://news.google.com/rss/search?q=%22Brownsboro%22+(site:kltv.com+OR+site:tylerpaper.com+OR+site:cbs19.tv)+when:120d&hl=en-US&gl=US&ceid=US:en";
+  "https://news.google.com/rss/search?q=Brownsboro+(Texas+OR+TX+OR+%22Henderson+County%22)+when:20d&hl=en-US&gl=US&ceid=US:en";
 const GOOGLE_CHANDLER_FEED =
-  "https://news.google.com/rss/search?q=%22Chandler%22+Texas+(site:kltv.com+OR+site:tylerpaper.com+OR+site:cbs19.tv)+when:120d&hl=en-US&gl=US&ceid=US:en";
+  "https://news.google.com/rss/search?q=%22Chandler%22+(75758+OR+%22Henderson+County%22+OR+Brownsboro+OR+%22East+Texas%22)+when:20d&hl=en-US&gl=US&ceid=US:en";
 
 
 const GARAGE_CL_QUERY =
@@ -236,6 +236,71 @@ function sourceFromGoogleTitle(title) {
   if (/gilmer/i.test(raw)) return "Gilmer Mirror";
   return raw;
 }
+
+
+const BRIEFS_MAX_AGE_MS = 20 * 24 * 60 * 60 * 1000; // 20 days
+const PAYWALL_OUTLET_RE = /tyler\s*morning\s*telegraph|tylerpaper\.com|news-journal\.com|subscribe\.|digital\.tylerpaper|newspapers\.com/i;
+const SPORTS_BRIEF_RE = /\b(sports?|football|volleyball|basketball|baseball|softball|soccer|track|golf|tennis|maxpreps|bears|bearettes|scrimmage|warrior\s*bowl|under\s*the\s*lights|pigskin|varsity|scoreboard|playoffs?|touchdown|homerun|inning|shutout|home\s*opener|beats?\b|defeats?|dominates?|runs\s+over|final\s+score)\b/i;
+
+function isSportsBrief(item) {
+  const text = [item && item.title, item && item.description, item && item.link, item && item.outlet]
+    .filter(Boolean)
+    .join(" ");
+  if (!text) return false;
+  if (/\/sports\//i.test(text)) return true;
+  if (/^sports\s*:/i.test(String(item.title || "").trim())) return true;
+  return SPORTS_BRIEF_RE.test(text);
+}
+
+function isPaywalledBrief(item) {
+  const text = [item && item.title, item && item.link, item && item.outlet, item && item.source]
+    .filter(Boolean)
+    .join(" ");
+  return PAYWALL_OUTLET_RE.test(text || "");
+}
+
+function isRecentBrief(item, nowMs) {
+  const now = nowMs || Date.now();
+  if (!item || !item.pubDate) return true; // keep undated city link-outs; regional should have dates
+  const t = Date.parse(item.pubDate);
+  if (Number.isNaN(t)) return true;
+  return now - t <= BRIEFS_MAX_AGE_MS;
+}
+
+function isObitOrNameOnlyHit(item) {
+  const text = [item && item.title, item && item.description, item && item.outlet]
+    .filter(Boolean)
+    .join(" ");
+  if (/\b(obituary|obituaries|funeral\s+home|cremation|crematory|tribute\s+archive|dignity\s+memorial)\b/i.test(text)) return true;
+  if (/\bwife\s+of\b/i.test(text) && /chandler/i.test(text)) return true;
+  if (/kyle\s+chandler/i.test(text)) return true;
+  return false;
+}
+
+function isLocalBriefPlaceHit(item) {
+  const text = haystack(item);
+  if (!text) return false;
+  if (/\bbrownsboro\b/i.test(text)) return true;
+  // Chandler alone is too ambiguous (AZ, surnames) — require TX local cues.
+  if (/\bchandler\b/i.test(text)) {
+    return /\b(75758|henderson\s+county|brownsboro|east\s+texas|\btx\b|texas)\b/i.test(text);
+  }
+  if (/\bhenderson\s+county\b/i.test(text)) {
+    return /\b(texas|\btx\b|brownsboro|chandler|east\s+texas|athens|75756|75758)\b/i.test(text);
+  }
+  return passesRuralFilter(item);
+}
+
+function passesLocalBriefsFilter(item) {
+  if (!item) return false;
+  if (isSportsBrief(item)) return false;
+  if (isPaywalledBrief(item)) return false;
+  if (isObitOrNameOnlyHit(item)) return false;
+  if (!isRecentBrief(item)) return false;
+  if (!isLocalBriefPlaceHit(item)) return false;
+  return true;
+}
+
 
 function normalizeRegionalItem(item) {
   if (!item || !item.title) return item;
@@ -704,7 +769,7 @@ async function main() {
     const kept = [];
     let dropped = 0;
     raw.forEach(function (item) {
-      if (passesRuralFilter(item)) {
+      if (passesLocalBriefsFilter(item)) {
         kept.push(item);
       } else {
         dropped += 1;
@@ -726,7 +791,7 @@ async function main() {
     }
     const searchKept = [];
     searchItems.forEach(function (item) {
-      if (passesRuralFilter(item)) searchKept.push(item);
+      if (passesLocalBriefsFilter(item)) searchKept.push(item);
     });
     // Prefer search hits (more local) then rural-filtered main feed.
     const merged = [];
@@ -769,7 +834,7 @@ async function main() {
 
   // Google News: KLTV / Tyler Morning Telegraph / CBS19 / East Texas Radio
   for (const spec of [
-    { id: "google-regional", label: "Regional (KLTV / Tyler paper / CBS19)", url: GOOGLE_REGIONAL_FEED, max: 25 },
+    { id: "google-regional", label: "Regional / national (local filter)", url: GOOGLE_REGIONAL_FEED, max: 25 },
     { id: "google-brownsboro", label: "Regional · Brownsboro", url: GOOGLE_BROWNSBORO_FEED, max: 20 },
     { id: "google-chandler", label: "Regional · Chandler", url: GOOGLE_CHANDLER_FEED, max: 20 }
   ]) {
@@ -779,7 +844,7 @@ async function main() {
       const items = [];
       raw.forEach(function (item) {
         const norm = normalizeRegionalItem(item);
-        if (passesRuralFilter(norm) || passesRuralFilter(item)) items.push(norm);
+        if (passesLocalBriefsFilter(norm)) items.push(norm);
       });
       regionalGroups.push({
         id: spec.id,
@@ -808,7 +873,7 @@ async function main() {
       const raw = parseRssItems(xml, spec.max);
       const items = [];
       raw.forEach(function (item) {
-        if (passesRuralFilter(item)) items.push(item);
+        if (passesLocalBriefsFilter(item)) items.push(item);
       });
       regionalGroups.push({
         id: spec.id,

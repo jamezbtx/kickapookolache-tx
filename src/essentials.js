@@ -20,16 +20,16 @@
     if (!root) return;
     root.innerHTML =
       '<article class="feed-card essentials-card story-empty">' +
-      '<span class="badge badge-waiting">OPEN</span>' +
+      '<span class="badge">SOON</span>' +
       "<h3>Daily essentials</h3>" +
-      "<p>Daily essentials appear here when ready \u2014 Farmer\u2019s Almanac tip, joke, scripture, and This Day in History.</p>" +
+      "<p>Almanac tip, joke, scripture, and This Day in History — updated daily.</p>" +
       "</article>";
     root.setAttribute("data-essentials-source", "empty");
     var note = document.getElementById("essentials-note");
     if (note) {
       note.textContent =
         sourceNote ||
-        "Daily essentials appear here when ready.";
+        "Almanac tip, joke, scripture, and This Day in History — updated daily.";
     }
   }
 
@@ -124,7 +124,7 @@
     }
     if (data && (!data.items || !data.items.length)) {
       return (
-        "Daily essentials appear here when ready."
+        "Almanac tip, joke, scripture, and This Day in History — updated daily."
       );
     }
     return "Essentials from " + via + ".";
@@ -159,7 +159,7 @@
       .catch(function () {
         // Keep empty HTML already in #essentials-root
         if (!root.querySelector(".essentials-card, .feed-card")) {
-          renderEmpty(root, "Daily essentials appear here when ready.");
+          renderEmpty(root, "Almanac tip, joke, scripture, and This Day in History — updated daily.");
         } else {
           root.setAttribute("data-essentials-source", "empty");
         }

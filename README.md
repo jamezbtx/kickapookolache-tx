@@ -12,10 +12,10 @@ Output lands in the publish directory: public/
 
 0. Essentials — almanac / joke / scripture / This Day in History (honest empty awaiting JSON; AI when available)
 1. Weather — ZIPs 75756 / 75758 (Open-Meteo draft + NWS official links + multi-day)
-2. Interviews & Stories — From neighbors (honest empty + tip CTA; spotlight-style features when James files them) + Local briefs LIVE (Henderson County / filtered Athens Review — NOT Chandler News Flash)
+2. Interviews & Stories — neighbor tips + Local briefs (Chandler/Brownsboro News Flash, Henderson, Athens rural)
 3. Contractor Spotlight — ONE featured paid/partner card (honest empty + Get listed; separate from directory)
 4. Bears Sports · MaxPreps (placeholder)
-5. Official City & School Feeds — Chandler RSS + Brownsboro/BISD fallbacks
+5. Official City & School Notices — government/school links only
 6. Neighbor Columns — Chritty’s Bushcraft + Carlee’s Creations (honest empty + cadence)
 7. Local Contractors directory — honest empty + Get listed
 8. Local Resources — city/BISD + emergency/utilities + official calendars

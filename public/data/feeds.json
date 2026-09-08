@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-08T18:26:46.048Z",
+  "fetchedAt": "2026-09-08T18:44:49.061Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -71,8 +71,58 @@
     "droppedCount": 25
   },
   "localBriefs": {
-    "items": [],
+    "items": [
+      {
+        "title": "Sept 8 Meeting Amendment to Sept 10th",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=379",
+        "pubDate": "Fri, 04 Sep 2026 15:03:13 -0600",
+        "source": "Chandler News Flash",
+        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+      },
+      {
+        "title": "Proposed Budget FY 26 -27",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=378",
+        "pubDate": "Wed, 26 Aug 2026 18:17:00 -0600",
+        "source": "Chandler News Flash",
+        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+      },
+      {
+        "title": "RFQ Municipal Engineering and Dev Review Services RFQ No. 2026-002",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=377",
+        "pubDate": "Thu, 13 Aug 2026 12:43:37 -0600",
+        "source": "Chandler News Flash",
+        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+      },
+      {
+        "title": "Special Meeting",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=376",
+        "pubDate": "Wed, 12 Aug 2026 17:41:00 -0600",
+        "source": "Chandler News Flash",
+        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+      },
+      {
+        "title": "City of Brownsboro — Recent News",
+        "link": "https://brownsborotx.gov/recent-news",
+        "pubDate": null,
+        "source": "Brownsboro Recent News",
+        "sourceUrl": "https://brownsborotx.gov/recent-news"
+      }
+    ],
     "sources": [
+      {
+        "id": "chandler",
+        "label": "Chandler News Flash",
+        "url": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
+        "count": 4,
+        "error": null
+      },
+      {
+        "id": "brownsboro",
+        "label": "Brownsboro Recent News",
+        "url": "https://brownsborotx.gov/recent-news",
+        "count": 1,
+        "error": null
+      },
       {
         "id": "henderson",
         "label": "Henderson County News Flash",
@@ -109,13 +159,13 @@
   },
   "brownsboro": {
     "hasRss": false,
-    "label": "No RSS — link fallback",
+    "label": "OFFICIAL",
     "pageUrl": "https://brownsborotx.gov/",
     "agendasUrl": "https://brownsborotx.gov/meeting-agendas-and-minutes"
   },
   "bisd": {
     "hasRss": false,
-    "label": "No news RSS — link fallback",
+    "label": "OFFICIAL",
     "newsUrl": "https://www.gobearsgo.net/about-us/new-headlines",
     "calendarUrl": "https://www.gobearsgo.net/about-us/district-wide-calendar",
     "parentSquareUrl": "https://www.gobearsgo.net/families/parentsquare",

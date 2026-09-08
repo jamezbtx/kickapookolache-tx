@@ -116,70 +116,33 @@
 
   function fillChandler(root, data) {
     clear(root);
-    var ch = (data && data.chandler) || {};
-    var items = ch.items || [];
     var card = el("article", "feed-card feed-live-card");
-    if (items.length) {
-      card.appendChild(el("span", "badge badge-live", "LIVE"));
-    } else {
-      card.appendChild(el("span", "badge badge-fallback", "No headlines"));
-    }
-    card.appendChild(el("h3", null, "City of Chandler — official announcements"));
-
-    if (items.length) {
-      var list = el("ul", "feed-live-list");
-      items.forEach(function (item) {
-        var li = el("li");
-        if (item.link) {
-          var a = el("a", null, item.title || "Untitled");
-          a.href = item.link;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          li.appendChild(a);
-        } else {
-          li.appendChild(document.createTextNode(item.title || "Untitled"));
-        }
-        if (item.pubDate) {
-          li.appendChild(document.createTextNode(" · " + formatDate(item.pubDate)));
-        }
-        list.appendChild(li);
-      });
-      card.appendChild(list);
-      if (ch.pageUrl) {
-        var more = el("p");
-        var ma = el("a", null, "All Chandler news flash");
-        ma.href = ch.pageUrl;
-        ma.target = "_blank";
-        ma.rel = "noopener noreferrer";
-        more.appendChild(ma);
-        card.appendChild(more);
-      }
-    } else {
-      card.appendChild(
-        el(
-          "p",
-          null,
-          "Live headlines unavailable. " +
-            (ch.pageUrl ? "See Chandler news flash page." : "RSS not connected.")
-        )
-      );
-      if (ch.pageUrl) {
-        var p = el("p");
-        var a = el("a", null, ch.pageUrl);
-        a.href = ch.pageUrl;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        p.appendChild(a);
-        card.appendChild(p);
-      }
-    }
+    card.appendChild(el("span", "badge", "OFFICIAL"));
+    card.appendChild(el("h3", null, "City of Chandler — government notices"));
+    var list = el("ul", "feed-live-list");
+    [
+      { href: "https://www.chandlertx.com/", text: "City of Chandler website" },
+      { href: "https://www.chandlertx.com/calendar.aspx", text: "City calendar" },
+      { href: "https://www.chandlertx.com/777/City-Council-Board-Meetings", text: "City Council & board meetings" },
+      { href: "https://www.chandlertx.com/139/City-Council", text: "City Council" },
+    ].forEach(function (entry) {
+      if (!entry || !entry.href) return;
+      var li = el("li");
+      var a = el("a", null, entry.text || entry.href);
+      a.href = entry.href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    card.appendChild(list);
     root.appendChild(card);
   }
 
   function fillFallback(root, title, label, links) {
     clear(root);
     var card = el("article", "feed-card feed-live-card");
-    card.appendChild(el("span", "badge badge-fallback", label || "No RSS — link fallback"));
+    card.appendChild(el("span", "badge badge-fallback", label || "OFFICIAL"));
     card.appendChild(el("h3", null, title));
     if (label) card.appendChild(el("p", null, label));
     var list = el("ul", "feed-live-list");
@@ -200,13 +163,13 @@
   function fillCivic(root) {
     clear(root);
     var card = el("article", "feed-card story-empty");
-    card.appendChild(el("span", "badge badge-waiting", "OPEN"));
+    card.appendChild(el("span", "badge", "SOON"));
     card.appendChild(el("h3", null, "Local civic roundup"));
     card.appendChild(
       el(
         "p",
         null,
-        "No curated civic roundup this week. Editor notes appear here when filed — not an auto-RSS pull."
+        "Editor civic notes appear here when filed."
       )
     );
     root.appendChild(card);
@@ -248,7 +211,7 @@
         card.appendChild(more);
       }
     } else {
-      card.appendChild(el("span", "badge badge-fallback", "No RSS items"));
+      card.appendChild(el("span", "badge badge-fallback", "OFFICIAL"));
       card.appendChild(el("h3", null, "City of Chandler — job openings"));
       card.appendChild(
         el(
@@ -284,7 +247,7 @@
         el(
           "p",
           "note",
-          "Sources: Henderson County News Flash + filtered Athens Review (rural towns only — not Tyler). Chandler News Flash stays under Official City & School Feeds."
+          "Sources: Chandler News Flash, Brownsboro Recent News, Henderson County, and rural Athens Review."
         )
       );
       root.appendChild(empty);
@@ -368,7 +331,7 @@
     }
 
     var empty = el("article", "feed-card story-empty");
-    empty.appendChild(el("span", "badge badge-waiting", "OPEN"));
+    empty.appendChild(el("span", "badge", "SOON"));
     empty.appendChild(el("h3", null, "No filtered Craigslist hits right now"));
     var why =
       "No Brownsboro / Chandler / rural Henderson matches in the latest pull";
@@ -418,7 +381,7 @@
 
     if (brownsboro) {
       var bb = (data && data.brownsboro) || {};
-      fillFallback(brownsboro, "City of Brownsboro — official announcements", bb.label || "No RSS — link fallback", [
+      fillFallback(brownsboro, "City of Brownsboro — government notices", "OFFICIAL", [
         { href: bb.pageUrl, text: "City of Brownsboro website" },
         { href: bb.agendasUrl, text: "Meeting agendas & minutes" }
       ]);
@@ -426,7 +389,7 @@
 
     if (bisd) {
       var bi = (data && data.bisd) || {};
-      fillFallback(bisd, "BISD — school announcements / calendar / closings", bi.label || "No news RSS — link fallback", [
+      fillFallback(bisd, "BISD — school announcements / calendar / closings", "OFFICIAL", [
         { href: bi.newsUrl, text: "BISD headlines" },
         { href: bi.calendarUrl, text: "District-wide calendar" },
         { href: bi.parentSquareUrl || "https://www.gobearsgo.net/families/parentsquare", text: "ParentSquare (primary for families)" }
@@ -480,13 +443,13 @@
           },
           brownsboro: {
             hasRss: false,
-            label: "No RSS — link fallback",
+            label: "OFFICIAL",
             pageUrl: "https://brownsborotx.gov/",
             agendasUrl: "https://brownsborotx.gov/meeting-agendas-and-minutes"
           },
           bisd: {
             hasRss: false,
-            label: "No news RSS — link fallback",
+            label: "OFFICIAL",
             newsUrl: "https://www.gobearsgo.net/about-us/new-headlines",
             calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar",
             parentSquareUrl: "https://www.gobearsgo.net/families/parentsquare",

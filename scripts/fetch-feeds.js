@@ -588,13 +588,13 @@ function emptyPayload(errors) {
     },
     brownsboro: {
       hasRss: false,
-      label: "No RSS — link fallback",
+      label: "OFFICIAL",
       pageUrl: "https://brownsborotx.gov/",
       agendasUrl: "https://brownsborotx.gov/meeting-agendas-and-minutes"
     },
     bisd: {
       hasRss: false,
-      label: "No news RSS — link fallback",
+      label: "OFFICIAL",
       newsUrl: "https://www.gobearsgo.net/about-us/new-headlines",
       calendarUrl: "https://www.gobearsgo.net/about-us/district-wide-calendar",
       parentSquareUrl: "https://www.gobearsgo.net/families/parentsquare",
@@ -681,10 +681,32 @@ async function main() {
     );
   }
 
-  // Local briefs deliberately EXCLUDE Chandler News Flash (shown only under
-  // Official City & School Feeds) to avoid homepage duplication.
+  // Local briefs: city News Flash + county/rural papers. Official City panel is gov notices only.
+  if (!result.chandler.items.length) {
+    briefErrors.push("Chandler News Flash RSS returned no items");
+  }
   result.localBriefs = buildLocalBriefs(
     [
+      {
+        id: "chandler",
+        label: "Chandler News Flash",
+        url: CHANDLER_FEED,
+        items: result.chandler.items,
+        error: null
+      },
+      {
+        id: "brownsboro",
+        label: "Brownsboro Recent News",
+        url: "https://brownsborotx.gov/recent-news",
+        items: [
+          {
+            title: "City of Brownsboro — Recent News",
+            link: "https://brownsborotx.gov/recent-news",
+            pubDate: null
+          }
+        ],
+        error: null
+      },
       {
         id: "henderson",
         label: "Henderson County News Flash",

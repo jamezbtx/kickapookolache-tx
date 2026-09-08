@@ -1,19 +1,19 @@
 {
-  "fetchedAt": "2026-09-05T23:13:34.289Z",
+  "fetchedAt": "2026-09-08T13:46:55.159Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
     "featured": {
-      "date": "2026-09-04T19:30:00",
+      "date": "2026-09-10T19:00:00",
       "dateIsLocalWall": true,
-      "opponent": "Palestine Wildcats",
-      "opponentName": "Palestine",
-      "opponentMascot": "Wildcats",
-      "homeAway": "home",
-      "vsLabel": "vs Palestine Wildcats",
-      "location": "Brownsboro High School (OLD HS GYM)",
-      "canonicalUrl": "https://www.maxpreps.com/tx/football/game/brownsboro-vs-palestine/9-4-2026/?c=c834f8c6-e5b6-4ab4-9d65-1478bb941542",
-      "note": "On 9/4, the Palestine varsity football team won their away non-conference game against Brownsboro (TX) by a score of 55-20."
+      "opponent": "Wills Point Tigers",
+      "opponentName": "Wills Point",
+      "opponentMascot": "Tigers",
+      "homeAway": "away",
+      "vsLabel": "@ Wills Point Tigers",
+      "location": "Wills Point High School",
+      "canonicalUrl": "https://www.maxpreps.com/tx/football/game/brownsboro-vs-wills-point/9-10-2026/?c=44a106b2-1b99-4a31-85ab-058a05adf485",
+      "note": "The Brownsboro varsity football team has an away non-conference game @  Wills Point (TX) on Thursday, September 10 @ 7p."
     }
   },
   "chandler": {
@@ -43,12 +43,6 @@
         "title": "Special Meeting",
         "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=376",
         "pubDate": "Wed, 12 Aug 2026 17:41:00 -0600",
-        "description": null
-      },
-      {
-        "title": "Notice about 2026 Tax Rates",
-        "link": "https://chandlertx.com/DocumentCenter/View/2143/Notice-about-2026-Tax-Rates",
-        "pubDate": "Fri, 07 Aug 2026 22:22:00 -0600",
         "description": null
       }
     ]
@@ -100,23 +94,17 @@
     ]
   },
   "garageSales": {
-    "items": [
-      {
-        "title": "Inside Outside Sale - 8mi So Chandler, Hwy 315",
-        "link": "https://www.craigslist.org/view/d/flint-family-garage-sale-flint/6hKD8DDarjBoxvVGPf8xKA",
-        "pubDate": "Wed Sep 02 2026 16:58:00 GMT+0000 (Coordinated Universal Time)",
-        "location": "Flint"
-      }
-    ],
+    "items": [],
     "hasRss": true,
     "feedUrl": "https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
     "pageUrl": "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
     "source": "html-chrome",
-    "rawCount": 4,
-    "keptCount": 1,
+    "rawCount": 2,
+    "keptCount": 0,
     "filterNote": "Brownsboro/Chandler/rural west Henderson towns + 75756/75758 + Henderson County; drop Tyler/Longview-only",
     "errors": [
-      "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
+      "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+      "Craigslist garage: no filtered local hits (raw=2, source=html-chrome)"
     ]
   },
   "brownsboro": {
@@ -136,6 +124,7 @@
   "errors": [
     "Chandler jobs RSS returned no items (often empty)",
     "Henderson County RSS returned no items (often empty)",
-    "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758"
+    "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+    "Craigslist garage: no filtered local hits (raw=2, source=html-chrome)"
   ]
 }

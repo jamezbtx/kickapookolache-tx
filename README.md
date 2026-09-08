@@ -16,18 +16,29 @@ Output lands in the publish directory: public/
 3. Contractor Spotlight — ONE featured paid/partner card (honest empty + Get listed; separate from directory)
 4. Bears Sports · MaxPreps (placeholder)
 5. Official City & School Feeds — Chandler RSS + Brownsboro/BISD fallbacks
-6. Columns — Chritty’s Bushcraft + Carlee’s Creations (honest empty + cadence)
+6. Neighbor Columns — Chritty’s Bushcraft + Carlee’s Creations (honest empty + cadence)
 7. Local Contractors directory — honest empty + Get listed
-8. Local Resources · City / BISD (near footer)
+8. Local Resources — city/BISD + emergency/utilities + official calendars
 
+
+Also: Submit form, Rate card, Contact, Privacy, Garage Sales, Jobs, Obits, Blotter, Ask the Kolache.
 Weekly Spotlights (business/school/official/pastor EXAMPLE panel) removed from homepage — those features live under Interviews & Stories when filed.
 
 ## Status
 
-DRAFT homepage shell only.
 Code branch: draft/homepage-shell
+Draft banners and noindex removed on this branch (pre-publish polish).
 main holds Coming soon only.
-Do not Netlify-prod-deploy or push this draft to kickapookolache.com.
+Do not Netlify-prod-deploy or push this draft to kickapookolache.com until James says publish.
+
+## Forms
+
+Netlify form kickapoo-submit → kickapookolache@gmail.com.
+
+## Calendars
+
+Official outbound calendars only (Chandler, Brownsboro, BISD). Chandler CivicPlus calendar RSS often returns zero items — we link calendar pages rather than a Kickapoo-hosted live event feed.
+
 
 ## Essentials (AI-daily scaffold)
 

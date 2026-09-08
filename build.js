@@ -44,7 +44,10 @@ const rootFiles = [
   "garage-sales.html",
   "submit.html",
   "thank-you.html",
-  "columns.html"
+  "columns.html",
+  "contact.html",
+  "privacy.html",
+  "rate-card.html"
 ];
 for (const name of rootFiles) {
   const from = path.join(src, name);

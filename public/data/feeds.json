@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-08T18:54:12.499Z",
+  "fetchedAt": "2026-09-08T19:01:29.370Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -64,41 +64,93 @@
     "hasRss": true,
     "feedUrl": "https://www.athensreview.com/search/?f=rss&t=article&c=news&l=25&s=start_time&sd=desc",
     "pageUrl": "https://www.athensreview.com/",
-    "items": [],
+    "items": [
+      {
+        "title": "Sports: This week's high school football games",
+        "link": "https://www.athensreview.com/sports/sports-this-weeks-high-school-football-games/article_911d41f7-7503-452e-a424-2248a5177a35.html",
+        "pubDate": "Thu, 27 Aug 2026 12:00:00 -0500",
+        "description": "This Week’s Area Football GamesAthens (0-0)(0-0) at Nacogdoches(0-0)(0-0)Last Year’s Meeting: Did not play In a Nutshell: Dragons were much improved last year Pigskin Prep said: Athens by 5 Next Week: Henderson at Athens Brownsboro (0-0)(0-0) at Brook Hill (0-0)(0-0)Last Year’s&#8230;"
+      },
+      {
+        "title": "Sports: Final football scrimmages fill the calendar",
+        "link": "https://www.athensreview.com/sports/sports-final-football-scrimmages-fill-the-calendar/article_7b257e09-0518-4362-a479-9cbf6085afc6.html",
+        "pubDate": "Wed, 19 Aug 2026 17:42:00 -0500",
+        "description": "There's a golden opportunity to take in some football action this week, with all of the local teams on the field Thursday.Eustace is the only one on the road as they head west to Italy. These are the scrimmages on&#8230;"
+      },
+      {
+        "title": "DPS Trooper involved in Brownsboro shooting",
+        "link": "https://www.athensreview.com/news/dps-trooper-involved-in-brownsboro-shooting/article_72ac7047-6334-4985-962b-961798821669.html",
+        "pubDate": "Sun, 16 Aug 2026 12:07:00 -0500",
+        "description": "A Trooper with the Department of Public Safety was involved in an officer-related shooting that resulted in the death of an individual Saturday, Aug. 15."
+      },
+      {
+        "title": "Sports: High School Football scrimmages",
+        "link": "https://www.athensreview.com/sports/sports-high-school-football-scrimmages/article_4e61a6b7-e937-492b-ac98-923ba8d8a93b.html",
+        "pubDate": "Mon, 10 Aug 2026 12:48:00 -0500",
+        "description": "Henderson County’s high school football teams get to sample their skills against outside opposition this week in the first round of scrimmages. Athens takes on an explosive Fairfield team from a lower classification, while Brownsboro meets one of last year’s&#8230;"
+      },
+      {
+        "title": "Sports: Local schools set to serve up volleyball",
+        "link": "https://www.athensreview.com/sports/sports-local-schools-set-to-serve-up-volleyball/article_cca79c52-bd81-4fe4-9110-ddeefaed1ba9.html",
+        "pubDate": "Fri, 31 Jul 2026 12:12:00 -0500",
+        "description": "Athens – Coach Caitlin Mitchell has scrimmages set at home on Aug. 7 and 8 with multiple teams coming in. The non-district season starts with a visit from Jacksonville, Aug. 11.Tournaments in August include: Palestine August 13-15, Eustace, Aug 20-22&#8230;"
+      },
+      {
+        "title": "'Go Blue' shirts now available to support child abuse prevention",
+        "link": "https://www.athensreview.com/news/go-blue-shirts-now-available-to-support-child-abuse-prevention/article_8dc30cb4-1246-4205-a7fa-6c552e4338cf.html",
+        "pubDate": "Wed, 08 Apr 2026 21:09:00 -0500",
+        "description": "Cooper Garlington of Brownsboro Independent School District recently received his “Go Blue” T-shirt after being named the winner of a countywide coloring contest."
+      }
+    ],
     "filter": "Keep rural towns (Brownsboro–Chandler + rural Henderson list); drop Tyler-only",
-    "rawCount": 25,
-    "keptCount": 0,
-    "droppedCount": 25
+    "rawCount": 49,
+    "keptCount": 6,
+    "droppedCount": 25,
+    "searchKept": 6
   },
   "localBriefs": {
     "items": [
       {
-        "title": "Sept 8 Meeting Amendment to Sept 10th",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=379",
-        "pubDate": "Fri, 04 Sep 2026 15:03:13 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+        "title": "Sports: This week's high school football games",
+        "link": "https://www.athensreview.com/sports/sports-this-weeks-high-school-football-games/article_911d41f7-7503-452e-a424-2248a5177a35.html",
+        "pubDate": "Thu, 27 Aug 2026 12:00:00 -0500",
+        "source": "Athens Review",
+        "sourceUrl": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro"
       },
       {
-        "title": "Proposed Budget FY 26 -27",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=378",
-        "pubDate": "Wed, 26 Aug 2026 18:17:00 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+        "title": "Sports: Final football scrimmages fill the calendar",
+        "link": "https://www.athensreview.com/sports/sports-final-football-scrimmages-fill-the-calendar/article_7b257e09-0518-4362-a479-9cbf6085afc6.html",
+        "pubDate": "Wed, 19 Aug 2026 17:42:00 -0500",
+        "source": "Athens Review",
+        "sourceUrl": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro"
       },
       {
-        "title": "RFQ Municipal Engineering and Dev Review Services RFQ No. 2026-002",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=377",
-        "pubDate": "Thu, 13 Aug 2026 12:43:37 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+        "title": "DPS Trooper involved in Brownsboro shooting",
+        "link": "https://www.athensreview.com/news/dps-trooper-involved-in-brownsboro-shooting/article_72ac7047-6334-4985-962b-961798821669.html",
+        "pubDate": "Sun, 16 Aug 2026 12:07:00 -0500",
+        "source": "Athens Review",
+        "sourceUrl": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro"
       },
       {
-        "title": "Special Meeting",
-        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=376",
-        "pubDate": "Wed, 12 Aug 2026 17:41:00 -0600",
-        "source": "Chandler News Flash",
-        "sourceUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml"
+        "title": "Sports: High School Football scrimmages",
+        "link": "https://www.athensreview.com/sports/sports-high-school-football-scrimmages/article_4e61a6b7-e937-492b-ac98-923ba8d8a93b.html",
+        "pubDate": "Mon, 10 Aug 2026 12:48:00 -0500",
+        "source": "Athens Review",
+        "sourceUrl": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro"
+      },
+      {
+        "title": "Sports: Local schools set to serve up volleyball",
+        "link": "https://www.athensreview.com/sports/sports-local-schools-set-to-serve-up-volleyball/article_cca79c52-bd81-4fe4-9110-ddeefaed1ba9.html",
+        "pubDate": "Fri, 31 Jul 2026 12:12:00 -0500",
+        "source": "Athens Review",
+        "sourceUrl": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro"
+      },
+      {
+        "title": "'Go Blue' shirts now available to support child abuse prevention",
+        "link": "https://www.athensreview.com/news/go-blue-shirts-now-available-to-support-child-abuse-prevention/article_8dc30cb4-1246-4205-a7fa-6c552e4338cf.html",
+        "pubDate": "Wed, 08 Apr 2026 21:09:00 -0500",
+        "source": "Athens Review",
+        "sourceUrl": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro"
       },
       {
         "title": "City of Brownsboro — Recent News",
@@ -110,17 +162,10 @@
     ],
     "sources": [
       {
-        "id": "chandler",
-        "label": "Chandler News Flash",
-        "url": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
-        "count": 4,
-        "error": null
-      },
-      {
-        "id": "brownsboro",
-        "label": "Brownsboro Recent News",
-        "url": "https://brownsborotx.gov/recent-news",
-        "count": 1,
+        "id": "athens",
+        "label": "Athens Review",
+        "url": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro",
+        "count": 6,
         "error": null
       },
       {
@@ -131,16 +176,15 @@
         "error": null
       },
       {
-        "id": "athens",
-        "label": "Athens Review (rural filter)",
-        "url": "https://www.athensreview.com/search/?f=rss&t=article&c=news&l=25&s=start_time&sd=desc",
-        "count": 0,
+        "id": "brownsboro",
+        "label": "Brownsboro Recent News",
+        "url": "https://brownsborotx.gov/recent-news",
+        "count": 1,
         "error": null
       }
     ],
     "errors": [
-      "Henderson County RSS returned no items (often empty)",
-      "Athens Review: no rural-town matches after filter (soft-fail; raw=25)"
+      "Henderson County RSS returned no items (often empty)"
     ]
   },
   "garageSales": {

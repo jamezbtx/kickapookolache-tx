@@ -116,26 +116,63 @@
 
   function fillChandler(root, data) {
     clear(root);
+    var ch = (data && data.chandler) || {};
+    var items = ch.items || [];
     var card = el("article", "feed-card feed-live-card");
-    card.appendChild(el("span", "badge", "OFFICIAL"));
-    card.appendChild(el("h3", null, "City of Chandler — government notices"));
-    var list = el("ul", "feed-live-list");
-    [
-      { href: "https://www.chandlertx.com/", text: "City of Chandler website" },
-      { href: "https://www.chandlertx.com/calendar.aspx", text: "City calendar" },
-      { href: "https://www.chandlertx.com/777/City-Council-Board-Meetings", text: "City Council & board meetings" },
-      { href: "https://www.chandlertx.com/139/City-Council", text: "City Council" },
-    ].forEach(function (entry) {
-      if (!entry || !entry.href) return;
-      var li = el("li");
-      var a = el("a", null, entry.text || entry.href);
-      a.href = entry.href;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      li.appendChild(a);
-      list.appendChild(li);
-    });
-    card.appendChild(list);
+    if (items.length) {
+      card.appendChild(el("span", "badge badge-live", "LIVE"));
+    } else {
+      card.appendChild(el("span", "badge badge-fallback", "OFFICIAL"));
+    }
+    card.appendChild(el("h3", null, "City of Chandler — official announcements"));
+
+    if (items.length) {
+      var list = el("ul", "feed-live-list");
+      items.forEach(function (item) {
+        var li = el("li");
+        if (item.link) {
+          var a = el("a", null, item.title || "Untitled");
+          a.href = item.link;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          li.appendChild(a);
+        } else {
+          li.appendChild(document.createTextNode(item.title || "Untitled"));
+        }
+        if (item.pubDate) {
+          li.appendChild(document.createTextNode(" · " + formatDate(item.pubDate)));
+        }
+        list.appendChild(li);
+      });
+      card.appendChild(list);
+      if (ch.pageUrl) {
+        var more = el("p");
+        var ma = el("a", null, "All Chandler news flash");
+        ma.href = ch.pageUrl;
+        ma.target = "_blank";
+        ma.rel = "noopener noreferrer";
+        more.appendChild(ma);
+        card.appendChild(more);
+      }
+    } else {
+      card.appendChild(
+        el(
+          "p",
+          null,
+          "No Chandler headlines right now. " +
+            (ch.pageUrl ? "See the city News Flash page." : "")
+        )
+      );
+      if (ch.pageUrl) {
+        var p = el("p");
+        var a = el("a", null, ch.pageUrl);
+        a.href = ch.pageUrl;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        p.appendChild(a);
+        card.appendChild(p);
+      }
+    }
     root.appendChild(card);
   }
 
@@ -247,7 +284,7 @@
         el(
           "p",
           "note",
-          "Sources: Chandler News Flash, Brownsboro Recent News, Henderson County, and rural Athens Review."
+          "Sources: Athens Review (Brownsboro & Chandler), Henderson County News Flash, and Brownsboro city news."
         )
       );
       root.appendChild(empty);
@@ -381,9 +418,10 @@
 
     if (brownsboro) {
       var bb = (data && data.brownsboro) || {};
-      fillFallback(brownsboro, "City of Brownsboro — government notices", "OFFICIAL", [
+      fillFallback(brownsboro, "City of Brownsboro — official announcements", "OFFICIAL", [
         { href: bb.pageUrl, text: "City of Brownsboro website" },
-        { href: bb.agendasUrl, text: "Meeting agendas & minutes" }
+        { href: bb.agendasUrl, text: "Meeting agendas & minutes" },
+        { href: "https://brownsborotx.gov/recent-news", text: "Recent News" }
       ]);
     }
 

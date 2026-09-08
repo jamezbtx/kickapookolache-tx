@@ -21,6 +21,11 @@ const HENDERSON_PAGE = "https://www.henderson-county.com/CivicAlerts.aspx";
 const ATHENS_FEED =
   "https://www.athensreview.com/search/?f=rss&t=article&c=news&l=25&s=start_time&sd=desc";
 const ATHENS_PAGE = "https://www.athensreview.com/";
+const ATHENS_BROWNSBORO_FEED =
+  "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro";
+const ATHENS_CHANDLER_FEED =
+  "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Chandler";
+
 const GARAGE_CL_QUERY =
   "Brownsboro|Chandler|Murchison|Eustace|Berryville|Poynor|Larue|Neches|75756|75758";
 const GARAGE_CL_FEED =
@@ -102,7 +107,7 @@ const GARAGE_TOWN_RE = new RegExp(
 );
 const GARAGE_SALES_MAX = 8;
 
-const LOCAL_BRIEFS_MAX = 10;
+const LOCAL_BRIEFS_MAX = 12;
 
 function fetchText(url, timeoutMs) {
   return new Promise(function (resolve, reject) {
@@ -656,13 +661,40 @@ async function main() {
         dropped += 1;
       }
     });
-    result.athensReview.items = kept.slice(0, 8);
-    result.athensReview.rawCount = raw.length;
-    result.athensReview.keptCount = kept.length;
+    // Town search RSS — catches Brownsboro/Chandler stories aged out of main news feed.
+    let searchItems = [];
+    try {
+      const bbXml = await fetchText(ATHENS_BROWNSBORO_FEED);
+      searchItems = searchItems.concat(parseRssItems(bbXml, 12));
+    } catch (e1) {
+      errors.push("Athens Brownsboro search RSS: " + (e1 && e1.message ? e1.message : String(e1)));
+    }
+    try {
+      const chXml = await fetchText(ATHENS_CHANDLER_FEED);
+      searchItems = searchItems.concat(parseRssItems(chXml, 12));
+    } catch (e2) {
+      errors.push("Athens Chandler search RSS: " + (e2 && e2.message ? e2.message : String(e2)));
+    }
+    const searchKept = [];
+    searchItems.forEach(function (item) {
+      if (passesRuralFilter(item)) searchKept.push(item);
+    });
+    // Prefer search hits (more local) then rural-filtered main feed.
+    const merged = [];
+    const seen = Object.create(null);
+    searchKept.concat(kept).forEach(function (item) {
+      if (!item || !item.title) return;
+      const key = (item.link || item.title).toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      merged.push(item);
+    });
+    result.athensReview.items = merged.slice(0, 12);
+    result.athensReview.rawCount = raw.length + searchItems.length;
+    result.athensReview.keptCount = merged.length;
     result.athensReview.droppedCount = dropped;
-    // Soft-fail: zero rural matches is OK — recorded on localBriefs.errors.
+    result.athensReview.searchKept = searchKept.length;
   } catch (err) {
-    // Soft-fail Athens
     errors.push(
       "Athens Review RSS (soft-fail): " +
         (err && err.message ? err.message : String(err))
@@ -681,17 +713,22 @@ async function main() {
     );
   }
 
-  // Local briefs: city News Flash + county/rural papers. Official City panel is gov notices only.
-  if (!result.chandler.items.length) {
-    briefErrors.push("Chandler News Flash RSS returned no items");
-  }
+  // Local briefs: Athens Review town searches + rural filter + Henderson.
+  // Chandler News Flash stays on Official City panel (not duplicated here).
   result.localBriefs = buildLocalBriefs(
     [
       {
-        id: "chandler",
-        label: "Chandler News Flash",
-        url: CHANDLER_FEED,
-        items: result.chandler.items,
+        id: "athens",
+        label: "Athens Review",
+        url: ATHENS_BROWNSBORO_FEED,
+        items: result.athensReview.items,
+        error: null
+      },
+      {
+        id: "henderson",
+        label: "Henderson County News Flash",
+        url: HENDERSON_FEED,
+        items: result.henderson.items,
         error: null
       },
       {
@@ -705,20 +742,6 @@ async function main() {
             pubDate: null
           }
         ],
-        error: null
-      },
-      {
-        id: "henderson",
-        label: "Henderson County News Flash",
-        url: HENDERSON_FEED,
-        items: result.henderson.items,
-        error: null
-      },
-      {
-        id: "athens",
-        label: "Athens Review (rural filter)",
-        url: ATHENS_FEED,
-        items: result.athensReview.items,
         error: null
       }
     ],

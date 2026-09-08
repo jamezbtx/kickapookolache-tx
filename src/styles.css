@@ -436,17 +436,17 @@ body {
   color: var(--muted);
 }
 
-.contractor-spotlight-panel {
+.business-spotlight-panel {
   background: #faf6ee;
   border-color: var(--soft-border);
 }
 
-.featured-contractor {
+.featured-business {
   max-width: 36rem;
   border-left: 4px solid var(--accent);
 }
 
-.featured-contractor h3 {
+.featured-business h3 {
   font-size: 1.15rem;
 }
 

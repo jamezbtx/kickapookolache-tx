@@ -39,23 +39,22 @@
     <main>
       <!-- Zone 1: List yours (approved submissions + submit CTA) -->
       <section class="panel span-2 submit-panel" aria-labelledby="garage-submit">
-        <h2 id="garage-submit">1. List yours</h2>
-        <p>Tell neighbors about a Brownsboro or Chandler garage / yard / moving sale. Listings are reviewed before they appear on Kickapoo Kolache.</p>
+        <h2 id="garage-submit">List yours</h2>
+        <p>Tell neighbors about a Brownsboro or Chandler garage / yard / moving sale. Tell neighbors about a Brownsboro or Chandler sale.</p>
         <a class="submit-cta" href="submit.html?category=garage">Submit a garage sale</a>
         <span class="review-label">Reviewed before posting.</span>
         <div class="feed-grid" style="margin-top:1rem">
           <article class="feed-card story-empty">
             <span class="badge badge-waiting">OPEN</span>
             <h3>No sales listed yet</h3>
-            <p>Approved submissions appear here. We do not invent sales.</p>
+            <p>Approved submissions appear here. Approved neighbor sales appear here.</p>
           </article>
         </div>
       </section>
 
       <!-- Zone 2: Filtered Craigslist local hits (build-time RSS) -->
       <section class="panel span-2" aria-labelledby="garage-cl-heading">
-        <h2 id="garage-cl-heading">2. Craigslist local hits</h2>
-        <p class="note">Filtered East TX garage &amp; moving sales pull (RSS when available, HTML fallback) for Brownsboro / Chandler / rural west Henderson. Third-party — sales appear when listed locally or submitted.</p>
+        <h2 id="garage-cl-heading">Craigslist local hits</h2>
         <div id="garage-craigslist" class="feed-grid" aria-live="polite">
           <article class="feed-card story-empty">
             <span class="badge badge-waiting">OPEN</span>
@@ -66,21 +65,20 @@
         <p class="note">
           Always available:
           <a href="https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758" rel="noopener noreferrer" target="_blank">Browse filtered Craigslist East TX garage sales</a>
-          <span class="third-party-label">(third-party · browse link)</span>
+          <span class="third-party-label">(third-party)</span>
         </p>
       </section>
 
       <!-- Zone 3: Facebook Marketplace — link-out only, no scrape -->
       <aside class="panel span-2 source-panel" aria-labelledby="garage-fb">
-        <h2 id="garage-fb">3. Facebook Marketplace</h2>
-        <p>Outbound browse only. Kickapoo Kolache does <strong>not</strong> scrape or auto-feed Marketplace listings.</p>
+        <h2 id="garage-fb">Facebook Marketplace</h2>
+        <p>Browse Marketplace nearby (opens in a new tab).</p>
         <ul class="link-primary-list">
           <li>
             <a href="https://www.facebook.com/marketplace/" rel="noopener noreferrer" target="_blank">Browse Facebook Marketplace nearby</a>
-            <span class="third-party-label">(third-party · link-out only · no scrape · not auto-fed)</span>
+            <span class="third-party-label">(third-party)</span>
           </li>
         </ul>
-        <p class="note">Opens in a new tab. We never pull Marketplace into Kickapoo Kolache.</p>
       </aside>
     </main>
 

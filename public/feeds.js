@@ -284,7 +284,7 @@
         el(
           "p",
           "note",
-          "Sources: Athens Review (Brownsboro & Chandler), Henderson County News Flash, and Brownsboro city news."
+          "Sources: KLTV, Tyler Morning Telegraph, CBS19, Athens Review, and other East Texas outlets — filtered to Brownsboro, Chandler, and rural Henderson."
         )
       );
       root.appendChild(empty);

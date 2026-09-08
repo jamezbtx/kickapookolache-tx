@@ -12,7 +12,7 @@ Output lands in the publish directory: public/
 
 0. Essentials — almanac / joke / scripture / This Day in History
 1. Weather — 75756 / 75758 (Open-Meteo + NWS)
-2. Interviews & Stories — neighbor tips + Local briefs (Chandler/Brownsboro News Flash, Henderson, Athens rural)
+2. Interviews & Stories — neighbor tips + Local briefs (regional outlets filtered to Brownsboro/Chandler/rural Henderson)
 3. Business Spotlight — one featured partner (Get listed)
 4. Bears Sports · MaxPreps
 5. Official City & School Notices — government/school links only

@@ -25,6 +25,16 @@ const ATHENS_BROWNSBORO_FEED =
   "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro";
 const ATHENS_CHANDLER_FEED =
   "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Chandler";
+const ETR_FEED = "https://easttexasradio.com/feed/";
+const GILMER_FEED = "https://www.gilmermirror.com/feed/";
+// Regional TV/paper aggregation via Google News (KLTV, Tyler Morning Telegraph, CBS19, etc.)
+const GOOGLE_REGIONAL_FEED =
+  "https://news.google.com/rss/search?q=(Brownsboro+OR+Chandler)+(site:kltv.com+OR+site:tylerpaper.com+OR+site:cbs19.tv+OR+site:easttexasradio.com)+when:120d&hl=en-US&gl=US&ceid=US:en";
+const GOOGLE_BROWNSBORO_FEED =
+  "https://news.google.com/rss/search?q=%22Brownsboro%22+(site:kltv.com+OR+site:tylerpaper.com+OR+site:cbs19.tv)+when:120d&hl=en-US&gl=US&ceid=US:en";
+const GOOGLE_CHANDLER_FEED =
+  "https://news.google.com/rss/search?q=%22Chandler%22+Texas+(site:kltv.com+OR+site:tylerpaper.com+OR+site:cbs19.tv)+when:120d&hl=en-US&gl=US&ceid=US:en";
+
 
 const GARAGE_CL_QUERY =
   "Brownsboro|Chandler|Murchison|Eustace|Berryville|Poynor|Larue|Neches|75756|75758";
@@ -62,7 +72,8 @@ const RURAL_TOWNS = [
   "Enchanted Oaks",
   "Payne Springs",
   "Star Harbor",
-  "Moore Station"
+  "Moore Station",
+  "Henderson County"
 ];
 const RURAL_INCLUDE_RE = new RegExp(
   "\\b(" +
@@ -107,7 +118,7 @@ const GARAGE_TOWN_RE = new RegExp(
 );
 const GARAGE_SALES_MAX = 8;
 
-const LOCAL_BRIEFS_MAX = 12;
+const LOCAL_BRIEFS_MAX = 16;
 
 function fetchText(url, timeoutMs) {
   return new Promise(function (resolve, reject) {
@@ -211,6 +222,44 @@ function passesRuralFilter(item) {
   }
   return true;
 }
+
+function sourceFromGoogleTitle(title) {
+  if (!title) return null;
+  const m = String(title).match(/\s[-–—]\s*([^–—-]{2,60})\s*$/);
+  if (!m) return null;
+  const raw = m[1].trim();
+  if (/kltv\.com/i.test(raw)) return "KLTV";
+  if (/cbs19/i.test(raw)) return "CBS19";
+  if (/tyler morning telegraph|tylerpaper/i.test(raw)) return "Tyler Morning Telegraph";
+  if (/athens/i.test(raw)) return "Athens Review";
+  if (/east\s*texas\s*radio/i.test(raw)) return "East Texas Radio";
+  if (/gilmer/i.test(raw)) return "Gilmer Mirror";
+  return raw;
+}
+
+function normalizeRegionalItem(item) {
+  if (!item || !item.title) return item;
+  const src = sourceFromGoogleTitle(item.title);
+  let title = item.title;
+  // Drop trailing " - outlet" for display when we have a source label.
+  if (src) title = title.replace(/\s[-–—]\s*[^–—-]{2,60}\s*$/, "").trim();
+  return Object.assign({}, item, { title: title, outlet: src || item.outlet || null });
+}
+
+function fetchFilteredFeed(url, maxItems, label) {
+  return fetchText(url).then(function (xml) {
+    const raw = parseRssItems(xml, maxItems || 20);
+    const kept = [];
+    raw.forEach(function (item) {
+      const norm = normalizeRegionalItem(item);
+      if (passesRuralFilter(norm) || passesRuralFilter(item)) {
+        kept.push(norm);
+      }
+    });
+    return { label: label, url: url, items: kept, rawCount: raw.length };
+  });
+}
+
 
 function garageHaystack(item) {
   return [item.title, item.description, item.location, item.link]
@@ -394,11 +443,11 @@ function filterGarageItems(raw) {
 
 function toBrief(item, source, sourceUrl) {
   return {
-    title: item.title,
+    title: item.title || "Untitled",
     link: item.link || null,
     pubDate: item.pubDate || null,
-    source: source,
-    sourceUrl: sourceUrl
+    source: item.outlet || source || null,
+    sourceUrl: sourceUrl || null
   };
 }
 
@@ -713,40 +762,90 @@ async function main() {
     );
   }
 
-  // Local briefs: Athens Review town searches + rural filter + Henderson.
-  // Chandler News Flash stays on Official City panel (not duplicated here).
-  result.localBriefs = buildLocalBriefs(
-    [
-      {
-        id: "athens",
-        label: "Athens Review",
-        url: ATHENS_BROWNSBORO_FEED,
-        items: result.athensReview.items,
+  // Local briefs: regional outlets filtered to Brownsboro/Chandler/rural Henderson.
+  // Kickapoo aggregates outside news — not a local paper reprint of empty city RSS.
+  const regionalGroups = [];
+  const regionalErrors = briefErrors;
+
+  // Google News: KLTV / Tyler Morning Telegraph / CBS19 / East Texas Radio
+  for (const spec of [
+    { id: "google-regional", label: "Regional (KLTV / Tyler paper / CBS19)", url: GOOGLE_REGIONAL_FEED, max: 25 },
+    { id: "google-brownsboro", label: "Regional · Brownsboro", url: GOOGLE_BROWNSBORO_FEED, max: 20 },
+    { id: "google-chandler", label: "Regional · Chandler", url: GOOGLE_CHANDLER_FEED, max: 20 }
+  ]) {
+    try {
+      const xml = await fetchText(spec.url);
+      const raw = parseRssItems(xml, spec.max);
+      const items = [];
+      raw.forEach(function (item) {
+        const norm = normalizeRegionalItem(item);
+        if (passesRuralFilter(norm) || passesRuralFilter(item)) items.push(norm);
+      });
+      regionalGroups.push({
+        id: spec.id,
+        label: spec.label,
+        url: spec.url,
+        items: items,
         error: null
-      },
-      {
-        id: "henderson",
-        label: "Henderson County News Flash",
-        url: HENDERSON_FEED,
-        items: result.henderson.items,
-        error: null
-      },
-      {
-        id: "brownsboro",
-        label: "Brownsboro Recent News",
-        url: "https://brownsborotx.gov/recent-news",
-        items: [
-          {
-            title: "City of Brownsboro — Recent News",
-            link: "https://brownsborotx.gov/recent-news",
-            pubDate: null
-          }
-        ],
-        error: null
+      });
+      if (!items.length) {
+        regionalErrors.push(spec.label + ": 0 local matches (raw=" + raw.length + ")");
       }
-    ],
-    briefErrors
-  );
+    } catch (err) {
+      regionalErrors.push(
+        spec.label + ": " + (err && err.message ? err.message : String(err))
+      );
+    }
+  }
+
+  // East Texas Radio + Gilmer Mirror site feeds (soft-fail)
+  for (const spec of [
+    { id: "etr", label: "East Texas Radio", url: ETR_FEED, max: 20 },
+    { id: "gilmer", label: "Gilmer Mirror", url: GILMER_FEED, max: 20 }
+  ]) {
+    try {
+      const xml = await fetchText(spec.url);
+      const raw = parseRssItems(xml, spec.max);
+      const items = [];
+      raw.forEach(function (item) {
+        if (passesRuralFilter(item)) items.push(item);
+      });
+      regionalGroups.push({
+        id: spec.id,
+        label: spec.label,
+        url: spec.url,
+        items: items,
+        error: null
+      });
+    } catch (err) {
+      regionalErrors.push(
+        spec.label + ": " + (err && err.message ? err.message : String(err))
+      );
+    }
+  }
+
+  // Keep Athens Review town searches as secondary local paper signal
+  regionalGroups.push({
+    id: "athens",
+    label: "Athens Review",
+    url: ATHENS_BROWNSBORO_FEED,
+    items: result.athensReview.items,
+    error: null
+  });
+  regionalGroups.push({
+    id: "henderson",
+    label: "Henderson County News Flash",
+    url: HENDERSON_FEED,
+    items: result.henderson.items,
+    error: null
+  });
+
+  result.localBriefs = buildLocalBriefs(regionalGroups, regionalErrors);
+  result.regional = {
+    sources: (result.localBriefs.sources || []).map(function (s) {
+      return { id: s.id, label: s.label, count: s.count };
+    })
+  };
 
   // Craigslist East TX garage/moving sales — RSS first, Chrome HTML fallback.
   // Soft-fail on 403/block; never invent listings.

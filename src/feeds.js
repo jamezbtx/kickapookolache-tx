@@ -200,7 +200,7 @@
   function fillCivic(root) {
     clear(root);
     var card = el("article", "feed-card story-empty");
-    card.appendChild(el("span", "badge badge-waiting", "WAITING"));
+    card.appendChild(el("span", "badge badge-waiting", "OPEN"));
     card.appendChild(el("h3", null, "Local civic roundup"));
     card.appendChild(
       el(
@@ -284,7 +284,7 @@
         el(
           "p",
           "note",
-          "Live pulls: Henderson County News Flash + filtered Athens Review (rural towns only — not Tyler). Chandler News Flash stays under Official City & School Feeds. Soft-fail OK."
+          "Sources: Henderson County News Flash + filtered Athens Review (rural towns only — not Tyler). Chandler News Flash stays under Official City & School Feeds."
         )
       );
       root.appendChild(empty);
@@ -368,13 +368,13 @@
     }
 
     var empty = el("article", "feed-card story-empty");
-    empty.appendChild(el("span", "badge badge-waiting", "WAITING"));
+    empty.appendChild(el("span", "badge badge-waiting", "OPEN"));
     empty.appendChild(el("h3", null, "No filtered Craigslist hits right now"));
     var why =
       "No Brownsboro / Chandler / rural Henderson matches in the latest pull";
     if (errors.length) {
       why +=
-        " — or the Craigslist pull soft-failed (third-party block / empty feed).";
+        " — or the third-party feed was unavailable.";
     } else {
       why += ".";
     }
@@ -383,7 +383,7 @@
       el(
         "p",
         "note",
-        "Honest empty: we only show filtered hits when the build-time pull returns local matches. Soft-fail on 403/block is normal from this environment."
+        "We only list local matches when the Craigslist pull finds them. You can still browse the full search or submit a sale."
       )
     );
     var p = el("p");

@@ -20,16 +20,16 @@
     if (!root) return;
     root.innerHTML =
       '<article class="feed-card essentials-card story-empty">' +
-      '<span class="badge badge-waiting">WAITING</span>' +
+      '<span class="badge badge-waiting">OPEN</span>' +
       "<h3>Daily essentials</h3>" +
-      "<p>Farmer\u2019s Almanac tip, joke, scripture, and This Day in History appear here when the daily feed is ready. Nothing invented for this draft.</p>" +
+      "<p>Daily essentials appear here when ready \u2014 Farmer\u2019s Almanac tip, joke, scripture, and This Day in History.</p>" +
       "</article>";
     root.setAttribute("data-essentials-source", "empty");
     var note = document.getElementById("essentials-note");
     if (note) {
       note.textContent =
         sourceNote ||
-        "Awaiting essentials JSON \u2014 empty until AI or editor fills it. Soft-fail keeps this honest.";
+        "Daily essentials appear here when ready.";
     }
   }
 
@@ -124,9 +124,7 @@
     }
     if (data && (!data.items || !data.items.length)) {
       return (
-        "Awaiting essentials (" +
-        via +
-        ") — empty until AI or editor fills it. No invented EXAMPLE cards."
+        "Daily essentials appear here when ready."
       );
     }
     return "Essentials from " + via + ".";
@@ -159,9 +157,9 @@
         });
       })
       .catch(function () {
-        // Soft-fail: keep honest empty HTML already in #essentials-root
+        // Keep empty HTML already in #essentials-root
         if (!root.querySelector(".essentials-card, .feed-card")) {
-          renderEmpty(root, "Essentials JSON unavailable — leaving empty (no invented cards).");
+          renderEmpty(root, "Daily essentials appear here when ready.");
         } else {
           root.setAttribute("data-essentials-source", "empty");
         }

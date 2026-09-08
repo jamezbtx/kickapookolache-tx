@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-08T13:46:55.159Z",
+  "fetchedAt": "2026-09-08T18:26:46.048Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -99,12 +99,12 @@
     "feedUrl": "https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
     "pageUrl": "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
     "source": "html-chrome",
-    "rawCount": 2,
+    "rawCount": 3,
     "keptCount": 0,
     "filterNote": "Brownsboro/Chandler/rural west Henderson towns + 75756/75758 + Henderson County; drop Tyler/Longview-only",
     "errors": [
       "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
-      "Craigslist garage: no filtered local hits (raw=2, source=html-chrome)"
+      "Craigslist garage: no filtered local hits (raw=3, source=html-chrome)"
     ]
   },
   "brownsboro": {
@@ -125,6 +125,6 @@
     "Chandler jobs RSS returned no items (often empty)",
     "Henderson County RSS returned no items (often empty)",
     "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
-    "Craigslist garage: no filtered local hits (raw=2, source=html-chrome)"
+    "Craigslist garage: no filtered local hits (raw=3, source=html-chrome)"
   ]
 }

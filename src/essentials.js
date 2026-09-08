@@ -21,15 +21,15 @@
     root.innerHTML =
       '<article class="feed-card essentials-card story-empty">' +
       '<span class="badge">SOON</span>' +
-      "<h3>Daily essentials</h3>" +
-      "<p>Almanac tip, joke, scripture, and This Day in History — updated daily.</p>" +
+      "<h3>Essentials</h3>" +
+      "<p>Almanac tip, joke, scripture, and This Day in History</p>" +
       "</article>";
     root.setAttribute("data-essentials-source", "empty");
     var note = document.getElementById("essentials-note");
     if (note) {
       note.textContent =
         sourceNote ||
-        "Almanac tip, joke, scripture, and This Day in History — updated daily.";
+        "Almanac tip, joke, scripture, and This Day in History";
     }
   }
 
@@ -42,10 +42,10 @@
     var html = items
       .map(function (item) {
         var title = item.title || TYPE_TITLES[item.type] || "Essential";
-        var badge = item.badge || (item.source === "ai" ? "Daily" : "Daily");
+        var badge = item.badge || (item.source === "ai" ? "Essentials" : "Essentials");
         var body = item.body || "";
         var badgeClass =
-          badge === "Daily" || item.source === "ai"
+          badge === "Essentials" || item.source === "ai"
             ? "badge badge-live"
             : "badge";
         return (
@@ -100,7 +100,7 @@
           type: key,
           title: chunk.title || TYPE_TITLES[key],
           body: body,
-          badge: data.source === "ai" ? "Daily" : "Daily",
+          badge: data.source === "ai" ? "Essentials" : "Essentials",
           source: data.source
         });
       }
@@ -116,7 +116,7 @@
   function noteFor(data, via) {
     if (data && data.source === "ai" && data.items && data.items.length) {
       return (
-        "Daily essentials via " +
+        "Essentials via " +
         via +
         " (AI). Brownsboro–Chandler local flavor." +
         (data.generatedAt ? " Updated " + data.generatedAt + "." : "")
@@ -124,7 +124,7 @@
     }
     if (data && (!data.items || !data.items.length)) {
       return (
-        "Almanac tip, joke, scripture, and This Day in History — updated daily."
+        "Almanac tip, joke, scripture, and This Day in History"
       );
     }
     return "Essentials from " + via + ".";
@@ -159,7 +159,7 @@
       .catch(function () {
         // Keep empty HTML already in #essentials-root
         if (!root.querySelector(".essentials-card, .feed-card")) {
-          renderEmpty(root, "Almanac tip, joke, scripture, and This Day in History — updated daily.");
+          renderEmpty(root, "Almanac tip, joke, scripture, and This Day in History");
         } else {
           root.setAttribute("data-essentials-source", "empty");
         }

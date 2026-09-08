@@ -1,6 +1,6 @@
 /**
- * Scheduled daily essentials (~6am America/Chicago).
- * Cron UTC: 0 11 * * * ≈ 6:00am CDT / 5:00am CST (also set in netlify.toml).
+ * Scheduled weekly essentials (Mondays ~6am America/Chicago).
+ * Cron UTC: 0 11 * * 1 ≈ 6:00am CDT / 5:00am CST (also set in netlify.toml).
  *
  * Netlify AI Gateway + OpenAI SDK gpt-4o-mini when available.
  * Soft-fails to empty items (no EXAMPLE cards). Stores JSON in Blobs store "essentials" key "daily"
@@ -13,7 +13,7 @@ import OpenAI from "openai";
 import { getStore } from "@netlify/blobs";
 
 const SYSTEM_PROMPT =
-  "You write daily essentials for Kickapoo Kolache, a warm local digital newspaper for Brownsboro and Chandler, Texas (East Texas, ZIPs 75756 / 75758). Tone: neighbors-first, heritage, kitchen-table friendly. NO fake crime or breaking news. Jokes must be clean. Scripture: short Protestant-friendly verse + reference. History: prefer verifiable well-known Texas / East Texas history; do NOT invent Brownsboro/Chandler incidents — if unsure, frame as broader East Texas / Texas heritage and keep it modest. Return ONLY valid JSON with keys almanac, joke, scripture, history. Each value is an object with body (string); scripture may also include reference (string). Keep each body to 1-3 short sentences.";
+  "You write weekly essentials for Kickapoo Kolache, a warm local digital newspaper for Brownsboro and Chandler, Texas (East Texas, ZIPs 75756 / 75758). Tone: neighbors-first, heritage, kitchen-table friendly. NO fake crime or breaking news. Jokes must be clean. Scripture: short Protestant-friendly verse + reference. History: prefer verifiable well-known Texas / East Texas history; do NOT invent Brownsboro/Chandler incidents — if unsure, frame as broader East Texas / Texas heritage and keep it modest. Return ONLY valid JSON with keys almanac, joke, scripture, history. Each value is an object with body (string); scripture may also include reference (string). Keep each body to 1-3 short sentences.";
 
 const FALLBACK_ITEMS = [];
 
@@ -44,7 +44,7 @@ function itemsFromAi(parsed) {
       type,
       title: chunk.title || titles[type],
       body,
-      badge: "Daily",
+      badge: "Essentials",
       source: "ai"
     };
   });
@@ -116,5 +116,5 @@ export default async (req) => {
 };
 
 export const config = {
-  schedule: "0 11 * * *"
+  schedule: "0 11 * * 1"
 };

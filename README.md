@@ -39,7 +39,7 @@ Netlify form kickapoo-submit → kickapookolache@gmail.com.
 Official outbound calendars only (Chandler, Brownsboro, BISD). Chandler CivicPlus calendar RSS often returns zero items — we link calendar pages rather than a Kickapoo-hosted live event feed.
 
 
-## Essentials (AI-daily scaffold)
+## Essentials (AI weekly scaffold)
 
 Build runs `scripts/fetch-essentials.js` (soft-fail) and writes
 `public/data/essentials.json` with shape:
@@ -48,5 +48,5 @@ Build runs `scripts/fetch-essentials.js` (soft-fail) and writes
 Homepage `essentials.js` loads that JSON into `#essentials-root` (
 HTML remains as fallback). Types: almanac · joke · scripture · history.
 
-A future scheduled routine can regenerate `essentials.json` daily via AI
+A future scheduled routine can regenerate `essentials.json` weekly via AI
 (`source: "ai"`). No Grok Bot routine is wired yet — pipeline scaffold only.

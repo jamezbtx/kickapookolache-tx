@@ -1,5 +1,5 @@
 /**
- * GET /api/essentials — serve daily essentials from Netlify Blobs.
+ * GET /api/essentials — serve essentials from Netlify Blobs.
  * Soft-fail 404 if blob missing; homepage falls back to static JSON / empty UI.
  */
 import { getStore } from "@netlify/blobs";

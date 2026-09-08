@@ -16,7 +16,7 @@ Output lands in the publish directory: public/
 3. Contractor Spotlight — ONE featured paid/partner card (honest empty + Get listed; separate from directory)
 4. Bears Sports · MaxPreps (placeholder)
 5. Official City & School Feeds — Chandler RSS + Brownsboro/BISD fallbacks
-6. Columns — Chritty’s Bushcraft + Kermik’s Kreations (honest empty + cadence)
+6. Columns — Chritty’s Bushcraft + Carlee’s Creations (honest empty + cadence)
 7. Local Contractors directory — honest empty + Get listed
 8. Local Resources · City / BISD (near footer)
 

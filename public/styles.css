@@ -416,6 +416,27 @@ body {
 
 .sponsor-card {
   background: var(--cream);
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+}
+
+.sponsor-card-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sponsor-logo {
+  flex: 0 0 auto;
+  width: auto;
+  height: 2.75rem;
+  max-width: 5.75rem;
+  max-height: 3.25rem;
+  object-fit: contain;
+  object-position: top right;
+  margin-left: auto;
+  border-radius: 4px;
+  background: transparent;
 }
 
 .sponsor-card h3 {

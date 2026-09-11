@@ -429,9 +429,9 @@ body {
 .sponsor-logo {
   flex: 0 0 auto;
   width: auto;
-  height: 2.75rem;
-  max-width: 5.75rem;
-  max-height: 3.25rem;
+  height: auto;
+  max-width: 6.5rem;
+  max-height: 4rem;
   object-fit: contain;
   object-position: top right;
   margin-left: auto;

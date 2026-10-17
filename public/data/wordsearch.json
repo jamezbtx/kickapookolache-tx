@@ -1,0 +1,154 @@
+{
+  "id": "2026-10-12",
+  "title": "Country Living Word Search",
+  "weekLabel": "Week of Oct. 12, 2026 · Fall in Brownsboro & Chandler",
+  "theme": "Fall fun around Brownsboro and Chandler",
+  "author": "Kickapoo Kolache",
+  "size": 14,
+  "allowBackward": true,
+  "seed": 20261012,
+  "grid": [
+    "TWPOLUEBIWAKJP",
+    "SORAAOCLONONUH",
+    "FRNGWLIWRBKMGA",
+    "PCSERHWEZPPUWY",
+    "EEWNCOLMWKTMUR",
+    "CRMHPBVBIPISUI",
+    "AAECBYONAOHAOD",
+    "NCLOENSHBRCMVE",
+    "SSCHEKOLACHEIE",
+    "GBALESPAUHMYWR",
+    "SHZPWSWMHAOCGY",
+    "GNIMOCEMOHBGCS",
+    "OIPHSILEAVESKT",
+    "UQWUPETAGLIATA"
+  ],
+  "words": [
+    {
+      "word": "PECANS",
+      "row": 3,
+      "col": 0,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "HAYRIDE",
+      "row": 1,
+      "col": 13,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "POWWOW",
+      "row": 5,
+      "col": 4,
+      "dir": [
+        -1,
+        1
+      ]
+    },
+    {
+      "word": "SCARECROW",
+      "row": 8,
+      "col": 1,
+      "dir": [
+        -1,
+        0
+      ]
+    },
+    {
+      "word": "HOMECOMING",
+      "row": 11,
+      "col": 9,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "PUMPKINS",
+      "row": 0,
+      "col": 13,
+      "dir": [
+        1,
+        -1
+      ]
+    },
+    {
+      "word": "MUMS",
+      "row": 2,
+      "col": 11,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "COBBLER",
+      "row": 8,
+      "col": 2,
+      "dir": [
+        -1,
+        1
+      ]
+    },
+    {
+      "word": "PORCH",
+      "row": 5,
+      "col": 9,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "LEAVES",
+      "row": 12,
+      "col": 6,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "TAILGATE",
+      "row": 13,
+      "col": 12,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "CHILI",
+      "row": 4,
+      "col": 4,
+      "dir": [
+        -1,
+        1
+      ]
+    },
+    {
+      "word": "BALES",
+      "row": 9,
+      "col": 1,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "KOLACHE",
+      "row": 8,
+      "col": 5,
+      "dir": [
+        0,
+        1
+      ]
+    }
+  ]
+}

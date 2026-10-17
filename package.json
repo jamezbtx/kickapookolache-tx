@@ -1,0 +1,19 @@
+{
+  "name": "kickapookolache",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kickapoo Kolache — Chandler/Brownsboro TX local digital newspaper",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npx --yes serve public",
+    "generate-essentials": "node scripts/fetch-essentials.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0",
+    "@netlify/functions": "^2.8.2",
+    "openai": "^4.104.0"
+  }
+}

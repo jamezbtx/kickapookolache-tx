@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garage Sales · Brownsboro &amp; Chandler TX | Kickapoo Kolache</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Garage and yard sales in Brownsboro and Chandler TX — submit yours, see filtered Craigslist local hits when available, or browse Facebook Marketplace outbound." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-wrap">
+    <div class="top-bar">
+      <span>Brownsboro · Chandler Local</span>
+      <span>Digital Edition</span>
+    </div>
+    <header class="masthead masthead-compact">
+      <img class="masthead-logo" src="assets/kickapoo-kolache-logo-light.jpg" alt="Kickapoo Kolache" width="120" height="120" />
+      <h1>Kickapoo Kolache</h1>
+      <p class="tagline">Brownsboro &amp; Chandler. Neighbors first.</p>
+      <p class="edition">Digital Edition · Est. 2026</p>
+    </header>
+    <nav class="site-nav" aria-label="Section pages">
+      <a href="index.html">Home</a>
+      <a href="interviews.html">Interviews</a>
+      <a href="columns.html">Columns</a>
+      <a href="local-jobs.html">Local Jobs</a>
+      <a href="local-updates.html">Local Updates</a>
+      <a href="garage-sales.html" class="is-active">Garage Sales</a>
+      <a href="ask-the-kolache.html">Ask the Kolache</a>
+      <a href="crossword.html"><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.1"/><rect x="3" y="9" width="6" height="6" fill="currentColor"/><rect x="15" y="3" width="6" height="6" fill="currentColor"/></svg>Crossword</a>
+      <a href="word-search.html"><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M7.4 13L10 6.8 12.6 13M8.4 11h3.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Word Search</a>
+      <a href="submit.html">Submit / Get listed</a>
+      <a href="contact.html">Contact</a>
+      <a href="rate-card.html">Rate card</a>
+    </nav>
+
+    <main>
+      <!-- Zone 1: List yours (approved submissions + submit CTA) -->
+      <section class="panel span-2 submit-panel" aria-labelledby="garage-submit">
+        <h2 id="garage-submit">List yours</h2>
+        <p>Tell neighbors about a Brownsboro or Chandler garage / yard / moving sale. Tell neighbors about a Brownsboro or Chandler sale.</p>
+        <a class="submit-cta" href="submit.html?category=garage">Submit a garage sale</a>
+        <span class="review-label">Reviewed before posting.</span>
+        <div class="feed-grid" style="margin-top:1rem">
+          <article class="feed-card story-empty">
+            <span class="badge badge-waiting">OPEN</span>
+            <h3>No sales listed yet</h3>
+            <p>Approved submissions appear here. Approved neighbor sales appear here.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Zone 2: Filtered Craigslist local hits (build-time RSS) -->
+      <section class="panel span-2" aria-labelledby="garage-cl-heading">
+        <h2 id="garage-cl-heading">Craigslist local hits</h2>
+        <div id="garage-craigslist" class="feed-grid" aria-live="polite">
+          <article class="feed-card story-empty">
+            <span class="badge badge-waiting">OPEN</span>
+            <h3>Loading Craigslist filter…</h3>
+            <p>Checking for filtered local hits.</p>
+          </article>
+        </div>
+        <p class="note">
+          Always available:
+          <a href="https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758" rel="noopener noreferrer" target="_blank">Browse filtered Craigslist East TX garage sales</a>
+          <span class="third-party-label">(third-party)</span>
+        </p>
+      </section>
+
+      <!-- Zone 3: Facebook Marketplace — link-out only, no scrape -->
+      <aside class="panel span-2 source-panel" aria-labelledby="garage-fb">
+        <h2 id="garage-fb">Facebook Marketplace</h2>
+        <p>Browse Marketplace nearby (opens in a new tab).</p>
+        <ul class="link-primary-list">
+          <li>
+            <a href="https://www.facebook.com/marketplace/" rel="noopener noreferrer" target="_blank">Browse Facebook Marketplace nearby</a>
+            <span class="third-party-label">(third-party)</span>
+          </li>
+        </ul>
+      </aside>
+    </main>
+
+    <div class="qr-share-strip" aria-label="Share Kickapoo Kolache">
+      <img class="qr-code" src="assets/qr-kickapookolache.png" width="88" height="88" alt="QR code linking to kickapookolache.com" />
+      <div class="qr-share-copy">
+        <strong>Share Kickapoo Kolache</strong>
+        <span>Scan for <a href="https://kickapookolache.com">kickapookolache.com</a> </span>
+        <div class="qr-share-actions">
+          <button type="button" class="btn" data-share-copy>Copy link</button>
+          <button type="button" class="btn btn-primary" data-share-native>Share</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p><a href="about.html">About</a> · <a href="local-updates.html">Local Updates</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="rate-card.html">Rate card</a></p>
+
+      <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
+      <p>Brownsboro–Chandler only (not Tyler metro). Listings reviewed before posting.</p>
+          <p class="powered-by"><a href="https://commschecktx.com" rel="noopener noreferrer" target="_blank"><img class="powered-by-logo" src="assets/comms-check-mark.png" width="36" height="36" alt="Comms Check LLC" /> Website built by Comms Check LLC</a></p>
+</footer>
+  </div>
+  <script src="share.js" defer></script>
+  <script src="feeds.js" defer></script>
+  <script>(function(){var y=document.getElementById("year"); if(y) y.textContent=String(new Date().getFullYear());})();</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+{
+  "id": "2026-10-05",
+  "title": "Country Living Word Search",
+  "weekLabel": "Week of Oct. 5, 2026 · Fall on the Farm",
+  "theme": "Autumn in East Texas",
+  "author": "Kickapoo Kolache",
+  "size": 14,
+  "allowBackward": true,
+  "seed": 20261005,
+  "grid": [
+    "TCRNNRETNALOIS",
+    "AOLRBXBUHQAIWQ",
+    "RTCENAUEEHIEQE",
+    "ITMCORNBREADOU",
+    "IOUPNIOMUTZOQW",
+    "BNMUCMGCERRFAO",
+    "OCSMOIGRAULEKB",
+    "NQRPMNTAARHITH",
+    "FEUKHAYRIDEIAK",
+    "IDKINLEVIEDRGZ",
+    "RRCNLQNOSDVYOO",
+    "EHNGYTVRREVIUI",
+    "HTICIDERSTAJRE",
+    "BEARSQQTZTYHDS"
+  ],
+  "words": [
+    {
+      "word": "PUMPKIN",
+      "row": 4,
+      "col": 3,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "HARVEST",
+      "row": 7,
+      "col": 13,
+      "dir": [
+        1,
+        -1
+      ]
+    },
+    {
+      "word": "HAYRIDE",
+      "row": 8,
+      "col": 4,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "BONFIRE",
+      "row": 5,
+      "col": 0,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "SWEATER",
+      "row": 0,
+      "col": 13,
+      "dir": [
+        1,
+        -1
+      ]
+    },
+    {
+      "word": "ACORN",
+      "row": 6,
+      "col": 8,
+      "dir": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "word": "CIDER",
+      "row": 12,
+      "col": 3,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "GOURD",
+      "row": 9,
+      "col": 12,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "COTTON",
+      "row": 0,
+      "col": 1,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "CORNBREAD",
+      "row": 3,
+      "col": 3,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "QUILT",
+      "row": 7,
+      "col": 1,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "LANTERN",
+      "row": 0,
+      "col": 10,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "BEARS",
+      "row": 13,
+      "col": 0,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "MUMS",
+      "row": 3,
+      "col": 2,
+      "dir": [
+        1,
+        0
+      ]
+    }
+  ]
+}

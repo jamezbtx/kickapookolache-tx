@@ -1,0 +1,699 @@
+{
+  "id": "2026-10-05",
+  "title": "Country Living Crossword",
+  "weekLabel": "Week of Oct. 5, 2026",
+  "theme": "Harvest and farm life in Henderson County",
+  "author": "Kickapoo Kolache",
+  "size": 13,
+  "grid": [
+    "OFF..SON..TWO",
+    "ALL.NONE..RAN",
+    "TOE.OUTS.AIDE",
+    "SWEETPOTATOES",
+    "...YES.LIE...",
+    "ISLE..HER.TEA",
+    "THIS.AID.WORN",
+    "SET.ADS..AWAY",
+    "...ASH.WAS...",
+    "BLACKEYEDPEAS",
+    "RANT.READ.ARE",
+    "ANT..EARS.SEA",
+    "TEE..DRY..EAT"
+  ],
+  "numbers": [
+    [
+      1,
+      2,
+      3,
+      0,
+      0,
+      4,
+      5,
+      6,
+      0,
+      0,
+      7,
+      8,
+      9
+    ],
+    [
+      10,
+      0,
+      0,
+      0,
+      11,
+      0,
+      0,
+      0,
+      0,
+      0,
+      12,
+      0,
+      0
+    ],
+    [
+      13,
+      0,
+      0,
+      0,
+      14,
+      0,
+      0,
+      0,
+      0,
+      15,
+      0,
+      0,
+      0
+    ],
+    [
+      16,
+      0,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      19,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      21,
+      22,
+      23,
+      0,
+      0,
+      0,
+      24,
+      0,
+      0,
+      0,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      0,
+      0,
+      0,
+      0,
+      29,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0
+    ],
+    [
+      31,
+      0,
+      0,
+      0,
+      32,
+      0,
+      0,
+      0,
+      0,
+      33,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      34,
+      0,
+      0,
+      0,
+      35,
+      36,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      37,
+      38,
+      39,
+      0,
+      0,
+      0,
+      40,
+      0,
+      0,
+      0,
+      41,
+      42,
+      43
+    ],
+    [
+      44,
+      0,
+      0,
+      0,
+      0,
+      45,
+      0,
+      0,
+      0,
+      0,
+      46,
+      0,
+      0
+    ],
+    [
+      47,
+      0,
+      0,
+      0,
+      0,
+      48,
+      0,
+      0,
+      0,
+      0,
+      49,
+      0,
+      0
+    ],
+    [
+      50,
+      0,
+      0,
+      0,
+      0,
+      51,
+      0,
+      0,
+      0,
+      0,
+      52,
+      0,
+      0
+    ]
+  ],
+  "across": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "OFF",
+      "clue": "Opposite of on"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "SON",
+      "clue": "Boy in a farm family"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "TWO",
+      "clue": "Number of towns in \"Brownsboro & Chandler\""
+    },
+    {
+      "num": 10,
+      "row": 1,
+      "col": 0,
+      "answer": "ALL",
+      "clue": "Every last one"
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "NONE",
+      "clue": "Not a single one"
+    },
+    {
+      "num": 12,
+      "row": 1,
+      "col": 10,
+      "answer": "RAN",
+      "clue": "Moved quickly on foot"
+    },
+    {
+      "num": 13,
+      "row": 2,
+      "col": 0,
+      "answer": "TOE",
+      "clue": "Front of a boot"
+    },
+    {
+      "num": 14,
+      "row": 2,
+      "col": 4,
+      "answer": "OUTS",
+      "clue": "Ins and ___ (the details)"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "AIDE",
+      "clue": "Helper"
+    },
+    {
+      "num": 16,
+      "row": 3,
+      "col": 0,
+      "answer": "SWEETPOTATOES",
+      "clue": "Orange root crop that, with corn, was a main money-maker on Henderson County farms in 1850"
+    },
+    {
+      "num": 19,
+      "row": 4,
+      "col": 3,
+      "answer": "YES",
+      "clue": "Answer to \"Want another helping of cobbler?\""
+    },
+    {
+      "num": 20,
+      "row": 4,
+      "col": 7,
+      "answer": "LIE",
+      "clue": "The ___ of the land (its shape)"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "ISLE",
+      "clue": "Small island"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "HER",
+      "clue": "Pronoun for a hen"
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "TEA",
+      "clue": "Sweet drink for the porch swing"
+    },
+    {
+      "num": 28,
+      "row": 6,
+      "col": 0,
+      "answer": "THIS",
+      "clue": "Not that"
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "AID",
+      "clue": "Neighborly help"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "WORN",
+      "clue": "Faded from use, like old work gloves"
+    },
+    {
+      "num": 31,
+      "row": 7,
+      "col": 0,
+      "answer": "SET",
+      "clue": "Ready, ___, go!"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "ADS",
+      "clue": "Items in the classifieds"
+    },
+    {
+      "num": 33,
+      "row": 7,
+      "col": 9,
+      "answer": "AWAY",
+      "clue": "Brownsboro is about 17 miles ___ from Athens"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "ASH",
+      "clue": "What's left in the woodstove"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "WAS",
+      "clue": "Past tense of \"is\""
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "BLACKEYEDPEAS",
+      "clue": "Legume eaten on New Year's Day for luck, and a Henderson County crop after cotton faded"
+    },
+    {
+      "num": 44,
+      "row": 10,
+      "col": 0,
+      "answer": "RANT",
+      "clue": "Talk on and on"
+    },
+    {
+      "num": 45,
+      "row": 10,
+      "col": 5,
+      "answer": "READ",
+      "clue": "Look through a book"
+    },
+    {
+      "num": 46,
+      "row": 10,
+      "col": 10,
+      "answer": "ARE",
+      "clue": "\"You ___ my sunshine\""
+    },
+    {
+      "num": 47,
+      "row": 11,
+      "col": 0,
+      "answer": "ANT",
+      "clue": "Picnic crasher"
+    },
+    {
+      "num": 48,
+      "row": 11,
+      "col": 5,
+      "answer": "EARS",
+      "clue": "Units of corn on the cob"
+    },
+    {
+      "num": 49,
+      "row": 11,
+      "col": 10,
+      "answer": "SEA",
+      "clue": "Big salty water"
+    },
+    {
+      "num": 50,
+      "row": 12,
+      "col": 0,
+      "answer": "TEE",
+      "clue": "Golf peg"
+    },
+    {
+      "num": 51,
+      "row": 12,
+      "col": 5,
+      "answer": "DRY",
+      "clue": "Without rain"
+    },
+    {
+      "num": 52,
+      "row": 12,
+      "col": 10,
+      "answer": "EAT",
+      "clue": "Dig in at supper"
+    }
+  ],
+  "down": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "OATS",
+      "clue": "Horse feed and a breakfast grain"
+    },
+    {
+      "num": 2,
+      "row": 0,
+      "col": 1,
+      "answer": "FLOW",
+      "clue": "What water in Kickapoo Creek does"
+    },
+    {
+      "num": 3,
+      "row": 0,
+      "col": 2,
+      "answer": "FLEE",
+      "clue": "Run away from"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "SOUPS",
+      "clue": "Kettle fare on a cool day"
+    },
+    {
+      "num": 5,
+      "row": 0,
+      "col": 6,
+      "answer": "ONTO",
+      "clue": "Step ___ the porch"
+    },
+    {
+      "num": 6,
+      "row": 0,
+      "col": 7,
+      "answer": "NESTLED",
+      "clue": "Settled snugly, as a hen on her eggs"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "TRIO",
+      "clue": "Group of three"
+    },
+    {
+      "num": 8,
+      "row": 0,
+      "col": 11,
+      "answer": "WADE",
+      "clue": "Walk into shallow water, as along a creek"
+    },
+    {
+      "num": 9,
+      "row": 0,
+      "col": 12,
+      "answer": "ONES",
+      "clue": "Singles, as in dollar bills"
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "NOTE",
+      "clue": "Short message left on the kitchen table"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "ATE",
+      "clue": "Had supper"
+    },
+    {
+      "num": 17,
+      "row": 3,
+      "col": 3,
+      "answer": "EYES",
+      "clue": "Spots on a potato where sprouts begin"
+    },
+    {
+      "num": 18,
+      "row": 3,
+      "col": 8,
+      "answer": "AIR",
+      "clue": "What a breeze moves"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "ITS",
+      "clue": "\"The cat licked ___ paw\""
+    },
+    {
+      "num": 22,
+      "row": 5,
+      "col": 1,
+      "answer": "SHE",
+      "clue": "Pronoun for a mare"
+    },
+    {
+      "num": 23,
+      "row": 5,
+      "col": 2,
+      "answer": "LIT",
+      "clue": "Switched on, as a porch lamp"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "HIS",
+      "clue": "Belonging to him"
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "TOW",
+      "clue": "Pull a trailer behind a truck"
+    },
+    {
+      "num": 26,
+      "row": 5,
+      "col": 11,
+      "answer": "ERA",
+      "clue": "Period of history"
+    },
+    {
+      "num": 27,
+      "row": 5,
+      "col": 12,
+      "answer": "ANY",
+      "clue": "\"Do you have ___ eggs today?\""
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "ADHERED",
+      "clue": "Stuck fast"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "WASP",
+      "clue": "Insect that builds a paper nest under the eaves"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "ASK",
+      "clue": "Make a request"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "ACT",
+      "clue": "Part of a play"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "WEARY",
+      "clue": "Tired out after a day in the field"
+    },
+    {
+      "num": 36,
+      "row": 8,
+      "col": 8,
+      "answer": "ADDS",
+      "clue": "Puts together, as numbers"
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "BRAT",
+      "clue": "Cookout sausage, for short"
+    },
+    {
+      "num": 38,
+      "row": 9,
+      "col": 1,
+      "answer": "LANE",
+      "clue": "Narrow country road"
+    },
+    {
+      "num": 39,
+      "row": 9,
+      "col": 2,
+      "answer": "ANTE",
+      "clue": "Latin word for \"before\""
+    },
+    {
+      "num": 40,
+      "row": 9,
+      "col": 6,
+      "answer": "YEAR",
+      "clue": "1849 or 1880, for example"
+    },
+    {
+      "num": 41,
+      "row": 9,
+      "col": 10,
+      "answer": "EASE",
+      "clue": "Comfort, as in a rocking chair"
+    },
+    {
+      "num": 42,
+      "row": 9,
+      "col": 11,
+      "answer": "AREA",
+      "clue": "Region"
+    },
+    {
+      "num": 43,
+      "row": 9,
+      "col": 12,
+      "answer": "SEAT",
+      "clue": "County ___ (Athens, for Henderson County)"
+    }
+  ],
+  "themeEntries": [
+    "SWEETPOTATOES",
+    "BLACKEYEDPEAS"
+  ],
+  "sources": {
+    "SWEETPOTATOES": "TSHA Handbook, Henderson County: farms in 1850 earned mainly from corn and sweet potatoes. https://www.tshaonline.org/handbook/entries/henderson-county",
+    "BLACKEYEDPEAS": "TSHA Handbook, Henderson County: black-eyed peas, tomatoes, peaches, sweet potatoes and melons replaced cotton from the 1940s on. https://www.tshaonline.org/handbook/entries/henderson-county",
+    "AWAY / YEAR": "TSHA Handbook, Brownsboro: settled 1849 by John (Red) Brown; 17 miles northeast of Athens; railroad reached Henderson County in 1880. https://www.tshaonline.org/handbook/entries/brownsboro-tx-henderson-county ; https://www.tshaonline.org/handbook/entries/henderson-county",
+    "SEAT": "TSHA Handbook, Henderson County: county seat is Athens. https://www.tshaonline.org/handbook/entries/henderson-county",
+    "FLOW": "Kickapoo Creek runs through Brownsboro (TSHA Brownsboro entry; Kickapoo Creek WPP, TSSWCB).",
+    "TWO": "The paper covers Brownsboro and Chandler.",
+    "BLACKEYEDPEAS (New Year's luck)": "Widely known Southern New Year's Day tradition; folklore, not a local claim."
+  }
+}

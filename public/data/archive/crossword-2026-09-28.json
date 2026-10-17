@@ -1,0 +1,696 @@
+{
+  "id": "2026-09-28",
+  "title": "Country Living Crossword",
+  "weekLabel": "Week of Sept. 28, 2026",
+  "theme": "Country living around Brownsboro & Chandler",
+  "author": "Kickapoo Kolache",
+  "size": 13,
+  "grid": [
+    "ITS..TWO..SOD",
+    "DUE.ROAR..EMU",
+    "ONE.ARID.AMEN",
+    "LAKEPALESTINE",
+    "...ASH.ROE...",
+    "ANTS..HEN.HEY",
+    "GOAT.SAD.DOVE",
+    "OWN.BUT..EWES",
+    "...SAP.TIE...",
+    "KICKAPOOCREEK",
+    "IDLY.ONTO.RAN",
+    "TEA..SCAN.ACE",
+    "SAY..EEL..SHE"
+  ],
+  "numbers": [
+    [
+      1,
+      2,
+      3,
+      0,
+      0,
+      4,
+      5,
+      6,
+      0,
+      0,
+      7,
+      8,
+      9
+    ],
+    [
+      10,
+      0,
+      0,
+      0,
+      11,
+      0,
+      0,
+      0,
+      0,
+      0,
+      12,
+      0,
+      0
+    ],
+    [
+      13,
+      0,
+      0,
+      0,
+      14,
+      0,
+      0,
+      0,
+      0,
+      15,
+      0,
+      0,
+      0
+    ],
+    [
+      16,
+      0,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      19,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      21,
+      22,
+      23,
+      0,
+      0,
+      0,
+      24,
+      0,
+      0,
+      0,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      0,
+      0,
+      0,
+      0,
+      29,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0
+    ],
+    [
+      31,
+      0,
+      0,
+      0,
+      32,
+      0,
+      0,
+      0,
+      0,
+      33,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      34,
+      0,
+      0,
+      0,
+      35,
+      36,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      37,
+      38,
+      39,
+      0,
+      0,
+      0,
+      40,
+      0,
+      0,
+      0,
+      41,
+      42,
+      43
+    ],
+    [
+      44,
+      0,
+      0,
+      0,
+      0,
+      45,
+      0,
+      0,
+      0,
+      0,
+      46,
+      0,
+      0
+    ],
+    [
+      47,
+      0,
+      0,
+      0,
+      0,
+      48,
+      0,
+      0,
+      0,
+      0,
+      49,
+      0,
+      0
+    ],
+    [
+      50,
+      0,
+      0,
+      0,
+      0,
+      51,
+      0,
+      0,
+      0,
+      0,
+      52,
+      0,
+      0
+    ]
+  ],
+  "across": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "ITS",
+      "clue": "A barn and ___ hayloft"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "TWO",
+      "clue": "Number of oxen in a yoke"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "SOD",
+      "clue": "Grass laid in squares for a new lawn"
+    },
+    {
+      "num": 10,
+      "row": 1,
+      "col": 0,
+      "answer": "DUE",
+      "clue": "Expected to arrive, as a spring calf"
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "ROAR",
+      "clue": "Lion's call"
+    },
+    {
+      "num": 12,
+      "row": 1,
+      "col": 10,
+      "answer": "EMU",
+      "clue": "Big flightless bird from Australia"
+    },
+    {
+      "num": 13,
+      "row": 2,
+      "col": 0,
+      "answer": "ONE",
+      "clue": "Number of yolks in most eggs"
+    },
+    {
+      "num": 14,
+      "row": 2,
+      "col": 4,
+      "answer": "ARID",
+      "clue": "Bone-dry, like a pasture in a drought"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "AMEN",
+      "clue": "Word that ends a table blessing"
+    },
+    {
+      "num": 16,
+      "row": 3,
+      "col": 0,
+      "answer": "LAKEPALESTINE",
+      "clue": "Neches River reservoir near Chandler (dam first completed in 1962)"
+    },
+    {
+      "num": 19,
+      "row": 4,
+      "col": 3,
+      "answer": "ASH",
+      "clue": "What's left in the woodstove by morning"
+    },
+    {
+      "num": 20,
+      "row": 4,
+      "col": 7,
+      "answer": "ROE",
+      "clue": "Fish eggs"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "ANTS",
+      "clue": "Fire ___ (mound-building pasture pests)"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "HEN",
+      "clue": "Egg layer in the coop"
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "HEY",
+      "clue": "Casual \"Howdy!\""
+    },
+    {
+      "num": 28,
+      "row": 6,
+      "col": 0,
+      "answer": "GOAT",
+      "clue": "Billy or nanny in the barnyard"
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "SAD",
+      "clue": "Down in the dumps"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "DOVE",
+      "clue": "Mourning ___ (cooing bird on the power line)"
+    },
+    {
+      "num": 31,
+      "row": 7,
+      "col": 0,
+      "answer": "OWN",
+      "clue": "Hold title to, as land"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "BUT",
+      "clue": "However"
+    },
+    {
+      "num": 33,
+      "row": 7,
+      "col": 9,
+      "answer": "EWES",
+      "clue": "Flock mothers"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "SAP",
+      "clue": "Sticky stuff on a pine trunk"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "TIE",
+      "clue": "Fasten with a knot, as a feed sack"
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "KICKAPOOCREEK",
+      "clue": "Creek that flows past Brownsboro"
+    },
+    {
+      "num": 44,
+      "row": 10,
+      "col": 0,
+      "answer": "IDLY",
+      "clue": "In a lazy way"
+    },
+    {
+      "num": 45,
+      "row": 10,
+      "col": 5,
+      "answer": "ONTO",
+      "clue": "Climbed up ___ the hay wagon"
+    },
+    {
+      "num": 46,
+      "row": 10,
+      "col": 10,
+      "answer": "RAN",
+      "clue": "Went at a gallop"
+    },
+    {
+      "num": 47,
+      "row": 11,
+      "col": 0,
+      "answer": "TEA",
+      "clue": "Sweet ___ (Southern porch staple)"
+    },
+    {
+      "num": 48,
+      "row": 11,
+      "col": 5,
+      "answer": "SCAN",
+      "clue": "Look over quickly, as the sky for rain"
+    },
+    {
+      "num": 49,
+      "row": 11,
+      "col": 10,
+      "answer": "ACE",
+      "clue": "Top card in many games"
+    },
+    {
+      "num": 50,
+      "row": 12,
+      "col": 0,
+      "answer": "SAY",
+      "clue": "___ grace (bless the meal)"
+    },
+    {
+      "num": 51,
+      "row": 12,
+      "col": 5,
+      "answer": "EEL",
+      "clue": "Slippery, snakelike fish"
+    },
+    {
+      "num": 52,
+      "row": 12,
+      "col": 10,
+      "answer": "SHE",
+      "clue": "\"___'ll Be Coming 'Round the Mountain\""
+    }
+  ],
+  "down": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "IDOL",
+      "clue": "Golden calf, in Exodus"
+    },
+    {
+      "num": 2,
+      "row": 0,
+      "col": 1,
+      "answer": "TUNA",
+      "clue": "Canned fish for a potluck casserole"
+    },
+    {
+      "num": 3,
+      "row": 0,
+      "col": 2,
+      "answer": "SEEK",
+      "clue": "Hide-and-___ (backyard game)"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "TORAH",
+      "clue": "The five books of Moses, in Judaism"
+    },
+    {
+      "num": 5,
+      "row": 0,
+      "col": 6,
+      "answer": "WAIL",
+      "clue": "Long, mournful cry"
+    },
+    {
+      "num": 6,
+      "row": 0,
+      "col": 7,
+      "answer": "ORDERED",
+      "clue": "Sent away for, as seeds from a catalog"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "SEMI",
+      "clue": "Eighteen-wheeler on State Highway 31"
+    },
+    {
+      "num": 8,
+      "row": 0,
+      "col": 11,
+      "answer": "OMEN",
+      "clue": "Sign of things to come"
+    },
+    {
+      "num": 9,
+      "row": 0,
+      "col": 12,
+      "answer": "DUNE",
+      "clue": "Hill of windblown sand"
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "RAPS",
+      "clue": "Knocks on the screen door"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "ATE",
+      "clue": "Had supper"
+    },
+    {
+      "num": 17,
+      "row": 3,
+      "col": 3,
+      "answer": "EAST",
+      "clue": "Direction from Chandler to Tyler"
+    },
+    {
+      "num": 18,
+      "row": 3,
+      "col": 8,
+      "answer": "SON",
+      "clue": "Farm boy, to his dad"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "AGO",
+      "clue": "Years ___ (in the old days)"
+    },
+    {
+      "num": 22,
+      "row": 5,
+      "col": 1,
+      "answer": "NOW",
+      "clue": "At this moment"
+    },
+    {
+      "num": 23,
+      "row": 5,
+      "col": 2,
+      "answer": "TAN",
+      "clue": "Farmer's ___ (brown arms, pale shoulders)"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "HAT",
+      "clue": "Straw or felt topper for a cowboy"
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "HOW",
+      "clue": "\"___ y'all doing?\""
+    },
+    {
+      "num": 26,
+      "row": 5,
+      "col": 11,
+      "answer": "EVE",
+      "clue": "Christmas ___"
+    },
+    {
+      "num": 27,
+      "row": 5,
+      "col": 12,
+      "answer": "YES",
+      "clue": "Meaning of a nod"
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "SUPPOSE",
+      "clue": "Reckon"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "DEER",
+      "clue": "White-tailed visitors to the pea patch"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "BAA",
+      "clue": "Sheep's bleat"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "SKY",
+      "clue": "Big blue overhead"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "TOTAL",
+      "clue": "Sum at the bottom of a tally sheet"
+    },
+    {
+      "num": 36,
+      "row": 8,
+      "col": 8,
+      "answer": "ICON",
+      "clue": "Small picture on a phone screen"
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "KITS",
+      "clue": "Baby foxes"
+    },
+    {
+      "num": 38,
+      "row": 9,
+      "col": 1,
+      "answer": "IDEA",
+      "clue": "Bright notion"
+    },
+    {
+      "num": 39,
+      "row": 9,
+      "col": 2,
+      "answer": "CLAY",
+      "clue": "Potter's material, or heavy garden soil"
+    },
+    {
+      "num": 40,
+      "row": 9,
+      "col": 6,
+      "answer": "ONCE",
+      "clue": "___ upon a time"
+    },
+    {
+      "num": 41,
+      "row": 9,
+      "col": 10,
+      "answer": "ERAS",
+      "clue": "Long stretches of history"
+    },
+    {
+      "num": 42,
+      "row": 9,
+      "col": 11,
+      "answer": "EACH",
+      "clue": "Apiece"
+    },
+    {
+      "num": 43,
+      "row": 9,
+      "col": 12,
+      "answer": "KNEE",
+      "clue": "Joint that creaks when you kneel in the garden"
+    }
+  ],
+  "themeEntries": [
+    "LAKEPALESTINE",
+    "KICKAPOOCREEK"
+  ],
+  "sources": {
+    "LAKEPALESTINE": "https://www.tshaonline.org/handbook/entries/lake-palestine",
+    "KICKAPOOCREEK": "https://www.tshaonline.org/handbook/entries/brownsboro-tx-henderson-county ; https://tsswcb.texas.gov/sites/default/files/Kickapoo%20Creek%20WPP-FINAL_1.pdf",
+    "SEMI (SH 31)": "https://www.tshaonline.org/handbook/entries/brownsboro-tx-henderson-county",
+    "LAKEPALESTINE near Chandler / EAST (Tyler)": "https://tsswcb.texas.gov/sites/default/files/Kickapoo%20Creek%20WPP-FINAL_1.pdf ; https://www.tshaonline.org/handbook/entries/chandler-tx"
+  }
+}

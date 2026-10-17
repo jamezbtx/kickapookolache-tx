@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Country Living Crossword · Kickapoo Kolache</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Country Living Crossword — a weekly puzzle for Brownsboro &amp; Chandler neighbors. Farm, garden, kitchen, and rural life." />
+  <link rel="canonical" href="https://kickapookolache.com/crossword.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kickapoo Kolache" />
+  <meta property="og:title" content="Country Living Crossword" />
+  <meta property="og:description" content="Country Living Crossword: farm, garden, kitchen and rural-life clues with a few Brownsboro and Chandler favorites. Free to play on your phone or computer. No ads." />
+  <meta property="og:url" content="https://kickapookolache.com/crossword.html" />
+  <meta property="og:image" content="https://kickapookolache.com/assets/puzzles/crossword-og-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Country Living Crossword: a crossword grid with the Kickapoo Kolache logo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Country Living Crossword" />
+  <meta name="twitter:description" content="Country Living Crossword: farm, garden, kitchen and rural-life clues with a few Brownsboro and Chandler favorites. Free to play on your phone or computer. No ads." />
+  <meta name="twitter:image" content="https://kickapookolache.com/assets/puzzles/crossword-og-1200x630.jpg" />
+  <meta name="twitter:image:alt" content="Country Living Crossword: a crossword grid with the Kickapoo Kolache logo" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!--
+  Crossword page: in primary nav and sitemap (approved by James Sept. 28, 2026).
+  Weekly puzzle data: data/crossword.json (source copies in kickapoo-ops/crossword/).
+-->
+<div class="site-wrap">
+    <div class="top-bar">
+      <span>Brownsboro · Chandler Local</span>
+      <span>Digital Edition</span>
+    </div>
+    <header class="masthead masthead-compact">
+      <img class="masthead-logo" src="assets/kickapoo-kolache-logo-light.jpg" alt="Kickapoo Kolache" width="120" height="120" />
+      <h1>Kickapoo Kolache</h1>
+      <p class="tagline">Brownsboro &amp; Chandler. Neighbors first.</p>
+      <p class="edition">Digital Edition · Est. 2026</p>
+    </header>
+    <nav class="site-nav" aria-label="Section pages">
+      <a href="index.html">Home</a>
+      <a href="interviews.html">Interviews</a>
+      <a href="columns.html">Columns</a>
+      <a href="local-jobs.html">Local Jobs</a>
+      <a href="local-updates.html">Local Updates</a>
+      <a href="garage-sales.html">Garage Sales</a>
+      <a href="ask-the-kolache.html">Ask the Kolache</a>
+      <a href="crossword.html" class="is-active"><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.1"/><rect x="3" y="9" width="6" height="6" fill="currentColor"/><rect x="15" y="3" width="6" height="6" fill="currentColor"/></svg>Crossword</a>
+      <a href="word-search.html"><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M7.4 13L10 6.8 12.6 13M8.4 11h3.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Word Search</a>
+      <a href="submit.html">Submit / Get listed</a>
+      <a href="contact.html">Contact</a>
+      <a href="rate-card.html">Rate card</a>
+    </nav>
+
+    <main>
+      <section class="panel span-2 crossword-panel" aria-labelledby="crossword-heading">
+        <!-- Draft badge: shown only on preview/draft hosts (not kickapookolache.com). To show it everywhere again, delete the hidden attribute and the script below. -->
+        <p class="crossword-draft-badge" id="crossword-draft-badge" hidden>Draft · off primary nav</p>
+        <script>(function(){var h=location.hostname;if(h!=="kickapookolache.com"&&h!=="www.kickapookolache.com"){var b=document.getElementById("crossword-draft-badge");if(b)b.hidden=false;}})();</script>
+        <h2 id="crossword-heading"><svg class="game-ico" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.1"/><rect x="3" y="9" width="6" height="6" fill="currentColor"/><rect x="15" y="3" width="6" height="6" fill="currentColor"/></svg> Country Living Crossword</h2>
+        <p class="crossword-week" id="crossword-week" hidden></p>
+        <p class="crossword-intro">A quiet weekly puzzle for porch weather — farm, garden, kitchen, livestock, and East Texas neighbor life. Print-friendly. No ads in the clues.</p>
+
+        <p class="crossword-intro puzzle-archive" id="puzzle-archive"><a id="archive-prev" href="crossword.html?week=2026-09-28">Missed the last one? Play the Sept. 28 puzzle.</a><a id="archive-now" href="crossword.html" hidden>Back to the newest puzzle.</a></p>
+        <script>(function(){if(/[?&]week=\d{4}-\d{2}-\d{2}/.test(location.search)){document.getElementById("archive-prev").hidden=true;document.getElementById("archive-now").hidden=false;}})();</script>
+
+        <div id="crossword-empty" class="crossword-empty" hidden>
+          <h3>No puzzle this week</h3>
+          <p>The weekly country-living crossword isn’t posted yet. Check back Monday, or write the editor if you’d like a printable copy mailed with the digital edition notes.</p>
+        </div>
+
+        <div id="crossword-app" class="crossword-app" hidden>
+          <div class="crossword-toolbar" role="toolbar" aria-label="Puzzle controls">
+            <button type="button" class="btn" id="cw-check">Check</button>
+            <button type="button" class="btn" id="cw-reveal-letter">Reveal letter</button>
+            <button type="button" class="btn" id="cw-reveal-word">Reveal word</button>
+            <button type="button" class="btn" id="cw-clear">Clear</button>
+            <button type="button" class="btn btn-primary" id="cw-solution">Show solution</button>
+          </div>
+          <p class="crossword-status" id="cw-status" role="status" aria-live="polite"></p>
+
+          <div class="crossword-layout">
+            <div class="crossword-grid-wrap">
+              <div id="cw-grid" class="crossword-grid" role="grid" aria-label="Crossword grid"></div>
+            </div>
+            <div class="crossword-clues">
+              <div class="crossword-clue-col">
+                <h3>Across</h3>
+                <ol id="cw-across" class="crossword-clue-list"></ol>
+              </div>
+              <div class="crossword-clue-col">
+                <h3>Down</h3>
+                <ol id="cw-down" class="crossword-clue-list"></ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="crossword-editor-note">
+          Editor note: Send theme ideas (no business plugs) to
+          <a href="mailto:editor@kickapookolache.com?subject=Crossword%20idea">editor@kickapookolache.com</a>.
+        </p>
+      </section>
+    </main>
+
+    <div class="qr-share-strip" aria-label="Share Kickapoo Kolache">
+      <img class="qr-code" src="assets/qr-kickapookolache.png" width="88" height="88" alt="QR code linking to kickapookolache.com" />
+      <div class="qr-share-copy">
+        <strong>Share Kickapoo Kolache</strong>
+        <span>Scan for <a href="https://kickapookolache.com">kickapookolache.com</a></span>
+        <div class="qr-share-actions">
+          <button type="button" class="btn" data-share-copy>Copy link</button>
+          <button type="button" class="btn btn-primary" data-share-native>Share</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p><a href="about.html">About</a> · <a href="local-updates.html">Local Updates</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="rate-card.html">Rate card</a></p>
+      <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
+      <p>Brownsboro–Chandler only (not Tyler metro). Listings reviewed before posting.</p>
+      <p class="powered-by"><a href="https://commschecktx.com" rel="noopener noreferrer" target="_blank"><img class="powered-by-logo" src="assets/comms-check-mark.png" width="36" height="36" alt="Comms Check LLC" /> Website built by Comms Check LLC</a></p>
+    </footer>
+  </div>
+  <script src="share.js" defer></script>
+  <script src="puzzle-celebrate.js" defer></script>
+  <script src="crossword.js" defer></script>
+  <script>(function(){var y=document.getElementById("year"); if(y) y.textContent=String(new Date().getFullYear());})();</script>
+</body>
+</html>

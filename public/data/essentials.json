@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-10-13T10:00:55.626Z",
+  "timezone": "America/Chicago",
+  "source": "ai",
+  "items": [
+    {
+      "type": "scripture",
+      "title": "Scripture",
+      "body": "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost. — Romans 15:13 (KJV)",
+      "badge": "Essentials",
+      "source": "curated"
+    },
+    {
+      "type": "almanac",
+      "title": "Farmer's Almanac tip",
+      "body": "The county extension office in Athens can help with soil tests, pasture questions and garden problems. Call Henderson County's AgriLife Extension office for local advice.",
+      "badge": "Essentials",
+      "source": "curated"
+    },
+    {
+      "type": "history",
+      "title": "This Day in History",
+      "body": "On October 13, 1845, voters of the Republic of Texas approved annexation to the United States by a vote of 4,245 to 257, and adopted the proposed state constitution by 4,174 to 312.",
+      "badge": "Essentials",
+      "source": "curated",
+      "sourceUrl": "https://www.tshaonline.org/texas-day-by-day/entry/220",
+      "sourceName": "TSHA Texas Day by Day"
+    },
+    {
+      "type": "joke",
+      "title": "Joke of the day",
+      "body": "It got so dry last summer that I saw two trees fighting over a dog.",
+      "badge": "Essentials",
+      "source": "curated"
+    }
+  ]
+}

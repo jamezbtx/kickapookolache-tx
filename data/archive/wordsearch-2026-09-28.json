@@ -1,0 +1,154 @@
+{
+  "id": "2026-09-28",
+  "title": "Country Living Word Search",
+  "weekLabel": "Week of Sept. 28, 2026",
+  "theme": "Country living around Brownsboro & Chandler",
+  "author": "Kickapoo Kolache",
+  "size": 14,
+  "allowBackward": true,
+  "seed": 20260928,
+  "grid": [
+    "HIRACASXABTONS",
+    "HLHXRHBHAYLOFT",
+    "UCMRBHAIALWFAO",
+    "CQYBROWNSBOROC",
+    "OCDAJHNSDCGABN",
+    "BMBTKPPCBLUKPF",
+    "BPXRFCIAPDEIKV",
+    "LEMAOCBRSBHRTY",
+    "ECNCRDHEOTWCNE",
+    "RATTZJUCIYUPRT",
+    "INTOSOCRRPORBA",
+    "OOKRAHAOROPYEO",
+    "RTOMATOWNRPPHG",
+    "OODAKICKAPOOKN"
+  ],
+  "words": [
+    {
+      "word": "BROWNSBORO",
+      "row": 3,
+      "col": 3,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "CHANDLER",
+      "row": 0,
+      "col": 4,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "KICKAPOO",
+      "row": 13,
+      "col": 4,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "SCARECROW",
+      "row": 4,
+      "col": 7,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "TRACTOR",
+      "row": 5,
+      "col": 3,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "PASTURE",
+      "row": 5,
+      "col": 6,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "HAYLOFT",
+      "row": 1,
+      "col": 7,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "COBBLER",
+      "row": 3,
+      "col": 0,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "BISCUIT",
+      "row": 1,
+      "col": 6,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "TOMATO",
+      "row": 12,
+      "col": 1,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "PECAN",
+      "row": 6,
+      "col": 1,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "OKRA",
+      "row": 11,
+      "col": 1,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "GOAT",
+      "row": 12,
+      "col": 13,
+      "dir": [
+        -1,
+        0
+      ]
+    },
+    {
+      "word": "PORCH",
+      "row": 12,
+      "col": 10,
+      "dir": [
+        -1,
+        -1
+      ]
+    }
+  ]
+}

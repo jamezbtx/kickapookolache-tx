@@ -1,0 +1,38 @@
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var raw = (params.get("category") || "").toLowerCase().trim();
+  if (!raw && window.location.hash) {
+    raw = window.location.hash.replace(/^#/, "").toLowerCase().trim();
+  }
+  if (!raw) return;
+
+  var map = {
+    job: "Job listing",
+    jobs: "Job listing",
+    "job-listing": "Job listing",
+    ask: "Ask the Kolache",
+    "ask-the-kolache": "Ask the Kolache",
+    garage: "Garage sale",
+    "garage-sale": "Garage sale",
+    sales: "Garage sale",
+    contractor: "Business directory",
+    contractors: "Business directory",
+    directory: "Business directory",
+    column: "Column pitch",
+    columns: "Column pitch",
+    pitch: "Column pitch",
+    "guest-column": "Column pitch",
+    other: "Other tip",
+    tip: "Other tip",
+    blotter: "Other tip",
+    "police-blotter": "Other tip",
+    obituary: "Other tip",
+    obituaries: "Other tip",
+    obit: "Other tip"
+  };
+
+  var value = map[raw] || null;
+  var select = document.getElementById("category");
+  if (!select || !value) return;
+  select.value = value;
+})();

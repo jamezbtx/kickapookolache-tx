@@ -1,0 +1,44 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions."daily-essentials"]
+  schedule = "0 10 * * *"
+
+[functions."daily-feeds"]
+  schedule = "15 10 * * *"
+
+# Email signature image (hosted for James's Gmail signature). Not a page: keep it out of search.
+[[headers]]
+  for = "/assets/email-signature@2x.png"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# Pages dropped Oct. 11, 2026 (James): send old links home instead of a 404.
+[[redirects]]
+  from = "/obituaries.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/police-blotter.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/obituaries"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/police-blotter"
+  to = "/"
+  status = 301
+  force = true

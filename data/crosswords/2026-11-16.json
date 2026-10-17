@@ -1,0 +1,691 @@
+{
+  "id": "2026-11-16",
+  "title": "Country Living Crossword",
+  "weekLabel": "Week of Nov. 16, 2026",
+  "theme": "Country living in East Texas",
+  "author": "Kickapoo Kolache",
+  "size": 13,
+  "grid": [
+    "EGG..HOW..ALL",
+    "ARE.BALE..LIE",
+    "TON.APES.ASKS",
+    "SWEETPOTATOES",
+    "...WHY.EVE...",
+    "SHOE..ORE.BAG",
+    "HENS.SUN.COLA",
+    "EYE.FUR..OWES",
+    "...PEN.TAP...",
+    "STRAWBERRYPIE",
+    "LOUT.EDIT.ADO",
+    "ITS..AGES.TEN",
+    "PET..MED..HAS"
+  ],
+  "numbers": [
+    [
+      1,
+      2,
+      3,
+      0,
+      0,
+      4,
+      5,
+      6,
+      0,
+      0,
+      7,
+      8,
+      9
+    ],
+    [
+      10,
+      0,
+      0,
+      0,
+      11,
+      0,
+      0,
+      0,
+      0,
+      0,
+      12,
+      0,
+      0
+    ],
+    [
+      13,
+      0,
+      0,
+      0,
+      14,
+      0,
+      0,
+      0,
+      0,
+      15,
+      0,
+      0,
+      0
+    ],
+    [
+      16,
+      0,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      19,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      21,
+      22,
+      23,
+      0,
+      0,
+      0,
+      24,
+      0,
+      0,
+      0,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      0,
+      0,
+      0,
+      0,
+      29,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0
+    ],
+    [
+      31,
+      0,
+      0,
+      0,
+      32,
+      0,
+      0,
+      0,
+      0,
+      33,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      34,
+      0,
+      0,
+      0,
+      35,
+      36,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      37,
+      38,
+      39,
+      0,
+      0,
+      0,
+      40,
+      0,
+      0,
+      0,
+      41,
+      42,
+      43
+    ],
+    [
+      44,
+      0,
+      0,
+      0,
+      0,
+      45,
+      0,
+      0,
+      0,
+      0,
+      46,
+      0,
+      0
+    ],
+    [
+      47,
+      0,
+      0,
+      0,
+      0,
+      48,
+      0,
+      0,
+      0,
+      0,
+      49,
+      0,
+      0
+    ],
+    [
+      50,
+      0,
+      0,
+      0,
+      0,
+      51,
+      0,
+      0,
+      0,
+      0,
+      52,
+      0,
+      0
+    ]
+  ],
+  "across": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "EGG",
+      "clue": "Hen's daily gift"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "HOW",
+      "clue": "In what way"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "ALL",
+      "clue": "Every bit"
+    },
+    {
+      "num": 10,
+      "row": 1,
+      "col": 0,
+      "answer": "ARE",
+      "clue": "\"Here we ___!\""
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "BALE",
+      "clue": "Hay bundle"
+    },
+    {
+      "num": 12,
+      "row": 1,
+      "col": 10,
+      "answer": "LIE",
+      "clue": "Rest on a hammock"
+    },
+    {
+      "num": 13,
+      "row": 2,
+      "col": 0,
+      "answer": "TON",
+      "clue": "Very heavy load"
+    },
+    {
+      "num": 14,
+      "row": 2,
+      "col": 4,
+      "answer": "APES",
+      "clue": "Mimics"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "ASKS",
+      "clue": "Inquires"
+    },
+    {
+      "num": 16,
+      "row": 3,
+      "col": 0,
+      "answer": "SWEETPOTATOES",
+      "clue": "Orange root crop Henderson County farms grew back in 1850"
+    },
+    {
+      "num": 19,
+      "row": 4,
+      "col": 3,
+      "answer": "WHY",
+      "clue": "\"How come?\""
+    },
+    {
+      "num": 20,
+      "row": 4,
+      "col": 7,
+      "answer": "EVE",
+      "clue": "Night before a holiday"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "SHOE",
+      "clue": "Horse ___"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "ORE",
+      "clue": "Mined rock"
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "BAG",
+      "clue": "Feed sack"
+    },
+    {
+      "num": 28,
+      "row": 6,
+      "col": 0,
+      "answer": "HENS",
+      "clue": "Laying birds"
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "SUN",
+      "clue": "Garden necessity"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "COLA",
+      "clue": "Soft drink"
+    },
+    {
+      "num": 31,
+      "row": 7,
+      "col": 0,
+      "answer": "EYE",
+      "clue": "Potato spot"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "FUR",
+      "clue": "Coat on a dog"
+    },
+    {
+      "num": 33,
+      "row": 7,
+      "col": 9,
+      "answer": "OWES",
+      "clue": "Has a tab"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "PEN",
+      "clue": "Hog enclosure"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "TAP",
+      "clue": "Faucet"
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "STRAWBERRYPIE",
+      "clue": "Summer dessert from the berry patch"
+    },
+    {
+      "num": 44,
+      "row": 10,
+      "col": 0,
+      "answer": "LOUT",
+      "clue": "Clod"
+    },
+    {
+      "num": 45,
+      "row": 10,
+      "col": 5,
+      "answer": "EDIT",
+      "clue": "Revise"
+    },
+    {
+      "num": 46,
+      "row": 10,
+      "col": 10,
+      "answer": "ADO",
+      "clue": "Fuss"
+    },
+    {
+      "num": 47,
+      "row": 11,
+      "col": 0,
+      "answer": "ITS",
+      "clue": "Belonging to it"
+    },
+    {
+      "num": 48,
+      "row": 11,
+      "col": 5,
+      "answer": "AGES",
+      "clue": "Long time"
+    },
+    {
+      "num": 49,
+      "row": 11,
+      "col": 10,
+      "answer": "TEN",
+      "clue": "Two fives"
+    },
+    {
+      "num": 50,
+      "row": 12,
+      "col": 0,
+      "answer": "PET",
+      "clue": "Family animal"
+    },
+    {
+      "num": 51,
+      "row": 12,
+      "col": 5,
+      "answer": "MED",
+      "clue": "Doctor's prescription, for short"
+    },
+    {
+      "num": 52,
+      "row": 12,
+      "col": 10,
+      "answer": "HAS",
+      "clue": "Owns"
+    }
+  ],
+  "down": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "EATS",
+      "clue": "Has supper"
+    },
+    {
+      "num": 2,
+      "row": 0,
+      "col": 1,
+      "answer": "GROW",
+      "clue": "Sprout"
+    },
+    {
+      "num": 3,
+      "row": 0,
+      "col": 2,
+      "answer": "GENE",
+      "clue": "Heredity unit"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "HAPPY",
+      "clue": "Glad"
+    },
+    {
+      "num": 5,
+      "row": 0,
+      "col": 6,
+      "answer": "OLEO",
+      "clue": "Margarine"
+    },
+    {
+      "num": 6,
+      "row": 0,
+      "col": 7,
+      "answer": "WESTERN",
+      "clue": "Cowboy movie"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "ALSO",
+      "clue": "As well"
+    },
+    {
+      "num": 8,
+      "row": 0,
+      "col": 11,
+      "answer": "LIKE",
+      "clue": "Enjoy"
+    },
+    {
+      "num": 9,
+      "row": 0,
+      "col": 12,
+      "answer": "LESS",
+      "clue": "Fewer"
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "BATH",
+      "clue": "Tub soak"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "ATE",
+      "clue": "Had supper"
+    },
+    {
+      "num": 17,
+      "row": 3,
+      "col": 3,
+      "answer": "EWES",
+      "clue": "Mother sheep"
+    },
+    {
+      "num": 18,
+      "row": 3,
+      "col": 8,
+      "answer": "AVE",
+      "clue": "Main St. alternative"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "SHE",
+      "clue": "That lady"
+    },
+    {
+      "num": 22,
+      "row": 5,
+      "col": 1,
+      "answer": "HEY",
+      "clue": "\"Howdy!\""
+    },
+    {
+      "num": 23,
+      "row": 5,
+      "col": 2,
+      "answer": "ONE",
+      "clue": "Single"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "OUR",
+      "clue": "Belonging to us"
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "BOW",
+      "clue": "Fiddle stick"
+    },
+    {
+      "num": 26,
+      "row": 5,
+      "col": 11,
+      "answer": "ALE",
+      "clue": "Ginger ___ (fizzy drink)"
+    },
+    {
+      "num": 27,
+      "row": 5,
+      "col": 12,
+      "answer": "GAS",
+      "clue": "Fuel"
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "SUNBEAM",
+      "clue": "Ray of light"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "COPY",
+      "clue": "Duplicate"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "FEW",
+      "clue": "Not many"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "PAT",
+      "clue": "Gentle tap"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "TRIED",
+      "clue": "Attempted"
+    },
+    {
+      "num": 36,
+      "row": 8,
+      "col": 8,
+      "answer": "ARTS",
+      "clue": "___ and crafts"
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "SLIP",
+      "clue": "Slide"
+    },
+    {
+      "num": 38,
+      "row": 9,
+      "col": 1,
+      "answer": "TOTE",
+      "clue": "Carry"
+    },
+    {
+      "num": 39,
+      "row": 9,
+      "col": 2,
+      "answer": "RUST",
+      "clue": "Old tractor coating"
+    },
+    {
+      "num": 40,
+      "row": 9,
+      "col": 6,
+      "answer": "EDGE",
+      "clue": "Rim"
+    },
+    {
+      "num": 41,
+      "row": 9,
+      "col": 10,
+      "answer": "PATH",
+      "clue": "Trail"
+    },
+    {
+      "num": 42,
+      "row": 9,
+      "col": 11,
+      "answer": "IDEA",
+      "clue": "Notion"
+    },
+    {
+      "num": 43,
+      "row": 9,
+      "col": 12,
+      "answer": "EONS",
+      "clue": "Ages"
+    }
+  ],
+  "themeEntries": [
+    "SWEETPOTATOES",
+    "STRAWBERRYPIE"
+  ],
+  "generated": true
+}

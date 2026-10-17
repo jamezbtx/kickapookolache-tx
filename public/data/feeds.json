@@ -1,0 +1,230 @@
+{
+  "fetchedAt": "2026-10-13T13:33:01.782Z",
+  "maxpreps": {
+    "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
+    "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
+    "featured": {
+      "date": "2026-10-16T19:30:00",
+      "dateIsLocalWall": true,
+      "opponent": "Canton Eagles",
+      "opponentName": "Canton",
+      "opponentMascot": "Eagles",
+      "homeAway": "home",
+      "vsLabel": "vs Canton Eagles",
+      "location": "Brownsboro High School (OLD HS GYM)",
+      "canonicalUrl": "https://www.maxpreps.com/tx/football/game/brownsboro-vs-canton/10-16-2026/?c=49e90c52-5f09-4ca5-835e-d2730707842c",
+      "note": "The Canton varsity football team has an away conference game @  Brownsboro (TX) on Friday, October 16 @ 7:30p."
+    }
+  },
+  "chandler": {
+    "hasRss": true,
+    "feedUrl": "https://www.chandlertx.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
+    "pageUrl": "https://www.chandlertx.com/m/NewsFlash",
+    "items": [
+      {
+        "title": "Adopted Budget 2026 - 2027",
+        "link": "https://www.chandlertx.com/CivicAlerts.aspx?aid=380",
+        "pubDate": "Wed, 30 Sep 2026 18:07:00 -0600",
+        "description": null
+      }
+    ]
+  },
+  "chandlerJobs": {
+    "hasRss": true,
+    "feedUrl": "https://www.chandlertx.com/RSSFeed.aspx?CommunityJobs=False&ModID=66&CID=All-0",
+    "pageUrl": "https://www.chandlertx.com/jobs.aspx",
+    "items": []
+  },
+  "henderson": {
+    "hasRss": true,
+    "feedUrl": "https://www.henderson-county.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
+    "pageUrl": "https://www.henderson-county.com/CivicAlerts.aspx",
+    "items": [],
+    "note": "Official Henderson County news flash (often empty)"
+  },
+  "athensReview": {
+    "hasRss": true,
+    "feedUrl": "https://www.athensreview.com/search/?f=rss&t=article&c=news&l=25&s=start_time&sd=desc",
+    "pageUrl": "https://www.athensreview.com/",
+    "items": [
+      {
+        "title": "A 650-acre ranch on Lake Palestine will become Texas’ next state park",
+        "link": "https://www.athensreview.com/news/a-650-acre-ranch-on-lake-palestine-will-become-texas-next-state-park/article_7508b58c-3118-4de8-8e01-5a8f0c2ee3cb.html",
+        "pubDate": "Sat, 03 Oct 2026 03:17:00 -0500",
+        "description": "A 650-acre ranch on Lake Palestine in Henderson County is on its way to becoming Texas’ next state park. But it will be years before visitors can pitch a tent or launch a kayak there."
+      }
+    ],
+    "filter": "Keep rural towns (Brownsboro–Chandler + rural Henderson list); drop Tyler-only",
+    "rawCount": 49,
+    "keptCount": 1,
+    "droppedCount": 24,
+    "searchKept": 0
+  },
+  "localBriefs": {
+    "items": [
+      {
+        "title": "Oxygen tank explosion causes large fire on FM 314 South in Brownsboro",
+        "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZHQ2VVRFLWE0Ym9wUUstaUhLUDdvTWpKaUtIV01aSGpiZFBJUGZ3V3pfRWp0NDJ3NXBKSWVxNk4zcXBaUDRKdGUxYjNfaDJUR3FPLXN4NTlmNk5FZW45ZExneE10NFRMNFM0RlhoZTg5UGxmS081eWpMNnJBY09wRW81bUdVeUtsQnBVTzczcnAzWTdlVHBabkVTeUQyMDJSbzc0RHQ0Yks2Y2tZaUQwSEtOMUtSOEF5Umc?oc=5",
+        "pubDate": "Tue, 13 Oct 2026 01:55:00 GMT",
+        "source": "CBS19",
+        "sourceUrl": "https://news.google.com/rss/search?q=Brownsboro+(Texas+OR+TX+OR+%22Henderson+County%22)+when:20d&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "title": "A 650-acre ranch on Lake Palestine will become Texas’ next state park",
+        "link": "https://www.athensreview.com/news/a-650-acre-ranch-on-lake-palestine-will-become-texas-next-state-park/article_7508b58c-3118-4de8-8e01-5a8f0c2ee3cb.html",
+        "pubDate": "Sat, 03 Oct 2026 03:17:00 -0500",
+        "source": "Athens Review",
+        "sourceUrl": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro"
+      },
+      {
+        "title": "Henderson County Deputy Shoots Man During Wildewood Disturbance Call, Texas Rangers Called In",
+        "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQQUN4NWFlQU1FZTlsNDctOFNYQmlGS3dfVGZMbVJjTmJyeS01ZllMbzNlR2xhakxwZENXYzNPaWN5ZkFMZXJJWUpBeWR6NGZydE9RaFZRaHdyZ3VBY1BEcWFvNjIwaEVJSUJLMGNFQjZlN2pqak1KZFFKay02NFhWaGNVSmdET3A0OUNlNWFheF90OUpVYnR1VFBCaTg2YjVqMnlOWVpVcUh6WHpDRUxZUFNRZ1BqWmdLMG1GZm55OA?oc=5",
+        "pubDate": "Mon, 28 Sep 2026 07:00:00 GMT",
+        "source": "Hoodline",
+        "sourceUrl": "https://news.google.com/rss/search?q=%22Chandler%22+(75758+OR+%22Henderson+County%22+OR+Brownsboro+OR+%22East+Texas%22)+when:20d&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "title": "Sheriff's office identify man arrested after Henderson County deputy-involved shooting",
+        "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNT3ViUUJITkl1NEFNUGp2aFZLZUZmWkFuT0xKWlc4cVlKTXoyaGpiTWpMR1NJVk5KZGtyWEw0LUV5UjNtSGhyQWRzaEt6X0gwMjd0VTEzbEtOMl9ia3RobTRKcmlmZzcxLUVWek5lLXZRN0N0SEpGMFJPcmRCbDV2OXM4Zl8zVF9MSjhBS25HTFlGY05SWWxJamtHNkUwZ0NWRGJVeWx3cXRadDMyck5oQ2NaNHJKVmpyWWJsdjF2aGVPUGdrMzduX1VtbFltMlVEWXEyRFQzVDkwMkZYWDV6VTAxeVk2UnNMNmc?oc=5",
+        "pubDate": "Sun, 27 Sep 2026 15:16:00 GMT",
+        "source": "CBS19",
+        "sourceUrl": "https://news.google.com/rss/search?q=%22Chandler%22+(75758+OR+%22Henderson+County%22+OR+Brownsboro+OR+%22East+Texas%22)+when:20d&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "title": "1 hospitalized after deputy-involved shooting in Henderson County",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQXNuc3lrLTI0Qzc0UzNuYzRlR2pTOHc0VzlNYUR1ME14VE5GcDVtYVhNWTFubTg3bWhScWtFMXp5YjhVUkFrOHAyS0M3OTBYakw0NnlPZ1NBbnlsQ291VnMtOEd2aTNrMUNZTW82UFQtb3ZYZlNCTXo5ODJpT2NuSWQ1dzVXVXZldHBUUTJXY3JkVVBrdTlyblVJVQ?oc=5",
+        "pubDate": "Sun, 27 Sep 2026 07:00:00 GMT",
+        "source": "KLTV",
+        "sourceUrl": "https://news.google.com/rss/search?q=%22Chandler%22+(75758+OR+%22Henderson+County%22+OR+Brownsboro+OR+%22East+Texas%22)+when:20d&hl=en-US&gl=US&ceid=US:en"
+      }
+    ],
+    "sources": [
+      {
+        "id": "google-regional",
+        "label": "Regional / national (local filter)",
+        "url": "https://news.google.com/rss/search?q=((Brownsboro+AND+(Texas+OR+TX+OR+%22Henderson+County%22+OR+%22East+Texas%22+OR+75756))+OR+%22Chandler+TX%22+OR+%22Chandler,+Texas%22+OR+75758)+when:20d&hl=en-US&gl=US&ceid=US:en",
+        "count": 0,
+        "error": null
+      },
+      {
+        "id": "google-brownsboro",
+        "label": "Regional · Brownsboro",
+        "url": "https://news.google.com/rss/search?q=Brownsboro+(Texas+OR+TX+OR+%22Henderson+County%22)+when:20d&hl=en-US&gl=US&ceid=US:en",
+        "count": 1,
+        "error": null
+      },
+      {
+        "id": "google-chandler",
+        "label": "Regional · Chandler",
+        "url": "https://news.google.com/rss/search?q=%22Chandler%22+(75758+OR+%22Henderson+County%22+OR+Brownsboro+OR+%22East+Texas%22)+when:20d&hl=en-US&gl=US&ceid=US:en",
+        "count": 3,
+        "error": null
+      },
+      {
+        "id": "etr",
+        "label": "East Texas Radio",
+        "url": "https://easttexasradio.com/feed/",
+        "count": 0,
+        "error": null
+      },
+      {
+        "id": "gilmer",
+        "label": "Gilmer Mirror",
+        "url": "https://www.gilmermirror.com/feed/",
+        "count": 0,
+        "error": null
+      },
+      {
+        "id": "athens",
+        "label": "Athens Review",
+        "url": "https://www.athensreview.com/search/?f=rss&t=article&l=15&s=start_time&sd=desc&q=Brownsboro",
+        "count": 1,
+        "error": null
+      },
+      {
+        "id": "henderson",
+        "label": "Henderson County News Flash",
+        "url": "https://www.henderson-county.com/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
+        "count": 0,
+        "error": null
+      }
+    ],
+    "errors": [
+      "Henderson County RSS returned no items (often empty)",
+      "Regional / national (local filter): 0 local matches (raw=1)"
+    ]
+  },
+  "garageSales": {
+    "items": [],
+    "hasRss": true,
+    "feedUrl": "https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+    "pageUrl": "https://easttexas.craigslist.org/search/gms?query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+    "source": "html-chrome",
+    "rawCount": 7,
+    "keptCount": 0,
+    "filterNote": "Brownsboro/Chandler/rural west Henderson towns + 75756/75758 + Henderson County; drop Tyler/Longview-only",
+    "errors": [
+      "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+      "Craigslist garage: no filtered local hits (raw=7, source=html-chrome)"
+    ]
+  },
+  "brownsboro": {
+    "hasRss": false,
+    "label": "OFFICIAL",
+    "pageUrl": "https://brownsborotx.gov/",
+    "agendasUrl": "https://brownsborotx.gov/meeting-agendas-and-minutes"
+  },
+  "bisd": {
+    "hasRss": false,
+    "label": "OFFICIAL",
+    "newsUrl": "https://www.gobearsgo.net/about-us/new-headlines",
+    "calendarUrl": "https://www.gobearsgo.net/about-us/district-wide-calendar",
+    "parentSquareUrl": "https://www.gobearsgo.net/families/parentsquare",
+    "note": "ParentSquare is primary for families"
+  },
+  "errors": [
+    "Chandler jobs RSS returned no items (often empty)",
+    "Henderson County RSS returned no items (often empty)",
+    "Craigslist garage RSS soft-fail: HTTP 403 for https://easttexas.craigslist.org/search/gms?format=rss&query=Brownsboro%7CChandler%7CMurchison%7CEustace%7CBerryville%7CPoynor%7CLarue%7CNeches%7C75756%7C75758",
+    "Craigslist garage: no filtered local hits (raw=7, source=html-chrome)"
+  ],
+  "regional": {
+    "sources": [
+      {
+        "id": "google-regional",
+        "label": "Regional / national (local filter)",
+        "count": 0
+      },
+      {
+        "id": "google-brownsboro",
+        "label": "Regional · Brownsboro",
+        "count": 1
+      },
+      {
+        "id": "google-chandler",
+        "label": "Regional · Chandler",
+        "count": 3
+      },
+      {
+        "id": "etr",
+        "label": "East Texas Radio",
+        "count": 0
+      },
+      {
+        "id": "gilmer",
+        "label": "Gilmer Mirror",
+        "count": 0
+      },
+      {
+        "id": "athens",
+        "label": "Athens Review",
+        "count": 1
+      },
+      {
+        "id": "henderson",
+        "label": "Henderson County News Flash",
+        "count": 0
+      }
+    ]
+  }
+}

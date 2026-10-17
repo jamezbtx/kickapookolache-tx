@@ -14,6 +14,8 @@
  *  - History must match the curated VERIFIED_HISTORY entry for today's date (same year + keyword)
  *    and must not hit HISTORY_DENYLIST; otherwise the curated entry is used. With no curated
  *    entry for the date, an unverifiable model item is dropped rather than published.
+ *  - 2026-10-17 (James): no dark humor. Prompt + JOKE_BANNED_RES now reject death, injury/illness, violence,
+ *    crime, misfortune, insult and political jokes; jokes stay clear and easy to get.
  *  - Every run logs "ESSENTIALS PATH joke=... history=..." naming the path taken.
  *
  * Curated content (2026-09-30):
@@ -37,7 +39,7 @@ import {
 import { JOKES, pickAlmanac, pickJoke, pickScripture, scriptureBody } from "./lib/essentials-content.mjs";
 
 const SYSTEM_PROMPT =
-  "You write daily essentials for Kickapoo Kolache, a warm local digital newspaper for Brownsboro and Chandler, Texas (East Texas, ZIPs 75756 / 75758). Tone: neighbors-first, heritage, kitchen-table friendly, small-town Texas. NO fake crime or breaking news. Jokes must be G-rated clean (church bulletin / porch safe), short, freshly worded, and actually funny — setup plus a clear punchline that lands. NO double meanings, NO body-part or 'nuts' innuendo, NO crude farm slang, NO bathroom humor, NO romantic/sexual jokes. Prefer a genuinely funny, well-known clean joke (classic farm, livestock, weather, church, or neighbor humor) over a forced or made-up pun; if a pun does not clearly land, choose a different joke. Prefer gentle East Texas farm, weather, church-potluck, livestock, and neighbor humor (no vague squirrel/acorn word salad) \u2014 prefer gentle East Texas / farm / church-potluck / weather humor. NEVER reuse overused classics (scarecrow outstanding in his field; chicken crossing the road; why was 6 afraid of 7; parallel lines have so much in common; nacho cheese; cow+trampoline / moo-sical). Scripture: short Protestant-friendly verse + reference (do not repeat the reference twice). History (This Day in History) \u2014 HARD ACCURACY RULES: (1) History MUST name a verifiable real place + calendar date — never invent Brownsboro/Chandler/Henderson County rail, fair, school, church, or 'reached the area' milestones. (2) BAN vague hedging that implies our towns when the event is elsewhere: do NOT say 'the area', 'communities like ours', 'nearby towns', or 'this region' without naming the real place. (3) Prefer East Texas / Henderson County / rural Texas ONLY when you are sure the fact is documented; otherwise use a well-known Texas fact for that calendar date and name the real city/county (TSHA Texas Day by Day style). (4) If uncertain, pick a broader true Texas heritage item for the date — NEVER fabricate. (5) Keep existing bans: gender politics, 'Battle of the Sexes', activism slogans, culture-war framing, partisan politics, national social-issue campaigns, invented fairs/festivals. Keep history about place, land, work, faith, and Texas heritage. Each value is an object with body (string); scripture may also include reference (string). Keep each body to 1-3 short sentences. Reply with json only.";
+  "You write daily essentials for Kickapoo Kolache, a warm local digital newspaper for Brownsboro and Chandler, Texas (East Texas, ZIPs 75756 / 75758). Tone: neighbors-first, heritage, kitchen-table friendly, small-town Texas. NO fake crime or breaking news. Jokes must be G-rated clean (church bulletin / porch safe), wholesome, light and family-friendly, short, freshly worded, and actually funny — setup plus a clear, easy-to-get, straightforward punchline that lands (never obscure). NO dark humor of any kind: NO death, dying, funerals, heaven/Pearly Gates arrivals or wills; NO injury, illness, disability or pain; NO violence, weapons or fighting; NO crime, stealing or jail; NO misfortune or disaster (fires, floods, wrecks, crop or livestock losses); NO mean-spirited, insult or put-down humor; NO politics. If a joke has any dark or sad angle, pick a different one. NO double meanings, NO body-part or 'nuts' innuendo, NO crude farm slang, NO bathroom humor, NO romantic/sexual jokes. Prefer a genuinely funny, well-known clean joke (classic farm, livestock, weather, church, or neighbor humor) over a forced or made-up pun; if a pun does not clearly land, choose a different joke. Prefer gentle East Texas farm, weather, church-potluck, livestock, and neighbor humor (no vague squirrel/acorn word salad) \u2014 prefer gentle East Texas / farm / church-potluck / weather humor. NEVER reuse overused classics (scarecrow outstanding in his field; chicken crossing the road; why was 6 afraid of 7; parallel lines have so much in common; nacho cheese; cow+trampoline / moo-sical). Scripture: short Protestant-friendly verse + reference (do not repeat the reference twice). History (This Day in History) \u2014 HARD ACCURACY RULES: (1) History MUST name a verifiable real place + calendar date — never invent Brownsboro/Chandler/Henderson County rail, fair, school, church, or 'reached the area' milestones. (2) BAN vague hedging that implies our towns when the event is elsewhere: do NOT say 'the area', 'communities like ours', 'nearby towns', or 'this region' without naming the real place. (3) Prefer East Texas / Henderson County / rural Texas ONLY when you are sure the fact is documented; otherwise use a well-known Texas fact for that calendar date and name the real city/county (TSHA Texas Day by Day style). (4) If uncertain, pick a broader true Texas heritage item for the date — NEVER fabricate. (5) Keep existing bans: gender politics, 'Battle of the Sexes', activism slogans, culture-war framing, partisan politics, national social-issue campaigns, invented fairs/festivals. Keep history about place, land, work, faith, and Texas heritage. Each value is an object with body (string); scripture may also include reference (string). Keep each body to 1-3 short sentences. Reply with json only.";
 
 function fallbackPayload() {
   return {
@@ -173,7 +175,15 @@ const JOKE_BANNED_RES = [
   /afraid of (seven|7)/i,
   /parallel lines/i,
   /nacho cheese/i,
-  /\b(butt|ass|hell|damn|crap|sexy|horny|naked|underwear)\b/i
+  /\b(butt|ass|hell|damn|crap|sexy|horny|naked|underwear)\b/i,
+  // James (2026-10-17): no dark humor. Death, injury/illness, violence, crime, misfortune, insults, politics.
+  /\b(die[ds]?|dying|dead|death|deaths|killed|kills?|killing|murder\w*|funeral|cemetery|coffin|casket|graveyard|buried|survived?|pearly gates|his will|my will|her will)\b/i,
+  /\b(blind|deaf|wooden leg|cancer|hospital|ambulance|injur\w*|wounded|bleed\w*|blood|broke (his|her|my) (leg|arm|neck))\b/i,
+  /\b(guns?|shot|shoot\w*|stab\w*|punch(ed)?|beat (him|her|them) up|fight\w*)\b/i,
+  /\b(stole|steal\w*|stolen|thief|thieves|robb\w*|jail|prison|arrested|somebody else's pants)\b/i,
+  /\b(caught fire|burned down|house fire|flood(ed)?|tornado|hurricane|wreck(ed)?|went broke|foreclos\w*)\b/i,
+  /\b(hypocrites?|stupid|idiot|dumb|ugly|fat|moron)\b/i,
+  /\b(politic\w*|democrats?|republicans?|liberals?|conservatives?|congress|senator|election|president)\b/i
 ];
 
 /** null when clean + new; otherwise a short reason string. */
@@ -245,8 +255,8 @@ async function retryJokeOnly(client, today, avoidList) {
           {
             role: "user",
             content:
-              "Today is " + today + ". Reply with a json object {\"joke\":{\"body\":\"...\"}} containing ONE new, short, G-rated East Texas farm, weather, or church-potluck joke (setup + punchline).  Prefer a genuinely funny, well-known clean joke (classic farm, livestock, weather, church, or neighbor humor) over a forced or made-up pun; if a pun does not clearly land, choose a different joke. " +
-              "No scarecrows, no chickens crossing roads, no nuts, no innuendo. Do not reuse any of these: " +
+              "Today is " + today + ". Reply with a json object {\"joke\":{\"body\":\"...\"}} containing ONE new, short, G-rated, wholesome, light, family-friendly East Texas farm, weather, or church-potluck joke (setup + a clear, easy-to-get, straightforward punchline; never obscure).  Prefer a genuinely funny, well-known clean joke (classic farm, livestock, weather, church, or neighbor humor) over a forced or made-up pun; if a pun does not clearly land, choose a different joke. " +
+              "No dark humor: no death, injury, illness, violence, crime, misfortune, insults or politics. No scarecrows, no chickens crossing roads, no nuts, no innuendo. Do not reuse any of these: " +
               (avoidList || []).map((j) => "«" + String(j).replace(/[«»]/g, "") + "»").join(" ")
           }
         ],

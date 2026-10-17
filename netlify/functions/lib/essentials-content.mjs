@@ -3,7 +3,10 @@
  * SCRIPTURES: King James Version (public domain); each verse text checked word-for-word against two
  *   independent KJV sources (api.getbible.net KJV and the thiagobodruk/bible en_kjv.json dataset).
  * ALMANAC_TIPS: East Texas (USDA zone 8a/8b) seasonal tips; months are 1-12.
- * JOKES: clean, church-bulletin-safe; the first 12 are the best of the batch.
+ * JOKES: clean, church-bulletin-safe, wholesome and light; the first 12 are the best of the batch.
+ *   NO dark humor (James, 2026-10-17): no death/dying/afterlife-as-death, injury, illness or disability,
+ *   violence, crime, misfortune/disaster, mean-spirited or insult humor, and no politics. Punchline must be
+ *   clear, easy to get and straightforward, never obscure. Entries removed 2026-10-17 for dark themes.
  */
 export const SCRIPTURES = [
   {"ref": "Psalm 23:1", "text": "The LORD is my shepherd; I shall not want."},
@@ -337,29 +340,19 @@ export const ALMANAC_TIPS = [
 
 export const JOKES = [
   "A Texan was visiting a farm in Vermont. He told the farmer, \"Back home, I can get in my truck at sunrise, drive all day, and still not reach the end of my ranch.\" The Vermont farmer nodded and said, \"Yep. I had a truck like that once.\"",
-  "A man's car slid into a ditch on a county road, and a farmer came along with an old mule named Pete. The farmer hollered, \"Pull, Fred! Pull, Jack! Pull, Ted! Pull, Pete!\" and the car came right out. The man asked, \"Why did you call four names when you've only got one mule?\" The farmer said, \"Pete's blind. If he knew he was pulling alone, he'd never try.\"",
   "The preacher announced, \"Next Sunday I'm preaching on lying. To prepare, please read Mark chapter 17.\" The next week he asked, \"How many of you read Mark 17?\" Nearly every hand went up. The preacher smiled and said, \"Mark only has sixteen chapters. Now let's talk about lying.\"",
   "A doctor told an old farmer to walk two miles every day for his health. A month later the farmer called and said, \"Doc, I'm sixty miles from home. Now what?\"",
-  "Old Earl went to the doctor about his hearing and came home with a brand-new hearing aid. The doctor said, \"Your family must be delighted.\" Earl said, \"I haven't told them yet. I've just been sitting around listening. I've changed my will three times.\"",
-  "My grandpa's knee predicts rain better than the weatherman. The only difference is the weatherman says \"sixty percent chance,\" and Grandpa's knee just says \"Ow.\"",
   "The farmer told the banker, \"I'd like a loan for a new tractor.\" The banker asked, \"What have you got for collateral?\" The farmer said, \"Two hundred acres and a real good dog.\" The banker said, \"We'll take the land.\" The farmer said, \"That dog isn't going to like it.\"",
   "A farmer kept praying, \"Lord, give me a bumper crop this year.\" Finally the Lord answered, \"I'd be glad to. But you're going to have to plant something.\"",
   "Our neighbor says he doesn't gossip. He just shares prayer requests with extra details.",
-  "A farmer had a pig with a wooden leg, and a neighbor asked how that came about. The farmer said, \"That pig woke us up when the house caught fire. Then he pulled my boy out of the pond. Then he chased off a rattlesnake.\" The neighbor said, \"That explains the leg?\" The farmer said, \"Well, a pig that special, you don't eat all at once.\"",
   "Our pastor prays a little longer over the potluck when he can't identify the casserole.",
   "The Sunday school teacher asked, \"Class, what do you do when you find a lost sheep?\" Little Sam said, \"First I ask if it wants to come back.\"",
   "A little girl was saying her bedtime prayers. \"God bless Mama, God bless Daddy, God bless Grandma. And God, please take good care of Yourself, because if anything happens to You, we're all in big trouble.\"",
-  "It got so dry last summer that I saw two trees fighting over a dog.",
   "It was so hot in July that the hens started laying hard-boiled eggs, and the farmer didn't have to fry a thing at breakfast.",
-  "The wind blew so hard last spring that the hens laid the same egg four times.",
-  "The Sunday school teacher asked, \"If I put a hundred dollars in one pocket and another hundred in the other, what would I have?\" Little Billy said, \"Somebody else's pants.\"",
-  "A Texas rancher told a visitor his ranch was called the Flying W Double Bar Rocking Lazy Q Circle Star. The visitor asked, \"That's quite a name. How many head of cattle do you run?\" The rancher sighed. \"None. Not a one of them survived the branding.\"",
   "The preacher was in the middle of a long sermon when he noticed Brother Earl asleep in the third pew. He said to the man beside him, \"Would you wake Earl up, please?\" The man said, \"Pastor, you put him to sleep. You wake him up.\"",
   "At the church potluck, a visitor asked Miss Dorothy, \"Is this your famous banana pudding?\" She said, \"Honey, at this church every banana pudding is famous. The only question is whose.\"",
   "A boy was asked to say the blessing at Grandma's Thanksgiving dinner. He said, \"I don't know what to say.\" His mother whispered, \"Just say what you hear Daddy say.\" So he bowed his head and prayed, \"Lord, why on earth did I invite all these people to dinner?\"",
-  "The preacher asked the children's class, \"Who wants to go to heaven?\" Every hand went up except little Tommy's. \"Tommy, don't you want to go?\" Tommy said, \"Yes, sir, but I thought you were getting up a load right now.\"",
   "A city fellow stopped at a farm and asked, \"How do you tell the chickens from the roosters?\" The farmer said, \"Well, the ones that lay eggs are the chickens.\" The city fellow said, \"And the roosters?\" The farmer said, \"They just take credit for it.\"",
-  "An old cowboy's grandson asked, \"Granddad, what's the secret to living so long?\" The old cowboy said, \"Every morning I wake up and check whether anything hurts. If it does, I know I'm still here.\"",
   "Grandma said the secret to her biscuits was love. Grandpa said the secret was that nobody had ever been brave enough to ask for a second one.",
   "Two farmers were leaning on the fence watching the rain finally come down after a month of drought. One said, \"Isn't that beautiful?\" The other said, \"Sure is. Now let's see how long it takes us to start complaining about the mud.\"",
   "I asked the old rancher how big his herd was. He said, \"Well, I'm not sure. Every time I count them, the count changes.\" I said, \"That's strange.\" He said, \"Not really. I keep falling asleep.\"",
@@ -371,7 +364,6 @@ export const JOKES = [
   "A rancher's wife asked, \"Why do you keep that old truck when it doesn't run?\" He said, \"It still runs. It just doesn't like to.\"",
   "A man asked his neighbor why he was standing in the pasture staring at the cows. The neighbor said, \"I'm supervising.\" The man said, \"And how are they doing?\" The neighbor said, \"They've done all their work, and I've done all mine, and we're both very happy.\"",
   "A farmer went to the doctor. The doctor said, \"You need to slow down.\" The farmer said, \"I only have two speeds, Doc. Asleep and hay season.\"",
-  "A preacher and a truck driver both arrived at the Pearly Gates. St. Peter gave the truck driver a mansion and the preacher a small cabin. The preacher asked why. St. Peter said, \"When you preached, people slept. When he drove, people prayed.\"",
   "Grandpa's rule for fishing: If you catch one, keep it. If you catch two, tell somebody. If you catch three, tell everybody. If you catch none, blame the moon.",
   "A fella walked into a diner in Tyler and ordered a large sweet tea. The waitress asked, \"Would you like some tea with your sugar?\"",
   "Two boys were bragging. One said, \"My daddy's a Baptist preacher and he knows everything.\" The other said, \"My daddy's a Methodist preacher and he knows even more.\" A third boy said, \"My daddy's a farmer, and when he doesn't know something, he says it's going to rain.\"",
@@ -392,13 +384,10 @@ export const JOKES = [
   "A tourist asked a farmer near Athens, \"What time does the next bus come through?\" The farmer said, \"Which one? The one that's late, or the one that's really late?\"",
   "The fisherman told the game warden, \"I've been sitting here since sunrise and haven't caught a thing.\" The game warden said, \"Have you tried a hook?\" The fisherman said, \"Sir, I'm trying to enjoy myself.\"",
   "A man asked an East Texan for directions. The East Texan said, \"Go down the road till you see where the old barn used to be. Turn right. Then go till you see where the church used to be. If you get to the new Dollar General, you've gone too far.\"",
-  "The old fellow at the cafe said, \"I've got good news and bad news. The good news is the rain came. The bad news is it came all at once, and the creek is now in my kitchen.\"",
   "Winter in East Texas: Monday I wore a coat. Tuesday, a sweater. Wednesday, shorts. Thursday I put the coat back on, and the air conditioner never stopped running.",
   "The old-timer said, \"If you don't like the weather in East Texas, wait five minutes.\" Then he added, \"And if you do like it, wait five minutes.\"",
   "Uncle Bud's tractor runs on diesel and prayer. Diesel got expensive, so now it mostly runs on prayer.",
   "Grandpa's gardening advice: \"Plant the seed, pray for rain, and be modest about the yield.\"",
-  "Grandpa says the Lord provides the pecans, but He expects you to bend down and pick them up. The squirrels feel the same way.",
-  "A man told the preacher, \"I don't go to church because it's full of hypocrites.\" The preacher said, \"Come on in. There's always room for one more.\"",
   "Johnny's teacher said, \"I ain't got no pencil. Now Johnny, say it right: I don't have a pencil. You don't have a pencil. They don't have a pencil.\" Johnny said, \"Well, who took all the pencils?\"",
   "The teacher said, \"Why are you late again, Billy?\" Billy said, \"The sign on the road said 'School Ahead, Go Slow.'\"",
   "The teacher said, \"Johnny, why didn't you do your homework?\" Johnny said, \"The pig ate it.\" The teacher said, \"You don't have a pig.\" Johnny said, \"That's why he was so hungry.\"",

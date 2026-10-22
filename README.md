@@ -33,6 +33,7 @@ Draft banners and noindex removed on this branch (pre-publish polish).
 main holds Coming soon only.
 Published to kickapookolache.com Oct. 11, 2026 (James): production deploy 6acb8461fc7dc02f6ad5118a. Rollback target 6aca8943b35357f6475b7819.
 Oct. 11, 2026 mobile width fix (grids use minmax(0, 1fr); panel h2 rules full width): production deploy 6acbbb9f1c6d685cecb9c1a1. Rollback target 6acb8461fc7dc02f6ad5118a.
+Oct. 22, 2026 Lake Palestine state park story (Rodney Franklin) published 9:01 AM CT: production deploy 6ada179492ff80f5d3164e5b (commit 0f9d96b). Rollback target 6ad60f089344222be5d45987.
 Note: Blobs store `essentials` is site-wide, so draft/branch deploys read the same `/api/essentials` blob that production's
 scheduled `daily-essentials` writes. Branch deploys never run the schedule; a history entry added on a draft only appears
 after production runs the new code (or a manual re-run).

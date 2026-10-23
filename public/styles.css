@@ -1602,3 +1602,16 @@ body {
 .play-tile:hover,.play-tile:focus-visible{border-top-color:var(--ink)}
 .play-tile:hover .play-cta,.play-tile:focus-visible .play-cta{text-decoration:underline}
 @media print{.play-panel{display:none!important}}
+
+/* Interviews archive (Oct. 23, 2026) */
+.see-all-stories { margin: 1rem 0 .25rem; font-family: var(--font-ui); font-weight: 700; font-size: 1.05rem; }
+.see-all-stories a { color: var(--accent); text-decoration: none; }
+.see-all-stories a:hover { text-decoration: underline; }
+.archive-intro { margin: 0 0 .75rem; color: var(--muted); }
+.archive-tools { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); gap: .75rem; margin: 0 0 .5rem; }
+.archive-tools .kk-field { display: flex; flex-direction: column; gap: .25rem; min-width: 0; }
+.archive-count { font-family: var(--font-ui); font-size: .9rem; color: var(--muted); margin: .25rem 0 .75rem; }
+.archive-empty { font-family: var(--font-ui); padding: 1rem; border: 1px dashed #cfc6b4; background: #fffdf8; }
+.link-btn { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; cursor: pointer; }
+.feed-grid article[hidden] { display: none; }
+@media (max-width: 640px) { .archive-tools { grid-template-columns: 1fr 1fr; } .archive-tools .archive-search { grid-column: 1 / -1; } }

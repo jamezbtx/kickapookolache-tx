@@ -104,6 +104,7 @@ const rootFiles = [
   "interviews.html",
   "word-search.html",
   "word-search.js",
+  "archive.js",
   "about.html",
   "local-updates.html",
   "flag-retirement-brownsboro-cadet.html",

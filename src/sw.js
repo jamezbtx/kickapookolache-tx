@@ -1,5 +1,5 @@
 // Kickapoo Kolache service worker: network-first for pages, offline fallback. Never caches /api/*.
-const CACHE = "kk-v1";
+const CACHE = "kk-v2";
 const OFFLINE = "/offline.html";
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll([OFFLINE, "/styles.css", "/assets/icons/icon-192.png"])).then(() => self.skipWaiting()));
@@ -18,4 +18,25 @@ self.addEventListener("fetch", (e) => {
     return;
   }
   e.respondWith(fetch(req).catch(() => caches.match(req)));
+});
+
+// New-story alerts (push). Payload: {title, body, url}.
+self.addEventListener("push", (e) => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; } catch { d = { body: e.data && e.data.text() }; }
+  e.waitUntil(self.registration.showNotification(d.title || "Kickapoo Kolache", {
+    body: d.body || "A new story just posted.",
+    icon: "/assets/icons/icon-192.png",
+    badge: "/assets/icons/badge-96.png",
+    data: { url: d.url || "/" },
+    tag: d.url || "kk-story"
+  }));
+});
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close();
+  const url = new URL((e.notification.data && e.notification.data.url) || "/", self.location.origin).href;
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((cs) => {
+    for (const c of cs) if (c.url === url && "focus" in c) return c.focus();
+    return self.clients.openWindow(url);
+  }));
 });

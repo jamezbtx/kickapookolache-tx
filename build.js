@@ -108,6 +108,7 @@ const rootFiles = [
   "manifest.webmanifest",
   "sw.js",
   "pwa.js",
+  "push.js",
   "offline.html",
   "apple-touch-icon.png",
   "about.html",
@@ -264,7 +265,8 @@ const PWA_HEAD = [
   '<link rel="manifest" href="/manifest.webmanifest" />',
   '<meta name="theme-color" content="#8b1e1e" />',
   '<link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
-  '<script src="/pwa.js" defer></script>'
+  '<script src="/pwa.js" defer></script>',
+  '<script src="/push.js" defer></script>'
 ];
 const INCLUDE_RE = /([ \t]*)<!--INCLUDE:([a-z0-9-]+)-->/g;
 const warnings = [];

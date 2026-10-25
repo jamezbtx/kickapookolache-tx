@@ -105,6 +105,11 @@ const rootFiles = [
   "word-search.html",
   "word-search.js",
   "archive.js",
+  "manifest.webmanifest",
+  "sw.js",
+  "pwa.js",
+  "offline.html",
+  "apple-touch-icon.png",
   "about.html",
   "local-updates.html",
   "flag-retirement-brownsboro-cadet.html",
@@ -255,6 +260,12 @@ if (fs.existsSync(partialsDir)) {
     if (f.endsWith(".html")) partials[f.replace(/\.html$/, "")] = fs.readFileSync(path.join(partialsDir, f), "utf8").trim();
   }
 }
+const PWA_HEAD = [
+  '<link rel="manifest" href="/manifest.webmanifest" />',
+  '<meta name="theme-color" content="#8b1e1e" />',
+  '<link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
+  '<script src="/pwa.js" defer></script>'
+];
 const INCLUDE_RE = /([ \t]*)<!--INCLUDE:([a-z0-9-]+)-->/g;
 const warnings = [];
 function applyPartials(file) {
@@ -271,6 +282,10 @@ function applyPartials(file) {
   if (isStory) {
     const og = (html.match(/<meta property="og:image" content="([^"]+)"/) || [])[1] || "";
     if (!/-og-hq-2400x1260\.jpg$/.test(og)) warnings.push(path.relative(root, file) + ": og:image " + (og ? "is not the HQ standard (-og-hq-2400x1260.jpg): " + og : "missing (stories should have a 2400x1260 -og-hq card)"));
+  }
+  // PWA head tags (manifest, theme color, touch icon, SW registration) on every page that has a <head>.
+  if (html.includes("</head>") && !html.includes('rel="manifest"')) {
+    html = html.replace(/([ \t]*)<\/head>/, (m, indent) => indent + PWA_HEAD.join("\n" + indent) + "\n" + indent + "</head>");
   }
   if (html !== before) fs.writeFileSync(file, html);
 }

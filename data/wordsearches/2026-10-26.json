@@ -1,0 +1,13 @@
+{
+  "id": "2026-10-26",
+  "title": "Country Living Word Search",
+  "weekLabel": "Week of Oct. 26, 2026 · Harvest Moon & Cozy Nights",
+  "theme": "Harvest suppers, cool evenings and turning the clocks back around Brownsboro and Chandler",
+  "size": 14,
+  "allowBackward": true,
+  "seed": 20261026,
+  "words": [
+    "HARVESTMOON", "CANDYCORN", "HOTCOCOA", "SWEETPOTATO", "PEANUTBRITTLE", "GOURDS", "ACORNS",
+    "SQUIRREL", "PINECONES", "RAKE", "QUILT", "POTLUCK", "SWEATER", "FALLBACK"
+  ]
+}

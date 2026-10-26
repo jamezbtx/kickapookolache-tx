@@ -1,113 +1,113 @@
 {
-  "id": "2026-10-19",
+  "id": "2026-10-26",
   "title": "Country Living Word Search",
-  "weekLabel": "Week of Oct. 19, 2026 · Fall Festivals & Friday Nights",
-  "theme": "Pumpkin patches, lake days and Friday nights around Brownsboro and Chandler",
+  "weekLabel": "Week of Oct. 26, 2026 · Harvest Moon & Cozy Nights",
+  "theme": "Harvest suppers, cool evenings and turning the clocks back around Brownsboro and Chandler",
   "author": "Kickapoo Kolache",
   "size": 14,
   "allowBackward": true,
-  "seed": 20261019,
+  "seed": 20261026,
   "grid": [
-    "TPMLIQHSBUOFWE",
-    "ITAEZAMNROCENG",
-    "PIRFNESEMUTSOC",
-    "RECUOFEEBANTJC",
-    "HJHSNOILLALIAA",
-    "FLIMMKTSLQAVUM",
-    "LTNNVOOBHIKARP",
-    "AGGNNLRRAIELAF",
-    "NABWRJVETLNEEI",
-    "NZAAEXIISRLGAR",
-    "EVNRACARAMELCE",
-    "LVDMHZYLIHNAYI",
-    "PUMPKINPATCHTZ",
-    "LPRAPPLESCPZAE"
+    "EOKANEABAERFGR",
+    "NPTUCYPOPPIAOA",
+    "ORMAOOCTYIALUK",
+    "OJGETORYHNULRE",
+    "MWVRCOENPEIBDH",
+    "TEATJQPOSCNASA",
+    "SIOLEFTTBOJCHL",
+    "EHBTKLPTENLKEC",
+    "VWKYURTSWEATER",
+    "RCGCSNENKSWCEN",
+    "AQKEQUILTTSSXM",
+    "HPEANUTBRITTLE",
+    "KFPKDRSQUIRREL",
+    "NROCYDNACMEWAD"
   ],
   "words": [
     {
-      "word": "PUMPKINPATCH",
-      "row": 12,
+      "word": "HARVESTMOON",
+      "row": 11,
       "col": 0,
       "dir": [
-        0,
-        1
+        -1,
+        0
       ]
     },
     {
-      "word": "CORNMAZE",
-      "row": 1,
-      "col": 10,
+      "word": "CANDYCORN",
+      "row": 13,
+      "col": 8,
       "dir": [
         0,
         -1
       ]
     },
     {
-      "word": "FESTIVAL",
-      "row": 0,
-      "col": 11,
-      "dir": [
-        1,
-        0
-      ]
-    },
-    {
-      "word": "FOOTBALL",
-      "row": 2,
-      "col": 3,
-      "dir": [
-        1,
-        1
-      ]
-    },
-    {
-      "word": "MARCHINGBAND",
-      "row": 0,
-      "col": 2,
-      "dir": [
-        1,
-        0
-      ]
-    },
-    {
-      "word": "TRUNKORTREAT",
-      "row": 1,
+      "word": "HOTCOCOA",
+      "row": 7,
       "col": 1,
       "dir": [
-        1,
+        -1,
         1
       ]
     },
     {
-      "word": "COSTUMES",
-      "row": 2,
-      "col": 13,
+      "word": "SWEETPOTATO",
+      "row": 10,
+      "col": 11,
       "dir": [
-        0,
+        -1,
         -1
       ]
     },
     {
-      "word": "LAKE",
-      "row": 4,
-      "col": 10,
+      "word": "PEANUTBRITTLE",
+      "row": 11,
+      "col": 1,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "GOURDS",
+      "row": 0,
+      "col": 12,
       "dir": [
         1,
         0
       ]
     },
     {
-      "word": "FISHING",
-      "row": 3,
-      "col": 5,
+      "word": "ACORNS",
+      "row": 0,
+      "col": 3,
       "dir": [
         1,
         1
       ]
     },
     {
-      "word": "CAMPFIRE",
-      "row": 3,
+      "word": "SQUIRREL",
+      "row": 12,
+      "col": 6,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "PINECONES",
+      "row": 1,
+      "col": 9,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "RAKE",
+      "row": 0,
       "col": 13,
       "dir": [
         1,
@@ -115,36 +115,36 @@
       ]
     },
     {
-      "word": "SMORES",
+      "word": "QUILT",
+      "row": 10,
+      "col": 4,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "POTLUCK",
       "row": 4,
-      "col": 3,
+      "col": 8,
       "dir": [
         1,
-        1
+        -1
       ]
     },
     {
-      "word": "CARAMEL",
-      "row": 10,
-      "col": 5,
+      "word": "SWEATER",
+      "row": 8,
+      "col": 7,
       "dir": [
         0,
         1
       ]
     },
     {
-      "word": "APPLES",
-      "row": 13,
-      "col": 3,
-      "dir": [
-        0,
-        1
-      ]
-    },
-    {
-      "word": "FLANNEL",
-      "row": 5,
-      "col": 0,
+      "word": "FALLBACK",
+      "row": 0,
+      "col": 11,
       "dir": [
         1,
         0

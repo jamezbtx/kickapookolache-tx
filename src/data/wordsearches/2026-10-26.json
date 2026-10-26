@@ -1,0 +1,154 @@
+{
+  "id": "2026-10-26",
+  "title": "Country Living Word Search",
+  "weekLabel": "Week of Oct. 26, 2026 · Harvest Moon & Cozy Nights",
+  "theme": "Harvest suppers, cool evenings and turning the clocks back around Brownsboro and Chandler",
+  "author": "Kickapoo Kolache",
+  "size": 14,
+  "allowBackward": true,
+  "seed": 20261026,
+  "grid": [
+    "EOKANEABAERFGR",
+    "NPTUCYPOPPIAOA",
+    "ORMAOOCTYIALUK",
+    "OJGETORYHNULRE",
+    "MWVRCOENPEIBDH",
+    "TEATJQPOSCNASA",
+    "SIOLEFTTBOJCHL",
+    "EHBTKLPTENLKEC",
+    "VWKYURTSWEATER",
+    "RCGCSNENKSWCEN",
+    "AQKEQUILTTSSXM",
+    "HPEANUTBRITTLE",
+    "KFPKDRSQUIRREL",
+    "NROCYDNACMEWAD"
+  ],
+  "words": [
+    {
+      "word": "HARVESTMOON",
+      "row": 11,
+      "col": 0,
+      "dir": [
+        -1,
+        0
+      ]
+    },
+    {
+      "word": "CANDYCORN",
+      "row": 13,
+      "col": 8,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "HOTCOCOA",
+      "row": 7,
+      "col": 1,
+      "dir": [
+        -1,
+        1
+      ]
+    },
+    {
+      "word": "SWEETPOTATO",
+      "row": 10,
+      "col": 11,
+      "dir": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "word": "PEANUTBRITTLE",
+      "row": 11,
+      "col": 1,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "GOURDS",
+      "row": 0,
+      "col": 12,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "ACORNS",
+      "row": 0,
+      "col": 3,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "SQUIRREL",
+      "row": 12,
+      "col": 6,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "PINECONES",
+      "row": 1,
+      "col": 9,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "RAKE",
+      "row": 0,
+      "col": 13,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "QUILT",
+      "row": 10,
+      "col": 4,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "POTLUCK",
+      "row": 4,
+      "col": 8,
+      "dir": [
+        1,
+        -1
+      ]
+    },
+    {
+      "word": "SWEATER",
+      "row": 8,
+      "col": 7,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "FALLBACK",
+      "row": 0,
+      "col": 11,
+      "dir": [
+        1,
+        0
+      ]
+    }
+  ]
+}

@@ -23,7 +23,8 @@ const LOCATIONS = {
   "steven-james-west-lake.html": [city("Chandler")],
   "pastor-heath-rock-hill.html": [city("Brownsboro")],
   "lake-palestine-state-park.html": [{ "@type": "Place", name: "Lake Palestine, near Chandler, Texas" }, city("Chandler")],
-  "flag-retirement-brownsboro-cadet.html": [city("Tyler")]
+  "flag-retirement-brownsboro-cadet.html": [city("Tyler")],
+  "normandy-norwegian-colony-brownsboro.html": [city("Brownsboro")]
 };
 const PUBLISHER = {
   "@type": "NewsMediaOrganization",

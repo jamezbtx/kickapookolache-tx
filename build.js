@@ -121,7 +121,8 @@ const rootFiles = [
   "morgan-smith-brownsboro.html",
   "union-hill-pumpkin-park-brownsboro.html",
   "kornpop-the-klown-brownsboro.html",
-  "lake-palestine-state-park-update-rodney-franklin.html"
+  "lake-palestine-state-park-update-rodney-franklin.html",
+  "normandy-norwegian-colony-brownsboro.html"
 ];
 for (const name of rootFiles) {
   const from = path.join(src, name);

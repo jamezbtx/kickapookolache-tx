@@ -24,7 +24,8 @@ const LOCATIONS = {
   "pastor-heath-rock-hill.html": [city("Brownsboro")],
   "lake-palestine-state-park.html": [{ "@type": "Place", name: "Lake Palestine, near Chandler, Texas" }, city("Chandler")],
   "flag-retirement-brownsboro-cadet.html": [city("Tyler")],
-  "normandy-norwegian-colony-brownsboro.html": [city("Brownsboro")]
+  "normandy-norwegian-colony-brownsboro.html": [city("Brownsboro")],
+  "bear-necessities-brownsboro.html": [city("Brownsboro"), city("Chandler")]
 };
 const PUBLISHER = {
   "@type": "NewsMediaOrganization",
@@ -72,6 +73,7 @@ function run({ out, isStory, now = new Date() }) {
       datePublished: pub || undefined,
       dateModified: pub ? mod : undefined,
       author: { "@type": "Person", name: "James Burgess", url: SITE + "/about.html" },
+      contributor: meta(html, "name", "contributor") ? { "@type": "Person", name: meta(html, "name", "contributor") } : undefined,
       publisher: PUBLISHER,
       contentLocation: LOCATIONS[s.rel],
       inLanguage: "en-US"

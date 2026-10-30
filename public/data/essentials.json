@@ -1,35 +1,26 @@
 {
-  "generatedAt": "2026-10-13T10:00:55.626Z",
+  "generatedAt": "2026-10-30T10:00:52.810Z",
   "timezone": "America/Chicago",
   "source": "ai",
   "items": [
     {
       "type": "scripture",
       "title": "Scripture",
-      "body": "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost. — Romans 15:13 (KJV)",
+      "body": "O give thanks unto the LORD; for he is good; for his mercy endureth for ever. — 1 Chronicles 16:34 (KJV)",
       "badge": "Essentials",
       "source": "curated"
     },
     {
       "type": "almanac",
       "title": "Farmer's Almanac tip",
-      "body": "The county extension office in Athens can help with soil tests, pasture questions and garden problems. Call Henderson County's AgriLife Extension office for local advice.",
+      "body": "Wild persimmons ripen in the fall and are best after they turn soft and wrinkled. Unripe persimmons are very astringent and will pucker your mouth.",
       "badge": "Essentials",
       "source": "curated"
     },
     {
-      "type": "history",
-      "title": "This Day in History",
-      "body": "On October 13, 1845, voters of the Republic of Texas approved annexation to the United States by a vote of 4,245 to 257, and adopted the proposed state constitution by 4,174 to 312.",
-      "badge": "Essentials",
-      "source": "curated",
-      "sourceUrl": "https://www.tshaonline.org/texas-day-by-day/entry/220",
-      "sourceName": "TSHA Texas Day by Day"
-    },
-    {
       "type": "joke",
       "title": "Joke of the day",
-      "body": "It got so dry last summer that I saw two trees fighting over a dog.",
+      "body": "A rancher's wife asked, \"Why do you keep that old truck when it doesn't run?\" He said, \"It still runs. It just doesn't like to.\"",
       "badge": "Essentials",
       "source": "curated"
     }

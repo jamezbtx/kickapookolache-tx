@@ -38,7 +38,7 @@ const DRAFT_COLUMNS = process.env.DRAFT_COLUMNS === "1";
 // DRAFT stories (written, not approved): built only with DRAFT_STORIES=1 (draft preview deploys only, never --prod).
 // A normal build leaves the page, its assets and the <!--DRAFT:stories--> teaser block out of public/ entirely.
 // At publish: move the page into rootFiles, drop its entry here, and turn its teaser block into a normal card.
-const DRAFT_STORY_PAGES = []; // chandler-chapter-11-rick-ford.html published Oct. 2026 (now in rootFiles)
+const DRAFT_STORY_PAGES = []; // bear-necessities-brownsboro.html published Oct. 30, 2026 (now in rootFiles) // chandler-chapter-11-rick-ford.html published Oct. 2026 (now in rootFiles)
 const DRAFT_STORY_ASSET_DIRS = [];
 const DRAFT_STORIES = process.env.DRAFT_STORIES === "1";
 const EXCLUDE_DIRS = new Set([].concat(ARTICLES_LIVE ? [] : ARTICLE_ASSET_DIRS, DRAFT_COLUMNS ? [] : DRAFT_COLUMN_ASSET_DIRS, DRAFT_STORIES ? [] : DRAFT_STORY_ASSET_DIRS).map((d) => path.join(root, d)));
@@ -122,7 +122,8 @@ const rootFiles = [
   "union-hill-pumpkin-park-brownsboro.html",
   "kornpop-the-klown-brownsboro.html",
   "lake-palestine-state-park-update-rodney-franklin.html",
-  "normandy-norwegian-colony-brownsboro.html"
+  "normandy-norwegian-colony-brownsboro.html",
+  "bear-necessities-brownsboro.html"
 ];
 for (const name of rootFiles) {
   const from = path.join(src, name);

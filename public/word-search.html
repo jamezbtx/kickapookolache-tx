@@ -82,8 +82,29 @@
             <button type="button" class="btn btn-primary" id="ws-reveal">Reveal</button>
             <button type="button" class="btn ws-print" id="ws-print">Print</button>
             <span class="ws-progress" id="ws-progress" aria-live="polite"></span>
+            <span class="ws-timer" id="ws-timer" role="timer" aria-label="Time elapsed"><span aria-hidden="true">&#9201;</span> <span id="ws-time">0:00</span></span>
           </div>
+          <p class="ws-best" id="ws-best" hidden></p>
+          <p class="ws-sr" id="ws-timer-live" aria-live="polite"></p>
+          <div class="ws-challenge-banner" id="ws-challenge-banner" role="note" hidden></div>
           <p class="crossword-status" id="ws-status" role="status" aria-live="polite"></p>
+
+          <section class="ws-done" id="ws-done" aria-labelledby="ws-done-title" hidden>
+            <h3 id="ws-done-title" tabindex="-1">All words found!</h3>
+            <p class="ws-done-time" id="ws-done-time"></p>
+            <p class="ws-done-best" id="ws-done-best"></p>
+            <p class="ws-done-vs" id="ws-done-vs" hidden></p>
+            <div class="ws-name-row">
+              <label for="ws-name">Your first name (optional, for challenges)</label>
+              <input type="text" id="ws-name" maxlength="20" autocomplete="given-name" spellcheck="false" />
+            </div>
+            <div class="ws-done-actions">
+              <button type="button" class="btn btn-primary" id="ws-challenge-btn">Challenge a friend</button>
+              <button type="button" class="btn" id="ws-again-btn">Play again</button>
+            </div>
+            <p class="ws-small">Your best time is saved only on this device. Nothing is sent to us.</p>
+          </section>
+          <div class="ws-toast" id="ws-toast" role="status" aria-live="polite" hidden></div>
 
           <div class="crossword-layout ws-layout">
             <div class="ws-grid-wrap">
@@ -120,7 +141,7 @@
       <p><a href="about.html">About</a> · <a href="local-updates.html">Local Updates</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="rate-card.html">Rate card</a></p>
       <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
       <p>Brownsboro–Chandler only (not Tyler metro). Listings reviewed before posting.</p>
-      <p class="powered-by"><a href="https://commschecktx.com" rel="noopener noreferrer" target="_blank"><img class="powered-by-logo" src="assets/comms-check-mark.png" width="36" height="36" alt="Comms Check LLC" /> Website built by Comms Check LLC</a></p>
+      <p class="powered-by"><a href="https://commschecktx.com" rel="noopener noreferrer" target="_blank"><img class="powered-by-logo" src="assets/comms-check-badge.gif" width="36" height="36" alt="Comms Check LLC" /> Website built and maintained by Comms Check LLC</a></p>
     </footer>
   </div>
   <script src="share.js" defer></script>

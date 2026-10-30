@@ -25,8 +25,8 @@
     return m ? "data/archive/wordsearch-" + m[1] + ".json" : "data/wordsearch.json";
   }
 
-  function loadPuzzle() {
-    return fetch(archiveUrl(), { cache: "no-store", credentials: "same-origin" })
+  function fetchPuzzle(url) {
+    return fetch(url, { cache: "no-store", credentials: "same-origin" })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
@@ -35,6 +35,213 @@
         if (!data || !Array.isArray(data.grid) || !data.grid.length || !Array.isArray(data.words)) throw new Error("invalid puzzle");
         return data;
       });
+  }
+
+  // Challenge links carry ?pz=<puzzle id>. If that is not the current puzzle, try the archive copy;
+  // if that is gone too, fall back to the current puzzle and show a gentle note.
+  function loadPuzzle() {
+    var url = archiveUrl();
+    return fetchPuzzle(url).then(function (data) {
+      var want = challenge && challenge.pz;
+      if (!want || String(data.id) === want || url !== "data/wordsearch.json") return data;
+      return fetchPuzzle("data/archive/wordsearch-" + want + ".json").catch(function () {
+        challenge.stale = true;
+        return data;
+      });
+    });
+  }
+
+  // ---- timer, best times, challenges --------------------------------------
+  var MILESTONES = [60, 120, 180, 300, 600, 900, 1200, 1800];
+  var timer = { start: 0, elapsed: 0, id: null, running: false, done: false };
+  var challenge = readChallenge();
+
+  function qp(name) {
+    var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(window.location.search);
+    if (!m) return null;
+    try { return decodeURIComponent(m[1].replace(/\+/g, " ")); } catch (e) { return null; }
+  }
+
+  // Letters (any language), spaces, apostrophes, periods and hyphens only; max 20 chars.
+  function cleanName(s) {
+    s = String(s || "").replace(/[^\p{L}\p{M} .'\-]/gu, "").replace(/\s+/g, " ").trim();
+    return s.slice(0, 20).trim();
+  }
+
+  function readChallenge() {
+    var raw = qp("challenge");
+    if (raw === null || !/^\d{1,5}$/.test(raw)) return null;
+    var secs = parseInt(raw, 10);
+    if (!(secs > 0 && secs < 86400)) return null;
+    var pz = qp("pz");
+    return { secs: secs, from: cleanName(qp("from")), pz: pz && /^[\w-]{1,32}$/.test(pz) ? pz : null, stale: false };
+  }
+
+  function fmt(sec) {
+    sec = Math.max(0, Math.floor(sec));
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+  function spoken(sec) {
+    var m = Math.floor(sec / 60), s = sec % 60, out = [];
+    if (m) out.push(m + (m === 1 ? " minute" : " minutes"));
+    if (s || !m) out.push(s + (s === 1 ? " second" : " seconds"));
+    return out.join(" ");
+  }
+
+  function store(key, val) {
+    try {
+      if (val === undefined) return window.localStorage.getItem(key);
+      if (val === null) window.localStorage.removeItem(key); else window.localStorage.setItem(key, val);
+    } catch (e) { return null; }
+  }
+  function bestKey() { return "kk-ws-best-" + (state.puzzle.id || state.puzzle.seed || "current"); }
+  function getBest() { var v = parseInt(store(bestKey()) || "", 10); return v > 0 ? v : 0; }
+
+  function elapsedSecs() {
+    return Math.floor((timer.running ? timer.elapsed + (Date.now() - timer.start) : timer.elapsed) / 1000);
+  }
+  function tick() {
+    var sec = elapsedSecs();
+    $("ws-time").textContent = fmt(sec);
+    if (MILESTONES.indexOf(sec) !== -1 && timer.lastMilestone !== sec) {
+      timer.lastMilestone = sec;
+      $("ws-timer-live").textContent = spoken(sec) + " elapsed.";
+    }
+  }
+  function startTimer() {
+    if (timer.running || timer.done) return;
+    timer.running = true;
+    timer.start = Date.now();
+    timer.id = window.setInterval(tick, 250);
+    tick();
+  }
+  function stopTimer() {
+    if (!timer.running) return;
+    timer.elapsed += Date.now() - timer.start;
+    timer.running = false;
+    window.clearInterval(timer.id);
+    tick();
+  }
+  function resetTimer() {
+    stopTimer();
+    timer.elapsed = 0; timer.done = false; timer.lastMilestone = null;
+    $("ws-timer").classList.remove("is-done");
+    $("ws-time").textContent = "0:00";
+  }
+  // Pause while the tab is hidden so a phone in a pocket doesn't count.
+  document.addEventListener("visibilitychange", function () {
+    if (!state.puzzle || timer.done) return;
+    if (document.hidden && timer.running) { stopTimer(); timer.paused = true; }
+    else if (!document.hidden && timer.paused) { timer.paused = false; startTimer(); }
+  });
+
+  function showBest() {
+    var b = getBest(), el = $("ws-best");
+    el.hidden = !b;
+    el.textContent = b ? "Your best: " + fmt(b) : "";
+  }
+
+  function showChallengeBanner() {
+    var el = $("ws-challenge-banner");
+    if (!challenge) { el.hidden = true; return; }
+    var who = challenge.from || "A friend";
+    el.textContent = "";
+    var strong = document.createElement("span");
+    strong.textContent = who + " finished in " + fmt(challenge.secs) + ". Can you beat it?";
+    el.appendChild(strong);
+    var sub = document.createElement("span");
+    sub.className = "ws-small";
+    sub.textContent = challenge.stale
+      ? "Heads up: that challenge was for an older puzzle that is no longer posted, so here is this week's. Times may not compare exactly."
+      : "The clock starts when you touch the grid.";
+    el.appendChild(sub);
+    el.hidden = false;
+  }
+
+  function toast(msg) {
+    var t = $("ws-toast");
+    t.textContent = msg; t.hidden = false;
+    window.clearTimeout(toast.id);
+    toast.id = window.setTimeout(function () { t.hidden = true; }, 3500);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      try {
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.setAttribute("readonly", "");
+        ta.style.position = "absolute"; ta.style.left = "-9999px";
+        document.body.appendChild(ta); ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        ok ? resolve() : reject(new Error("copy failed"));
+      } catch (e) { reject(e); }
+    });
+  }
+
+  function challengeUrl(secs) {
+    var u = window.location.origin + window.location.pathname + "?";
+    var parts = [];
+    if (state.puzzle.id) parts.push("pz=" + encodeURIComponent(state.puzzle.id));
+    var wk = /[?&]week=(\d{4}-\d{2}-\d{2})/.exec(window.location.search);
+    if (wk) parts.push("week=" + wk[1]);
+    parts.push("challenge=" + secs);
+    var name = cleanName($("ws-name").value);
+    if (name) parts.push("from=" + encodeURIComponent(name));
+    return u + parts.join("&");
+  }
+
+  function sendChallenge() {
+    var secs = timer.finalSecs;
+    if (!secs) return;
+    var name = cleanName($("ws-name").value);
+    store("kk-ws-name", name || null);
+    var url = challengeUrl(secs);
+    var text = "I found every word in " + fmt(secs) + " on the Kickapoo Kolache word search. Can you beat me?";
+    if (navigator.share) {
+      navigator.share({ title: "Kickapoo Kolache Word Search", text: text, url: url }).catch(function (err) {
+        if (err && err.name === "AbortError") return;
+        copyText(text + " " + url).then(function () { toast("Challenge link copied. Paste it to a friend!"); },
+          function () { toast("Could not copy. Here is the link: " + url); });
+      });
+      return;
+    }
+    copyText(text + " " + url).then(function () { toast("Challenge link copied. Paste it to a friend!"); },
+      function () { toast("Could not copy. Here is the link: " + url); });
+  }
+
+  function finish() {
+    stopTimer();
+    timer.done = true;
+    $("ws-timer").classList.add("is-done");
+    var secs = Math.max(1, elapsedSecs());
+    timer.finalSecs = secs;
+    var n = state.puzzle.words.length;
+    var prev = getBest();
+    var newBest = !prev || secs < prev;
+    if (newBest) store(bestKey(), String(secs));
+    $("ws-done-time").textContent = "Your time: " + fmt(secs) + " · " + n + " of " + n + " words found";
+    var bestEl = $("ws-done-best");
+    bestEl.textContent = "Your best: " + fmt(newBest ? secs : prev);
+    if (newBest && prev) {
+      var b = document.createElement("span"); b.className = "ws-new-best"; b.textContent = "New best!";
+      bestEl.appendChild(b);
+    }
+    var vs = $("ws-done-vs"), btn = $("ws-challenge-btn");
+    if (challenge && !challenge.stale) {
+      var who = challenge.from || "your friend";
+      if (secs < challenge.secs) vs.textContent = "You beat " + who + " by " + fmt(challenge.secs - secs) + "! Bragging rights are yours.";
+      else if (secs === challenge.secs) vs.textContent = "A dead heat with " + who + "! Same time to the second.";
+      else vs.textContent = who.charAt(0).toUpperCase() + who.slice(1) + " was " + fmt(secs - challenge.secs) + " faster this time. Good game! Play again or send one back.";
+      vs.hidden = false;
+      btn.textContent = "Challenge them back";
+    } else { vs.hidden = true; btn.textContent = "Challenge a friend"; }
+    $("ws-name").value = cleanName(store("kk-ws-name") || "");
+    $("ws-done").hidden = false;
+    showBest();
+    $("ws-timer-live").textContent = "Finished in " + spoken(secs) + "." + (newBest && prev ? " New best!" : "");
   }
 
   function setStatus(msg) { var el = $("ws-status"); if (el) el.textContent = msg || ""; }
@@ -48,8 +255,9 @@
     if (f === n) {
       setStatus("You found them all! Nice work, neighbor.");
       // Genuine solve only: nothing was revealed by the Reveal button.
-      if (Object.keys(state.revealed).length === 0 && window.PuzzleCelebrate) {
-        window.PuzzleCelebrate.show({ type: "wordsearch", onAgain: reset });
+      if (Object.keys(state.revealed).length === 0 && !timer.done) {
+        finish();
+        if (window.PuzzleCelebrate) window.PuzzleCelebrate.show({ type: "wordsearch", onAgain: reset });
       }
     }
   }
@@ -187,6 +395,7 @@
     grid.addEventListener("pointerdown", function (ev) {
       if (ev.pointerType === "mouse" && ev.button !== 0) return;
       ev.preventDefault();
+      startTimer();
       state.dragging = true;
       state.start = pointToCell(ev);
       try { grid.setPointerCapture(ev.pointerId); } catch (e) { /* ignore */ }
@@ -212,6 +421,8 @@
   }
 
   function reset() {
+    resetTimer();
+    $("ws-done").hidden = true;
     state.found = {};
     state.revealed = {};
     state.cells.forEach(function (el) {
@@ -228,6 +439,8 @@
   }
 
   function reveal() {
+    stopTimer();
+    timer.done = true; // a revealed puzzle doesn't count toward a best time
     state.puzzle.words.forEach(function (w) {
       if (!state.found[w.word]) { state.revealed[w.word] = true; markFound(w, true); }
     });
@@ -249,6 +462,13 @@
     $("ws-reset").addEventListener("click", reset);
     $("ws-reveal").addEventListener("click", reveal);
     $("ws-print").addEventListener("click", function () { window.print(); });
+    $("ws-challenge-btn").addEventListener("click", sendChallenge);
+    $("ws-again-btn").addEventListener("click", reset);
+    $("ws-name").addEventListener("change", function () {
+      var v = cleanName(this.value); this.value = v; store("kk-ws-name", v || null);
+    });
+    showBest();
+    showChallengeBanner();
     updateProgress();
   }
 

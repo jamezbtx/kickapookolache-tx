@@ -25,7 +25,8 @@ const LOCATIONS = {
   "lake-palestine-state-park.html": [{ "@type": "Place", name: "Lake Palestine, near Chandler, Texas" }, city("Chandler")],
   "flag-retirement-brownsboro-cadet.html": [city("Tyler")],
   "normandy-norwegian-colony-brownsboro.html": [city("Brownsboro")],
-  "bear-necessities-brownsboro.html": [city("Brownsboro"), city("Chandler")]
+  "bear-necessities-brownsboro.html": [city("Brownsboro"), city("Chandler")],
+  "bob-valliere-chandler-council.html": [city("Chandler")]
 };
 const PUBLISHER = {
   "@type": "NewsMediaOrganization",

@@ -123,7 +123,8 @@ const rootFiles = [
   "kornpop-the-klown-brownsboro.html",
   "lake-palestine-state-park-update-rodney-franklin.html",
   "normandy-norwegian-colony-brownsboro.html",
-  "bear-necessities-brownsboro.html"
+  "bear-necessities-brownsboro.html",
+  "bob-valliere-chandler-council.html"
 ];
 for (const name of rootFiles) {
   const from = path.join(src, name);

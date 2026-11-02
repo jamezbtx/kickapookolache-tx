@@ -1,0 +1,154 @@
+{
+  "id": "2026-11-02",
+  "title": "Country Living Word Search",
+  "weekLabel": "Week of Nov. 2, 2026 · Thankful Hearts & Hometown Heroes",
+  "theme": "Honoring our veterans and counting our blessings as Thanksgiving nears around Brownsboro and Chandler",
+  "author": "Kickapoo Kolache",
+  "size": 14,
+  "allowBackward": true,
+  "seed": 20261102,
+  "grid": [
+    "NHEROESMGCRSNT",
+    "EACORNBREADCWQ",
+    "EEMCGEWVOSODOE",
+    "LGEWSMEFASMGTT",
+    "FCRBBTIENEGNEF",
+    "LFXAEETELRMEMH",
+    "AOTRTTBTTOSIOB",
+    "GPAUEIEXSLTGHO",
+    "TNLEMYTGAEWHJN",
+    "SAWEIWKUOEEBEF",
+    "SSAFDHVHDVBOTI",
+    "FLUFKNAHTEERSR",
+    "EFOLIAGERFKSWE",
+    "MSGNISSELBNSRO"
+  ],
+  "words": [
+    {
+      "word": "VETERANS",
+      "row": 2,
+      "col": 7,
+      "dir": [
+        1,
+        -1
+      ]
+    },
+    {
+      "word": "SALUTE",
+      "row": 10,
+      "col": 0,
+      "dir": [
+        -1,
+        1
+      ]
+    },
+    {
+      "word": "HEROES",
+      "row": 0,
+      "col": 1,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "FLAG",
+      "row": 4,
+      "col": 0,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "THANKFUL",
+      "row": 11,
+      "col": 8,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "BLESSINGS",
+      "row": 13,
+      "col": 9,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "NEIGHBORS",
+      "row": 4,
+      "col": 11,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "GRATITUDE",
+      "row": 3,
+      "col": 1,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "HOMETOWN",
+      "row": 7,
+      "col": 12,
+      "dir": [
+        -1,
+        0
+      ]
+    },
+    {
+      "word": "CORNBREAD",
+      "row": 1,
+      "col": 2,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "CASSEROLE",
+      "row": 0,
+      "col": 9,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "SWEETTEA",
+      "row": 10,
+      "col": 1,
+      "dir": [
+        -1,
+        1
+      ]
+    },
+    {
+      "word": "FOLIAGE",
+      "row": 12,
+      "col": 1,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "BONFIRE",
+      "row": 6,
+      "col": 13,
+      "dir": [
+        1,
+        0
+      ]
+    }
+  ]
+}

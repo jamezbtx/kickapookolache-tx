@@ -26,7 +26,8 @@ const LOCATIONS = {
   "flag-retirement-brownsboro-cadet.html": [city("Tyler")],
   "normandy-norwegian-colony-brownsboro.html": [city("Brownsboro")],
   "bear-necessities-brownsboro.html": [city("Brownsboro"), city("Chandler")],
-  "bob-valliere-chandler-council.html": [city("Chandler")]
+  "bob-valliere-chandler-council.html": [city("Chandler")],
+  "chris-owens-keep-brownsboro-beautiful.html": [city("Brownsboro")]
 };
 const PUBLISHER = {
   "@type": "NewsMediaOrganization",

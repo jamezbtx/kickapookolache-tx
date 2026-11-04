@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-11-02T10:00:54.701Z",
+  "generatedAt": "2026-11-04T10:00:59.440Z",
   "timezone": "America/Chicago",
   "source": "ai",
   "items": [
     {
       "type": "scripture",
       "title": "Scripture",
-      "body": "Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him, and will sup with him, and he with me. — Revelation 3:20 (KJV)",
+      "body": "And he said, My presence shall go with thee, and I will give thee rest. — Exodus 33:14 (KJV)",
       "badge": "Essentials",
       "source": "curated"
     },
     {
       "type": "almanac",
       "title": "Farmer's Almanac tip",
-      "body": "November is a good time to plant trees and shrubs. The cool weather helps roots settle without summer heat stress.",
+      "body": "When the clocks change, swap the batteries in your smoke alarms.",
       "badge": "Essentials",
       "source": "curated"
     },
     {
       "type": "joke",
       "title": "Joke of the day",
-      "body": "Grandpa's rule for fishing: If you catch one, keep it. If you catch two, tell somebody. If you catch three, tell everybody. If you catch none, blame the moon.",
+      "body": "Two boys were bragging. One said, \"My daddy's a Baptist preacher and he knows everything.\" The other said, \"My daddy's a Methodist preacher and he knows even more.\" A third boy said, \"My daddy's a farmer, and when he doesn't know something, he says it's going to rain.\"",
       "badge": "Essentials",
       "source": "curated"
     }

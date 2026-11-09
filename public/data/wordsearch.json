@@ -1,41 +1,59 @@
 {
-  "id": "2026-11-02",
+  "id": "2026-11-09",
   "title": "Country Living Word Search",
-  "weekLabel": "Week of Nov. 2, 2026 · Thankful Hearts & Hometown Heroes",
-  "theme": "Honoring our veterans and counting our blessings as Thanksgiving nears around Brownsboro and Chandler",
+  "weekLabel": "Week of Nov. 9, 2026 · Gathering at the Table",
+  "theme": "Getting the kitchen ready for Thanksgiving with family and neighbors around Brownsboro and Chandler",
   "author": "Kickapoo Kolache",
   "size": 14,
   "allowBackward": true,
-  "seed": 20261102,
+  "seed": 20261109,
   "grid": [
-    "NHEROESMGCRSNT",
-    "EACORNBREADCWQ",
-    "EEMCGEWVOSODOE",
-    "LGEWSMEFASMGTT",
-    "FCRBBTIENEGNEF",
-    "LFXAEETELRMEMH",
-    "AOTRTTBTTOSIOB",
-    "GPAUEIEXSLTGHO",
-    "TNLEMYTGAEWHJN",
-    "SAWEIWKUOEEBEF",
-    "SSAFDHVHDVBOTI",
-    "FLUFKNAHTEERSR",
-    "EFOLIAGERFKSWE",
-    "MSGNISSELBNSRO"
+    "SRMAPIECRUSTOE",
+    "MLLYBCETRGEGAN",
+    "KEOFAMILYGQRHU",
+    "TFMACANDCHEESE",
+    "YTGGRACEYTREMS",
+    "XOOSAJRREGRNQG",
+    "YVFITERRNOABZR",
+    "AEECCEMILTHEDA",
+    "MRBIBDSLMUIAYV",
+    "SSPNBSSUWRENGY",
+    "REAAEONPRKSSZA",
+    "QRRRCGGTEEBHJH",
+    "CLDCVEVBRYERXG",
+    "GNIREHTAGQJESN"
   ],
   "words": [
     {
-      "word": "VETERANS",
-      "row": 2,
-      "col": 7,
+      "word": "TURKEY",
+      "row": 7,
+      "col": 9,
       "dir": [
         1,
-        -1
+        0
       ]
     },
     {
-      "word": "SALUTE",
-      "row": 10,
+      "word": "DRESSING",
+      "row": 12,
+      "col": 2,
+      "dir": [
+        -1,
+        1
+      ]
+    },
+    {
+      "word": "GRAVY",
+      "row": 5,
+      "col": 13,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "CRANBERRY",
+      "row": 12,
       "col": 0,
       "dir": [
         -1,
@@ -43,17 +61,8 @@
       ]
     },
     {
-      "word": "HEROES",
-      "row": 0,
-      "col": 1,
-      "dir": [
-        0,
-        1
-      ]
-    },
-    {
-      "word": "FLAG",
-      "row": 4,
+      "word": "YAMS",
+      "row": 6,
       "col": 0,
       "dir": [
         1,
@@ -61,26 +70,8 @@
       ]
     },
     {
-      "word": "THANKFUL",
-      "row": 11,
-      "col": 8,
-      "dir": [
-        0,
-        -1
-      ]
-    },
-    {
-      "word": "BLESSINGS",
-      "row": 13,
-      "col": 9,
-      "dir": [
-        0,
-        -1
-      ]
-    },
-    {
-      "word": "NEIGHBORS",
-      "row": 4,
+      "word": "GREENBEANS",
+      "row": 1,
       "col": 11,
       "dir": [
         1,
@@ -88,26 +79,8 @@
       ]
     },
     {
-      "word": "GRATITUDE",
+      "word": "MACANDCHEESE",
       "row": 3,
-      "col": 1,
-      "dir": [
-        1,
-        1
-      ]
-    },
-    {
-      "word": "HOMETOWN",
-      "row": 7,
-      "col": 12,
-      "dir": [
-        -1,
-        0
-      ]
-    },
-    {
-      "word": "CORNBREAD",
-      "row": 1,
       "col": 2,
       "dir": [
         0,
@@ -115,36 +88,63 @@
       ]
     },
     {
-      "word": "CASSEROLE",
-      "row": 0,
-      "col": 9,
+      "word": "ROLLS",
+      "row": 5,
+      "col": 10,
       "dir": [
         1,
-        0
+        -1
       ]
     },
     {
-      "word": "SWEETTEA",
-      "row": 10,
-      "col": 1,
-      "dir": [
-        -1,
-        1
-      ]
-    },
-    {
-      "word": "FOLIAGE",
-      "row": 12,
-      "col": 1,
+      "word": "PIECRUST",
+      "row": 0,
+      "col": 4,
       "dir": [
         0,
         1
       ]
     },
     {
-      "word": "BONFIRE",
-      "row": 6,
-      "col": 13,
+      "word": "RECIPE",
+      "row": 5,
+      "col": 6,
+      "dir": [
+        1,
+        -1
+      ]
+    },
+    {
+      "word": "GATHERING",
+      "row": 13,
+      "col": 8,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "FAMILY",
+      "row": 2,
+      "col": 3,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "GRACE",
+      "row": 4,
+      "col": 3,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "LEFTOVERS",
+      "row": 1,
+      "col": 1,
       "dir": [
         1,
         0

@@ -370,6 +370,26 @@
     return line.map(function (pt) { return state.puzzle.grid[pt.r][pt.c]; }).join("");
   }
 
+  function cheb(a, b) { return Math.max(Math.abs(a.r - b.r), Math.abs(a.c - b.c)); }
+
+  // Unfound word whose one end is exactly the start cell and whose other end is within one
+  // cell of where the drag ended. Returns null if none or if two words tie.
+  function nearMiss(a, b) {
+    var best = null, bestD = 99, tie = false;
+    state.puzzle.words.forEach(function (w) {
+      if (state.found[w.word]) return;
+      var L = w.word.length, s = { r: w.row, c: w.col };
+      var e = { r: w.row + w.dir[0] * (L - 1), c: w.col + w.dir[1] * (L - 1) };
+      var d = 99;
+      if (cheb(a, s) === 0 && cheb(b, e) <= 1) d = cheb(b, e);
+      if (cheb(a, e) === 0 && cheb(b, s) <= 1) d = Math.min(d, cheb(b, s));
+      if (d > 1 || cheb(a, b) < L - 2) return;
+      if (d < bestD) { best = w; bestD = d; tie = false; }
+      else if (d === bestD) tie = true;
+    });
+    return tie ? null : best;
+  }
+
   function finishSelection() {
     var line = state.sel;
     showSelection([]);
@@ -381,6 +401,10 @@
     state.puzzle.words.forEach(function (w) {
       if (!hit && (w.word === text || w.word === rev)) hit = w;
     });
+    // Forgiving match (Nov. 14, 2026): a finger or mouse that lets go one cell off the last
+    // letter (common on long diagonals like CRANBERRY on a phone) still counts when the drag
+    // began on a word's first or last letter and ended next to its other end.
+    if (!hit) hit = nearMiss(line[0], state.end || line[line.length - 1]);
     if (!hit) { setStatus("Not one of the words. Try again."); return; }
     if (state.found[hit.word]) { setStatus("You already found " + hit.word + "."); return; }
     state.found[hit.word] = true;
@@ -398,13 +422,15 @@
       startTimer();
       state.dragging = true;
       state.start = pointToCell(ev);
+      state.end = state.start;
       try { grid.setPointerCapture(ev.pointerId); } catch (e) { /* ignore */ }
       showSelection([state.start]);
     });
     grid.addEventListener("pointermove", function (ev) {
       if (!state.dragging) return;
       ev.preventDefault();
-      showSelection(snapLine(state.start, pointToCell(ev)));
+      state.end = pointToCell(ev);
+      showSelection(snapLine(state.start, state.end));
     });
     function end(ev) {
       if (!state.dragging) return;

@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://kickapookolache.com/kickapoo-kolache-name.html</loc>
+    <news:news>
+      <news:publication><news:name>Kickapoo Kolache</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-16</news:publication_date>
+      <news:title>Why We’re Called the Kickapoo Kolache (and Why Your Sausage “Kolache” Isn’t One)</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://kickapookolache.com/native-branch-christmas-tree-farm.html</loc>
+    <news:news>
+      <news:publication><news:name>Kickapoo Kolache</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-13</news:publication_date>
+      <news:title>Choose Your Own Tree, Cherish Time Together, and Slow Down This Christmas Season at Native Branch Christmas Tree Farm</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://kickapookolache.com/palady-air-chandler.html</loc>
+    <news:news>
+      <news:publication><news:name>Kickapoo Kolache</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-11T10:15:00-06:00</news:publication_date>
+      <news:title>A Leap of Faith: Palady Air Grows a Family Business to Bless More Families</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://kickapookolache.com/brownsboro-military-band-state.html</loc>
     <news:news>
       <news:publication><news:name>Kickapoo Kolache</news:name><news:language>en</news:language></news:publication>

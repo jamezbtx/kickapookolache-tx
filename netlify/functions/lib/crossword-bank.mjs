@@ -38,6 +38,34 @@ STRAWBERRYPIE|Summer dessert from the berry patch
 PUMPKINPATCHS|---
 FALLFESTIVALS|Autumn town celebrations with hayrides
 HOMECOMINGMUM|Big Texas ribboned corsage for a fall game
+TURKEYDINNERS|Holiday meals with the roasted bird at the center
+HARVESTDINNER|Thanksgiving feast after the crops have come in
+TABLEBLESSING|Prayer said before everyone picks up a fork
+SECONDHELPING|Another scoop when the first plate is gone
+ROASTEDTURKEY|Classic centerpiece of the Thanksgiving table
+HOTAPPLECIDER|Steamed mug of spiced juice on a cool morning
+WOODSTOVEGLOW|Warm light from the iron heater on a chilly night
+FIREPLACEGLOW|Soft light from the hearth on a winter evening
+WARMWOOLSOCKS|Cozy pair pulled on when the floor is cold
+ADVENTWREATHS|Evergreen rings with candles for the weeks before Christmas
+CRISPFALLDAYS|Cool, clear weather at the end of autumn
+HOLIDAYLIGHTS|Twinkling strands hung on porches and trees in December
+CHRISTMASTREE|Evergreen brought inside and dressed for the season
+CHRISTMASTIME|The weeks of carols, cookies and neighborly visits
+YULETIDECHEER|Warm holiday spirit shared with neighbors
+CAROLINGNIGHT|Evening spent singing familiar December songs
+SINGINGCAROLS|Going from house to house with December songs
+WRAPPINGPAPER|Decorative sheets for covering gifts
+HANGSTOCKINGS|What families do at the mantel on Christmas Eve
+LETTERTOSANTA|Child's Christmas wish list, stamped and sent
+GINGERCOOKIES|Spiced December treats cut into shapes
+JOYTOTHEWORLD|Familiar carol of glad tidings, by Isaac Watts
+CHURCHPAGEANT|Nativity play put on in the fellowship hall
+POINSETTIAPOT|Red holiday plant in a foil-wrapped container
+CANDYCANEDISH|Bowl of peppermint sticks on the sideboard
+STARATTREETOP|Shining figure placed on the highest branch
+TREEORNAMENTS|Baubles hung on the evergreen's branches
+GOODWILLTOALL|Kind wishes offered in the Christmas season
 `.trim().split("\n").map((l) => l.split("|")).filter(([a, c]) => a.length === 13 && c !== "---" && /^[A-Z]+$/.test(a));
 
 export const WORDS = `

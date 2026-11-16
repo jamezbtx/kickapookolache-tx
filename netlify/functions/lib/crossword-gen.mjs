@@ -43,7 +43,7 @@ function slots() {
 }
 
 // extra: optional array of fill words with no bank clue (offline authoring only); bank words are tried first.
-export function generateCrossword(monday = mondayOf(), { extra = [], clues = {}, deadlineMs = 0 } = {}) {
+export function generateCrossword(monday = mondayOf(), { extra = [], clues = {}, deadlineMs = 0, preferThemes = null, avoid = [] } = {}) {
   const deadline = deadlineMs ? Date.now() + deadlineMs : Infinity;
   const CL = new Map([...CLUE, ...Object.entries(clues)]);
   const EX = { 3: [], 4: [], 5: [], 7: [] };
@@ -51,16 +51,25 @@ export function generateCrossword(monday = mondayOf(), { extra = [], clues = {},
   const r = rng("kk-crossword-" + monday);
   const weekIdx = Math.round((Date.parse(monday) - Date.parse("2026-10-12")) / 6048e5);
   const { slots: S, numbers } = slots();
+  const avoidSet = new Set([...avoid].map((w) => String(w).toUpperCase()));
   // a theme fits a row only if every down crossing has at least 2 bank words with that letter
   const feasible = (t, row) => S.filter((s) => s.dir === "down").every((s) => {
     const k = s.cells.findIndex(([y]) => y === row);
     return k < 0 || BY_LEN[s.cells.length].filter((w) => w[k] === t[s.col]).length >= 2;
   });
   const top = THEMES.filter(([t]) => feasible(t, 3)), bottom = THEMES.filter(([t]) => feasible(t, 9));
-  // try theme pairs starting from this week's rotation
+  const preferred = (preferThemes || []).filter((pair) => pair && pair[0] && pair[1] && pair[0][0] !== pair[1][0] && feasible(pair[0][0], 3) && feasible(pair[1][0], 9));
+  // try theme pairs starting from this week's rotation (or a preferred seasonal pair)
   for (let attempt = 0; attempt < 3000; attempt++) {
-    const t1 = top[(((weekIdx + attempt) % top.length) + top.length) % top.length];
-    const t2 = bottom[(((weekIdx * 3 + 1 + attempt * 7) % bottom.length) + bottom.length) % bottom.length];
+    let t1, t2;
+    if (preferred.length) {
+      const pair = preferred[attempt % preferred.length];
+      t1 = pair[0];
+      t2 = pair[1];
+    } else {
+      t1 = top[(((weekIdx + attempt) % top.length) + top.length) % top.length];
+      t2 = bottom[(((weekIdx * 3 + 1 + attempt * 7) % bottom.length) + bottom.length) % bottom.length];
+    }
     if (t1[0] === t2[0]) continue;
     if (Date.now() > deadline) return null;
     const g = TEMPLATE.map((row) => row.split("").map((ch) => (ch === "." ? "." : null)));
@@ -79,7 +88,7 @@ export function generateCrossword(monday = mondayOf(), { extra = [], clues = {},
       const pat = s.cells.map(([y, x]) => g[y][x] || "?").join("");
       let c = cache.get(pat);
       if (!c) { const re = new RegExp("^" + pat.replace(/\?/g, ".") + "$"); c = pools[pat.length].filter((w) => re.test(w)); cache.set(pat, c); }
-      return c.filter((w) => !used.has(w));
+      return c.filter((w) => !used.has(w) && !avoidSet.has(w));
     };
     let budget = 4000;
     const assign = new Map();

@@ -1,0 +1,691 @@
+{
+  "id": "2026-12-14",
+  "title": "Country Living Crossword",
+  "weekLabel": "Week of Dec. 14, 2026",
+  "theme": "Letters to Santa and stockings on the mantel",
+  "author": "Kickapoo Kolache",
+  "size": 13,
+  "grid": [
+    "SIT..BAT..ORE",
+    "ADO.ROLE..VIA",
+    "SEW.IOTA.RENT",
+    "HANGSTOCKINGS",
+    "...YES.HEM...",
+    "PALM..HEY.RED",
+    "AGES.CAR.SAVE",
+    "DOG.PAY..OMEN",
+    "...AIR.BID...",
+    "LETTERTOSANTA",
+    "ACRE.ORAL.EAR",
+    "WHO..TIRE.ARE",
+    "NOT..SOD..TEA"
+  ],
+  "numbers": [
+    [
+      1,
+      2,
+      3,
+      0,
+      0,
+      4,
+      5,
+      6,
+      0,
+      0,
+      7,
+      8,
+      9
+    ],
+    [
+      10,
+      0,
+      0,
+      0,
+      11,
+      0,
+      0,
+      0,
+      0,
+      0,
+      12,
+      0,
+      0
+    ],
+    [
+      13,
+      0,
+      0,
+      0,
+      14,
+      0,
+      0,
+      0,
+      0,
+      15,
+      0,
+      0,
+      0
+    ],
+    [
+      16,
+      0,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      19,
+      0,
+      0,
+      0,
+      20,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      21,
+      22,
+      23,
+      0,
+      0,
+      0,
+      24,
+      0,
+      0,
+      0,
+      25,
+      26,
+      27
+    ],
+    [
+      28,
+      0,
+      0,
+      0,
+      0,
+      29,
+      0,
+      0,
+      0,
+      30,
+      0,
+      0,
+      0
+    ],
+    [
+      31,
+      0,
+      0,
+      0,
+      32,
+      0,
+      0,
+      0,
+      0,
+      33,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      34,
+      0,
+      0,
+      0,
+      35,
+      36,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      37,
+      38,
+      39,
+      0,
+      0,
+      0,
+      40,
+      0,
+      0,
+      0,
+      41,
+      42,
+      43
+    ],
+    [
+      44,
+      0,
+      0,
+      0,
+      0,
+      45,
+      0,
+      0,
+      0,
+      0,
+      46,
+      0,
+      0
+    ],
+    [
+      47,
+      0,
+      0,
+      0,
+      0,
+      48,
+      0,
+      0,
+      0,
+      0,
+      49,
+      0,
+      0
+    ],
+    [
+      50,
+      0,
+      0,
+      0,
+      0,
+      51,
+      0,
+      0,
+      0,
+      0,
+      52,
+      0,
+      0
+    ]
+  ],
+  "across": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "SIT",
+      "clue": "Take a seat"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "BAT",
+      "clue": "Little League club"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "ORE",
+      "clue": "Mined rock"
+    },
+    {
+      "num": 10,
+      "row": 1,
+      "col": 0,
+      "answer": "ADO",
+      "clue": "Fuss"
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "ROLE",
+      "clue": "Part"
+    },
+    {
+      "num": 12,
+      "row": 1,
+      "col": 10,
+      "answer": "VIA",
+      "clue": "By way of"
+    },
+    {
+      "num": 13,
+      "row": 2,
+      "col": 0,
+      "answer": "SEW",
+      "clue": "Quilt"
+    },
+    {
+      "num": 14,
+      "row": 2,
+      "col": 4,
+      "answer": "IOTA",
+      "clue": "Tiny bit"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "RENT",
+      "clue": "Lease"
+    },
+    {
+      "num": 16,
+      "row": 3,
+      "col": 0,
+      "answer": "HANGSTOCKINGS",
+      "clue": "What families do at the mantel on Christmas Eve"
+    },
+    {
+      "num": 19,
+      "row": 4,
+      "col": 3,
+      "answer": "YES",
+      "clue": "Uh-huh"
+    },
+    {
+      "num": 20,
+      "row": 4,
+      "col": 7,
+      "answer": "HEM",
+      "clue": "Skirt edge"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "PALM",
+      "clue": "Hand part"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "HEY",
+      "clue": "\"Howdy!\""
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "RED",
+      "clue": "Barn color"
+    },
+    {
+      "num": 28,
+      "row": 6,
+      "col": 0,
+      "answer": "AGES",
+      "clue": "Long time"
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "CAR",
+      "clue": "Family vehicle"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "SAVE",
+      "clue": "Put away for later"
+    },
+    {
+      "num": 31,
+      "row": 7,
+      "col": 0,
+      "answer": "DOG",
+      "clue": "Porch pup"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "PAY",
+      "clue": "Wages"
+    },
+    {
+      "num": 33,
+      "row": 7,
+      "col": 9,
+      "answer": "OMEN",
+      "clue": "Sign of things to come"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "AIR",
+      "clue": "What a windmill catches"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "BID",
+      "clue": "Auction offer"
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "LETTERTOSANTA",
+      "clue": "Child's Christmas wish list, stamped and sent"
+    },
+    {
+      "num": 44,
+      "row": 10,
+      "col": 0,
+      "answer": "ACRE",
+      "clue": "Farm measure"
+    },
+    {
+      "num": 45,
+      "row": 10,
+      "col": 5,
+      "answer": "ORAL",
+      "clue": "Spoken"
+    },
+    {
+      "num": 46,
+      "row": 10,
+      "col": 10,
+      "answer": "EAR",
+      "clue": "Corn unit"
+    },
+    {
+      "num": 47,
+      "row": 11,
+      "col": 0,
+      "answer": "WHO",
+      "clue": "\"___ goes there?\""
+    },
+    {
+      "num": 48,
+      "row": 11,
+      "col": 5,
+      "answer": "TIRE",
+      "clue": "Truck wheel"
+    },
+    {
+      "num": 49,
+      "row": 11,
+      "col": 10,
+      "answer": "ARE",
+      "clue": "\"Here we ___!\""
+    },
+    {
+      "num": 50,
+      "row": 12,
+      "col": 0,
+      "answer": "NOT",
+      "clue": "In no way"
+    },
+    {
+      "num": 51,
+      "row": 12,
+      "col": 5,
+      "answer": "SOD",
+      "clue": "Lawn squares"
+    },
+    {
+      "num": 52,
+      "row": 12,
+      "col": 10,
+      "answer": "TEA",
+      "clue": "Sweet porch drink"
+    }
+  ],
+  "down": [
+    {
+      "num": 1,
+      "row": 0,
+      "col": 0,
+      "answer": "SASH",
+      "clue": "Window frame"
+    },
+    {
+      "num": 2,
+      "row": 0,
+      "col": 1,
+      "answer": "IDEA",
+      "clue": "Notion"
+    },
+    {
+      "num": 3,
+      "row": 0,
+      "col": 2,
+      "answer": "TOWN",
+      "clue": "Small city"
+    },
+    {
+      "num": 4,
+      "row": 0,
+      "col": 5,
+      "answer": "BOOTS",
+      "clue": "Ropers, e.g."
+    },
+    {
+      "num": 5,
+      "row": 0,
+      "col": 6,
+      "answer": "ALTO",
+      "clue": "Choir voice"
+    },
+    {
+      "num": 6,
+      "row": 0,
+      "col": 7,
+      "answer": "TEACHER",
+      "clue": "School instructor"
+    },
+    {
+      "num": 7,
+      "row": 0,
+      "col": 10,
+      "answer": "OVEN",
+      "clue": "Pie baker"
+    },
+    {
+      "num": 8,
+      "row": 0,
+      "col": 11,
+      "answer": "RING",
+      "clue": "Bell sound"
+    },
+    {
+      "num": 9,
+      "row": 0,
+      "col": 12,
+      "answer": "EATS",
+      "clue": "Has supper"
+    },
+    {
+      "num": 11,
+      "row": 1,
+      "col": 4,
+      "answer": "RISE",
+      "clue": "Get up"
+    },
+    {
+      "num": 15,
+      "row": 2,
+      "col": 9,
+      "answer": "RIM",
+      "clue": "Basket edge"
+    },
+    {
+      "num": 17,
+      "row": 3,
+      "col": 3,
+      "answer": "GYMS",
+      "clue": "PE spots"
+    },
+    {
+      "num": 18,
+      "row": 3,
+      "col": 8,
+      "answer": "KEY",
+      "clue": "Door opener"
+    },
+    {
+      "num": 21,
+      "row": 5,
+      "col": 0,
+      "answer": "PAD",
+      "clue": "Lily ___"
+    },
+    {
+      "num": 22,
+      "row": 5,
+      "col": 1,
+      "answer": "AGO",
+      "clue": "In the past"
+    },
+    {
+      "num": 23,
+      "row": 5,
+      "col": 2,
+      "answer": "LEG",
+      "clue": "Table support"
+    },
+    {
+      "num": 24,
+      "row": 5,
+      "col": 6,
+      "answer": "HAY",
+      "clue": "Bale contents"
+    },
+    {
+      "num": 25,
+      "row": 5,
+      "col": 10,
+      "answer": "RAM",
+      "clue": "Male sheep"
+    },
+    {
+      "num": 26,
+      "row": 5,
+      "col": 11,
+      "answer": "EVE",
+      "clue": "Night before a holiday"
+    },
+    {
+      "num": 27,
+      "row": 5,
+      "col": 12,
+      "answer": "DEN",
+      "clue": "Fox's home"
+    },
+    {
+      "num": 29,
+      "row": 6,
+      "col": 5,
+      "answer": "CARROTS",
+      "clue": "Orange root veggies"
+    },
+    {
+      "num": 30,
+      "row": 6,
+      "col": 9,
+      "answer": "SODA",
+      "clue": "Fizzy drink"
+    },
+    {
+      "num": 32,
+      "row": 7,
+      "col": 4,
+      "answer": "PIE",
+      "clue": "Pecan dessert"
+    },
+    {
+      "num": 34,
+      "row": 8,
+      "col": 3,
+      "answer": "ATE",
+      "clue": "Had supper"
+    },
+    {
+      "num": 35,
+      "row": 8,
+      "col": 7,
+      "answer": "BOARD",
+      "clue": "Plank"
+    },
+    {
+      "num": 36,
+      "row": 8,
+      "col": 8,
+      "answer": "ISLE",
+      "clue": "Small island"
+    },
+    {
+      "num": 37,
+      "row": 9,
+      "col": 0,
+      "answer": "LAWN",
+      "clue": "Mowing job"
+    },
+    {
+      "num": 38,
+      "row": 9,
+      "col": 1,
+      "answer": "ECHO",
+      "clue": "Canyon reply"
+    },
+    {
+      "num": 39,
+      "row": 9,
+      "col": 2,
+      "answer": "TROT",
+      "clue": "Horse gait"
+    },
+    {
+      "num": 40,
+      "row": 9,
+      "col": 6,
+      "answer": "TRIO",
+      "clue": "Threesome"
+    },
+    {
+      "num": 41,
+      "row": 9,
+      "col": 10,
+      "answer": "NEAT",
+      "clue": "Tidy"
+    },
+    {
+      "num": 42,
+      "row": 9,
+      "col": 11,
+      "answer": "TARE",
+      "clue": "Container weight"
+    },
+    {
+      "num": 43,
+      "row": 9,
+      "col": 12,
+      "answer": "AREA",
+      "clue": "Region"
+    }
+  ],
+  "themeEntries": [
+    "HANGSTOCKINGS",
+    "LETTERTOSANTA"
+  ],
+  "generated": true
+}

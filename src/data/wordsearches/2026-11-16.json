@@ -1,0 +1,154 @@
+{
+  "id": "2026-11-16",
+  "title": "Country Living Word Search",
+  "weekLabel": "Week of Nov. 16, 2026 · Frosty Mornings & Helping Hands",
+  "theme": "Cool late-fall mornings and neighbors helping neighbors before Thanksgiving around Brownsboro and Chandler",
+  "author": "Kickapoo Kolache",
+  "size": 14,
+  "allowBackward": true,
+  "seed": 20261116,
+  "grid": [
+    "OLCXFOSVEIEEEI",
+    "RLAOQRPUOQKSEN",
+    "SGVNFNOBNWLNWS",
+    "SNOMIFFSXRSIMT",
+    "EILISDEITRIQIC",
+    "NVUTCFREVIYSZK",
+    "DINTAFFAEUSEEE",
+    "NGTERKVECKOQEI",
+    "IWENFOODDRIVEA",
+    "KBESZFIREWOODS",
+    "VFRTTNEYRTNAPE",
+    "SFLDICHIMNEYJE",
+    "JSLBZNGIFNFSBI",
+    "IIDORACREEKYNP"
+  ],
+  "words": [
+    {
+      "word": "FROST",
+      "row": 0,
+      "col": 4,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "CARDINAL",
+      "row": 7,
+      "col": 8,
+      "dir": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "word": "SUNRISE",
+      "row": 0,
+      "col": 6,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "COFFEE",
+      "row": 0,
+      "col": 2,
+      "dir": [
+        1,
+        1
+      ]
+    },
+    {
+      "word": "CREEK",
+      "row": 13,
+      "col": 6,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "FIREWOOD",
+      "row": 9,
+      "col": 5,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "CHIMNEY",
+      "row": 11,
+      "col": 5,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "MITTENS",
+      "row": 3,
+      "col": 3,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "SCARF",
+      "row": 4,
+      "col": 4,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "FOODDRIVE",
+      "row": 8,
+      "col": 4,
+      "dir": [
+        0,
+        1
+      ]
+    },
+    {
+      "word": "VOLUNTEER",
+      "row": 2,
+      "col": 2,
+      "dir": [
+        1,
+        0
+      ]
+    },
+    {
+      "word": "PANTRY",
+      "row": 10,
+      "col": 12,
+      "dir": [
+        0,
+        -1
+      ]
+    },
+    {
+      "word": "KINDNESS",
+      "row": 9,
+      "col": 0,
+      "dir": [
+        -1,
+        0
+      ]
+    },
+    {
+      "word": "GIVING",
+      "row": 7,
+      "col": 1,
+      "dir": [
+        -1,
+        0
+      ]
+    }
+  ]
+}

@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://kickapookolache.com/kbb-mural-reveal.html</loc>
+    <news:news>
+      <news:publication><news:name>Kickapoo Kolache</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-18T07:51:00-06:00</news:publication_date>
+      <news:title>Brownsboro’s Got It: Neighbors See Their History in the New Keep Brownsboro Beautiful Mural</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://kickapookolache.com/kickapoo-kolache-name.html</loc>
     <news:news>
       <news:publication><news:name>Kickapoo Kolache</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-11-16</news:publication_date>
+      <news:publication_date>2026-11-16T08:25:00-06:00</news:publication_date>
       <news:title>Why We’re Called the Kickapoo Kolache (and Why Your Sausage “Kolache” Isn’t One)</news:title>
     </news:news>
   </url>

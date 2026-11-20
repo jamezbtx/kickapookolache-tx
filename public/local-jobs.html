@@ -29,18 +29,18 @@
       <p class="edition">Digital Edition · Est. 2026</p>
     </header>
     <nav class="site-nav" aria-label="Section pages">
-      <a href="index.html">Home</a>
-      <a href="interviews.html">Interviews</a>
-      <a href="submit.html">Submit / Get listed</a>
-      <a href="crossword.html"><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.1"/><rect x="3" y="9" width="6" height="6" fill="currentColor"/><rect x="15" y="3" width="6" height="6" fill="currentColor"/></svg>Crossword</a>
-      <a href="word-search.html"><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M7.4 13L10 6.8 12.6 13M8.4 11h3.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Word Search</a>
-      <a href="columns.html">Columns</a>
-      <a href="local-jobs.html" class="is-active">Local Jobs</a>
-      <a href="local-updates.html">Local Updates</a>
-      <a href="garage-sales.html">Garage Sales</a>
-      <a href="ask-the-kolache.html">Ask the Kolache</a>
-      <a href="contact.html">Contact</a>
-      <a href="rate-card.html">Rate card</a>
+      <a href='/'>Home</a>
+      <a href='/interviews'>Interviews</a>
+      <a href='/submit'>Submit / Get listed</a>
+      <a href='/crossword'><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.1"/><rect x="3" y="9" width="6" height="6" fill="currentColor"/><rect x="15" y="3" width="6" height="6" fill="currentColor"/></svg>Crossword</a>
+      <a href='/word-search'><svg class="nav-ico" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M15 15l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M7.4 13L10 6.8 12.6 13M8.4 11h3.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Word Search</a>
+      <a href='/columns'>Columns</a>
+      <a class='is-active' href='/local-jobs'>Local Jobs</a>
+      <a href='/local-updates'>Local Updates</a>
+      <a href='/garage-sales'>Garage Sales</a>
+      <a href='/ask-the-kolache'>Ask the Kolache</a>
+      <a href='/contact'>Contact</a>
+      <a href='/rate-card'>Rate card</a>
     </nav>
 
     <main>
@@ -48,7 +48,7 @@
         <h2 id="jobs-heading">Local Jobs</h2>
 
         <h3 class="jobs-subhead">Neighbor listings</h3>
-        <p class="jobs-empty">No neighbor listings right now. <a href="submit.html?category=job">Post a local job</a>.</p>
+        <p class="jobs-empty">No neighbor listings right now. <a href='/submit?category=job'>Post a local job</a>.</p>
 
         <h3 class="jobs-subhead">Chandler city openings</h3>
         <div id="jobs-live" aria-live="polite">
@@ -69,7 +69,7 @@
       <aside class="panel span-2 submit-panel jobs-cta-strong" aria-labelledby="jobs-submit">
         <h2 id="jobs-submit">Post a local job</h2>
         <p>Hiring in Brownsboro or Chandler? Send your listing through our submission form.</p>
-        <a class="submit-cta" href="submit.html?category=job">Submit a job listing</a>
+        <a class='submit-cta' href='/submit?category=job'>Submit a job listing</a>
         <p class="form-mailto-fallback">Or email: <a href="mailto:editor@kickapookolache.com?subject=JOB%3A%20Title%20%E2%80%94%20Employer%20%E2%80%94%20City">editor@kickapookolache.com</a></p>
         <span class="review-label">Reviewed before posting.</span>
       </aside>
@@ -87,7 +87,7 @@
     </div>
 
     <footer class="site-footer">
-      <p><a href="about.html">About</a> · <a href="local-updates.html">Local Updates</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a> · <a href="rate-card.html">Rate card</a></p>
+      <p><a href='/about'>About</a> · <a href='/local-updates'>Local Updates</a> · <a href='/contact'>Contact</a> · <a href='/privacy'>Privacy</a> · <a href='/rate-card'>Rate card</a></p>
 
       <p>&copy; <span id="year"></span> Kickapoo Kolache · Brownsboro · Chandler TX</p>
             <p>Brownsboro–Chandler only (not Tyler metro). Listings reviewed before posting.</p>
@@ -97,5 +97,7 @@
   <script src="share.js" defer></script>
   <script src="feeds.js" defer></script>
   <script>(function(){var y=document.getElementById("year"); if(y) y.textContent=String(new Date().getFullYear());})();</script>
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="c823c470-e6ae-4742-b257-6ea6c814131c" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYzgyM2M0NzAtZTZhZS00NzQyLWIyNTctNmVhNmM4MTQxMzFjIiwiYWNjb3VudF9pZCI6IjZhODlmODU1MTg2M2Q2ZmM2OGRhODY5NSIsImRlcGxveV9pZCI6IjZhZWI5NGIzNzM2NDEyZGNhYmI2MjVjNiIsImlzc3VlciI6Im5mc2VydmVyIn0.Ah4VoNKAH8aKIZcfH5PHoi3LDnlrvr3nrcAxsmG4p3A"></script>
 </body>
 </html>

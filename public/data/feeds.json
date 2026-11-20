@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-04T13:30:20.136Z",
+  "fetchedAt": "2026-11-04T20:25:24.653Z",
   "maxpreps": {
     "schoolUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/",
     "footballUrl": "https://www.maxpreps.com/tx/brownsboro/brownsboro-bears/football/",
@@ -49,7 +49,7 @@
         "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOczJQUW5UUlVOSHZUeGczRTFZakQwdWJrTl85TWo3QWx6Nmx0VGxZNlhtUVZwTFVwVjdzTFNOM2wyeWQ1OVp2aHEycE1jZkVQNDlURkdZMVk1ZTktdGZJM0dxT3VUOGdUMFFnS3RlTXlEQmJJRzFkMlg4by1mZTFxZXE4MFM5SUdlZTNuR3RhSlQ0SXpKMTZhUDYzTVZldlNkOXN6V2U3UzNmQdIBvgFBVV95cUxQRWNEUFVtOVlVYndjVnlxd3RRQkNsUk5aWFZfZk02My1xd0YzenU2NGJ3Wjg0QVZMUnZtUlVRcGdiQ1laandoeEZuaHUxV21CN0lXQ18wRWhfeVhydkQ4QmVhMWpFQjI4Zlc0eGVYcEFDOFJyT0N3YnZKMHE0Y01wVW5SN2piNnJvaklRZGk0NjRXUGszR2xTMTd2dzdXYnhMV2I2YlRrYkh3R2dPV2w3OWFRcXUzQkhFM3I0ZHRn?oc=5",
         "pubDate": "Fri, 23 Oct 2026 07:00:00 GMT",
         "source": "KLTV",
-        "sourceUrl": "https://news.google.com/rss/search?q=Brownsboro+(Texas+OR+TX+OR+%22Henderson+County%22)+when:20d&hl=en-US&gl=US&ceid=US:en"
+        "sourceUrl": "https://news.google.com/rss/search?q=%22Chandler%22+(75758+OR+%22Henderson+County%22+OR+Brownsboro+OR+%22East+Texas%22)+when:20d&hl=en-US&gl=US&ceid=US:en"
       },
       {
         "title": "Highway 31 East blocked near Chandler after 18-wheeler crash",
@@ -78,7 +78,7 @@
         "id": "google-brownsboro",
         "label": "Regional · Brownsboro",
         "url": "https://news.google.com/rss/search?q=Brownsboro+(Texas+OR+TX+OR+%22Henderson+County%22)+when:20d&hl=en-US&gl=US&ceid=US:en",
-        "count": 1,
+        "count": 0,
         "error": null
       },
       {
@@ -120,7 +120,8 @@
     "errors": [
       "Henderson County RSS returned no items (often empty)",
       "Athens Review: no rural-town matches after filter (soft-fail; raw=0)",
-      "Regional / national (local filter): 0 local matches (raw=0)"
+      "Regional / national (local filter): 0 local matches (raw=0)",
+      "Regional · Brownsboro: 0 local matches (raw=10)"
     ]
   },
   "garageSales": {
@@ -169,7 +170,7 @@
       {
         "id": "google-brownsboro",
         "label": "Regional · Brownsboro",
-        "count": 1
+        "count": 0
       },
       {
         "id": "google-chandler",

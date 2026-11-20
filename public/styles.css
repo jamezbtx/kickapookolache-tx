@@ -466,12 +466,99 @@ body {
 }
 
 .featured-business {
-  max-width: 36rem;
+  max-width: none;
+  width: 100%;
   border-left: 4px solid var(--accent);
 }
 
 .featured-business h3 {
   font-size: 1.15rem;
+}
+
+.advertise-invite .advertise-invite-link {
+  margin: .4rem 0 0;
+  font-family: var(--font-ui);
+  font-weight: 700;
+}
+
+.advertise-invite .advertise-invite-link a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.advertise-invite .advertise-invite-link a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.badge-sponsored {
+  background: #5a5348;
+}
+
+.story-sponsor-card {
+  border-left: 3px solid var(--accent);
+  align-items: center;
+}
+
+.story-sponsor-card .spotlight-teaser-meta {
+  margin: .15rem 0 .35rem;
+  font-family: var(--font-ui);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.story-sponsor-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.story-sponsor-card h3 a:hover {
+  color: var(--accent);
+}
+
+.story-sponsor-card .spotlight-teaser-link {
+  margin: .4rem 0 0;
+  font-family: var(--font-ui);
+  font-weight: 700;
+}
+
+.story-sponsor-card .spotlight-teaser-link a {
+  color: var(--accent);
+  display: inline-block; /* wrap between links, not mid-address, on narrow screens */
+}
+
+.story-sponsor-card .sponsor-card-copy {
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  #stories-interviews > .story-sponsor-card {
+    grid-column: 1 / -1;
+  }
+}
+
+.local-businesses-invite {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: .95rem;
+  line-height: 1.55;
+  color: #3a342c;
+}
+
+.local-businesses-invite a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.local-businesses-invite a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
 }
 
 

@@ -77,7 +77,7 @@ The Comms Check ad always sits **directly after the newest/main story**: on the 
 first in `#stories-interviews` and use `<article class="... column-article ...">` for the page. Idempotent (skips pages that already
 have `class="cc-ad "`). Because `public/` holds hand-maintained pages, do not run a full `node build.js` onto it blindly; to apply to
 a new page in place run `node scripts/comms-ad.js public`. Styles: `.cc-ad` in styles.css (src and public). The footer "Website built
-and maintained by Comms Check LLC" badge and the Local Businesses directory card are separate and unchanged.
+and maintained by Comms Check LLC" badge is a credit, not an ad card. The old Local Businesses directory card and the "Sponsored" card between stories 2 and 3 were removed Nov. 23, 2026 so the ad appears exactly once.
 
 ### Story publish checklist (add to every publish)
 - [ ] Page uses `column-article`; new teaser is the FIRST card in `#stories-interviews` (homepage lead).

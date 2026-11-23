@@ -256,6 +256,8 @@ if (fs.existsSync(fetchEssentials)) {
 //   STORY PAGES GET IT AUTOMATICALLY: any page with <article class="... column-article ..."> and no explicit
 //   marker gets the "Know a good neighbor?" callout inserted just before </main>. A new interview/column page
 //   only needs to use that article class; no per-page edit is required.
+//   COMMS CHECK AD: partials/comms-check-ad.html is injected automatically right after the article body on story pages
+//   and right after the lead story on the homepage (see applyPartials). No per-story edit needed.
 // Story og:image standard: 2400x1260 JPEG, filename ending -og-hq-2400x1260.jpg (see README "Story og image standard").
 // ---------------------------------------------------------------------------
 const partialsDir = path.join(src, "partials");
@@ -282,6 +284,8 @@ function applyPartials(file) {
     return partials[name].split("\n").map((l) => indent + l).join("\n");
   });
   const isStory = /<article[^>]*class="[^"]*\bcolumn-article\b/.test(html);
+  // COMMS CHECK AD (James, Nov. 23, 2026): always directly after the newest/main story (scripts/comms-ad.js).
+  html = require("./scripts/comms-ad.js").injectCommsAd(html, path.resolve(file) === path.join(out, "index.html"), partials["comms-check-ad"]);
   if (isStory && partials["good-neighbor"] && !before.includes("<!--INCLUDE:good-neighbor-->") && !html.includes('class="good-neighbor')) {
     html = html.replace(/([ \t]*)<\/main>/, (m, indent) => partials["good-neighbor"].split("\n").map((l) => indent + l).join("\n") + "\n" + indent + "</main>");
   }

@@ -1755,3 +1755,12 @@ body {
 @media (prefers-reduced-motion: reduce) { .push-btn { animation: none; } }
 .push-hint { font-family: var(--font-ui); font-size: .82rem; color: var(--ink); background: #fffdf8; border: 1px solid var(--soft-border); padding: .45rem .6rem; max-width: 24rem; text-align: center; }
 @media (max-width: 340px) { .push-long { display: none; } .push-short { display: inline; } }
+
+/* Comms Check ad: placed by build.js directly after the lead story (homepage) / article body (story pages) */
+.cc-ad{background:var(--sponsor);border:1px solid var(--soft-border);border-left:4px solid var(--accent);box-shadow:var(--shadow);padding:.8rem 1.1rem .9rem;margin:1.25rem 0 0}
+.feed-grid > .cc-ad{grid-column:1 / -1;margin:0}
+.cc-ad-label{display:block;margin:0 0 .4rem;font-family:var(--font-ui);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cc-ad-body{display:flex;align-items:flex-start;gap:.75rem}
+.cc-ad-copy{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.cc-ad .cc-ad-title{margin:0 0 .3rem;font-family:var(--font-display);font-size:1.1rem;font-weight:700;text-transform:none;letter-spacing:.01em;border:0;padding:0;color:var(--ink)}
+.cc-ad p{margin:0 0 .4rem;font-family:var(--font-body);font-size:.9rem;line-height:1.45;color:var(--ink)}

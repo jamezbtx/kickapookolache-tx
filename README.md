@@ -70,6 +70,20 @@ every day at `0 10 * * *` UTC (5:00am CDT / 4:00am CST), 15 minutes before `dail
 It is placed explicitly on the homepage, About, Contact and Submit pages. **Every story page gets it automatically**: any page with
 `<article class="... column-article ...">` and no explicit marker has it inserted before `</main>` by `build.js`. New interviews/columns need no extra step.
 
+## Comms Check ad placement (James, Nov. 23, 2026) — standing rule
+The Comms Check ad always sits **directly after the newest/main story**: on the homepage right below the lead (first) story card in
+`#stories-interviews`; on every story page right after the article body (before "Know a good neighbor?"). It is injected by
+`build.js` via `scripts/comms-ad.js` from `src/partials/comms-check-ad.html`, so new stories need no hand edit: put the new story card
+first in `#stories-interviews` and use `<article class="... column-article ...">` for the page. Idempotent (skips pages that already
+have `class="cc-ad "`). Because `public/` holds hand-maintained pages, do not run a full `node build.js` onto it blindly; to apply to
+a new page in place run `node scripts/comms-ad.js public`. Styles: `.cc-ad` in styles.css (src and public). The footer "Website built
+and maintained by Comms Check LLC" badge and the Local Businesses directory card are separate and unchanged.
+
+### Story publish checklist (add to every publish)
+- [ ] Page uses `column-article`; new teaser is the FIRST card in `#stories-interviews` (homepage lead).
+- [ ] `node scripts/comms-ad.js public` run; confirm ad directly under lead story (home) and after article body (story page).
+- [ ] 2400x1260 og card (or 1200x630 per current practice), push alert, Facebook Scrape Again, Page + group posts.
+
 ## Story og image standard (James approved Oct. 2, 2026)
 
 Every story/interview page uses a **2400x1260 JPEG** share card (1.91:1, quality ~94, 4:4:4), named `<slug>-og-hq-2400x1260.jpg`,

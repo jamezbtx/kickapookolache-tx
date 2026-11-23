@@ -1677,3 +1677,4 @@ body {
 .cc-ad-copy{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
 .cc-ad .cc-ad-title{margin:0 0 .3rem;font-family:var(--font-display);font-size:1.1rem;font-weight:700;text-transform:none;letter-spacing:.01em;border:0;padding:0;color:var(--ink)}
 .cc-ad p{margin:0 0 .4rem;font-family:var(--font-body);font-size:.9rem;line-height:1.45;color:var(--ink)}
+.cc-ad a:not(.cc-logo-backing){color:var(--accent);overflow-wrap:anywhere}
